@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fence Cost Calculator — Per-Linear-Foot Installed Price by Material (2026)</title>
+<meta name="description" content="Free fence cost calculator: wood, vinyl, chain-link, aluminum, or composite — enter linear feet and get materials + labor + gates + removal in one total. October 2026 US prices, math shown.">
+<link rel="canonical" href="https://brinoco47-wq.github.io/costmyproject/calculators/fence-cost/">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Fence Cost Calculator",
+ "applicationCategory":"WebApplication","operatingSystem":"Any",
+ "url":"https://brinoco47-wq.github.io/costmyproject/calculators/fence-cost/",
+ "description":"Calculates fence material, install labor, gates, old-fence removal, and total project cost from linear footage, height, and terrain.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "author":{"@type":"Organization","name":"CostMyProject","url":"https://brinoco47-wq.github.io/costmyproject/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://brinoco47-wq.github.io/costmyproject/"},
+ {"@type":"ListItem","position":2,"name":"Calculators","item":"https://brinoco47-wq.github.io/costmyproject/calculators/"},
+ {"@type":"ListItem","position":3,"name":"Fence Cost Calculator","item":"https://brinoco47-wq.github.io/costmyproject/calculators/fence-cost/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"How much does a fence cost per linear foot in 2026?",
+  "acceptedAnswer":{"@type":"Answer","text":"Installed, 6-ft baseline: chain-link $13–$25/LF, wood privacy $18–$45/LF, vinyl $30–$55/LF, aluminum $37–$60/LF, composite roughly $44–$72/LF (2026 US ranges). Gates, old-fence removal, permits, and slope add on top — the calculator prices each separately."}},
+ {"@type":"Question","name":"How many linear feet of fence do I need?",
+  "acceptedAnswer":{"@type":"Answer","text":"For a rectangular yard: 2 × (length + width) = perimeter in linear feet. A 40×35 ft backyard needs 150 LF. For irregular lots, walk the line with a measuring wheel or add up each run. Enter LF directly in the calculator if you already know it."}},
+ {"@type":"Question","name":"Does a sloped yard cost more to fence?",
+  "acceptedAnswer":{"@type":"Answer","text":"Yes — installers typically add about 15% on sloped ground and up to 35% on rocky ground for stepped panels and harder digging (industry rule of thumb). The calculator applies these as labor adders on a terrain toggle."}},
+ {"@type":"Question","name":"How much does a fence gate cost?",
+  "acceptedAnswer":{"@type":"Answer","text":"A standard 3–4 ft walk gate runs about $150–$400 installed; a double or driveway gate runs $400–$1,500. Gates need heavier posts and hardware, which is why per-foot estimates that ignore gates come in low."}}]}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTHH0CBTVS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CTHH0CBTVS');
+</script>
+<!-- Google AdSense -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249169140665725"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../">Cost<span>My</span>Project</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../../calculators/" aria-current="page">Calculators</a>
+      <a href="../../cost-guides/">Cost Guides</a>
+      <a href="../../comparisons/">Comparisons</a>
+      <a href="../../methodology/">Methodology</a>
+      <a href="../../about/">About</a>
+    </nav>
+  </div>
+</header>
+<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
+  <li><a href="../../">Home</a></li><li><a href="../../calculators/">Calculators</a></li><li aria-current="page">Fence Cost Calculator</li>
+</ol></div></nav>
+
+<main id="main" class="wrap">
+  <article class="article" style="max-width:none">
+    <h1>Fence Cost Calculator</h1>
+    <p class="byline">CostMyProject Research Team <span class="verified">Prices checked October 2026</span></p>
+    <p class="lede" style="max-width:62ch">What will a new fence actually cost? Pick a material, enter your linear footage — get materials + install labor + gates + removal rolled into one honest total, with every step of the math shown. No email required.</p>
+    <p><span class="trust-badge"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2"/><path d="M5 8.5l2 2 4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No email required — instant results, nothing to sign up for</span></p>
+
+    <form id="calc-form" class="calc" onsubmit="return false" aria-label="Fence cost calculator">
+      <div class="calc-grid">
+        <div>
+          <div class="field">
+            <label>How do you want to enter size?</label>
+            <div class="seg" id="seg-mode" role="group" aria-label="Size entry mode">
+              <button type="button" data-val="dims" aria-pressed="true">Yard dimensions</button>
+              <button type="button" data-val="lf" aria-pressed="false">Linear feet</button>
+            </div>
+            <input type="hidden" id="calc-mode" value="dims">
+            <div class="presets" role="group" aria-label="Presets">
+              <button type="button" class="preset" data-preset="backyard" aria-pressed="true">Typical backyard (150 LF)</button>
+              <button type="button" class="preset" data-preset="large" aria-pressed="false">Large yard (200 LF)</button>
+              <button type="button" class="preset" data-preset="side" aria-pressed="false">Side run (100 LF)</button>
+            </div>
+          </div>
+          <div id="dims-fields">
+            <div class="field"><label for="in-length">Yard length (ft)</label><input type="number" id="in-length" value="40" min="0" step="1"></div>
+            <div class="field"><label for="in-width">Yard width (ft)</label><input type="number" id="in-width" value="35" min="0" step="1"></div>
+            <span class="hint">Perimeter = 2 × (length + width). For irregular lots, enter linear feet directly.</span>
+          </div>
+          <div id="lf-field" style="display:none">
+            <div class="field"><label for="in-lf">Linear feet of fence</label><input type="number" id="in-lf" value="150" min="0" step="1">
+            <span class="hint">Total length of the fence run, gates included in the count below.</span></div>
+          </div>
+          <div class="field">
+            <label for="calc-material">Fence material</label>
+            <select id="calc-material">
+              <option value="wood" selected>Wood privacy (pine/cedar) — $18–$45/LF installed</option>
+              <option value="chainlink">Chain-link — $13–$25/LF installed</option>
+              <option value="vinyl">Vinyl / PVC privacy — $30–$55/LF installed</option>
+              <option value="aluminum">Aluminum ornamental — $37–$60/LF installed</option>
+              <option value="composite">Composite privacy — $44–$72/LF installed</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Quality tier</label>
+            <div class="seg" id="seg-tier" role="group" aria-label="Quality tier">
+              <button type="button" data-val="budget" aria-pressed="false">Budget</button>
+              <button type="button" data-val="standard" aria-pressed="true">Standard</button>
+              <button type="button" data-val="premium" aria-pressed="false">Premium</button>
+            </div>
+            <input type="hidden" id="calc-tier" value="standard">
+            <span class="hint">Budget = low end of the price range · Standard = middle · Premium = top end.</span>
+          </div>
+          <div class="field">
+            <label>Fence height</label>
+            <div class="seg" id="seg-height" role="group" aria-label="Fence height">
+              <button type="button" data-val="4" aria-pressed="false">4 ft</button>
+              <button type="button" data-val="6" aria-pressed="true">6 ft</button>
+              <button type="button" data-val="8" aria-pressed="false">8 ft</button>
+            </div>
+            <input type="hidden" id="calc-height" value="6">
+            <span class="hint">6 ft is the baseline. 4 ft ≈ 15% less, 8 ft ≈ 30% more (industry rule of thumb).</span>
+          </div>
+          <div class="field">
+            <label>Who's installing?</label>
+            <div class="seg" id="seg-labor" role="group" aria-label="Labor">
+              <button type="button" data-val="diy" aria-pressed="true">DIY</button>
+              <button type="button" data-val="pro" aria-pressed="false">Hire a pro</button>
+            </div>
+            <input type="hidden" id="calc-labor" value="diy">
+          </div>
+          <div class="field">
+            <label>Terrain</label>
+            <div class="seg" id="seg-terrain" role="group" aria-label="Terrain">
+              <button type="button" data-val="level" aria-pressed="true">Level</button>
+              <button type="button" data-val="sloped" aria-pressed="false">Sloped</button>
+              <button type="button" data-val="rocky" aria-pressed="false">Rocky</button>
+            </div>
+            <input type="hidden" id="calc-terrain" value="level">
+            <span class="hint">Sloped ≈ +15% on install labor · Rocky ≈ +35% (stepped panels, harder digging — industry estimate).</span>
+          </div>
+        </div>
+        <div>
+          <div class="field"><label for="in-material-price">Material price ($ per linear ft)</label><input type="number" id="in-material-price" value="20.00" min="0" step="0.50">
+          <span class="hint" id="material-where"></span></div>
+          <div class="field" id="labor-rate-field" style="display:none">
+            <label for="in-labor-rate">Pro install rate ($ per linear ft) <span class="hint">auto-set by material; 2026 range $5–$22</span></label>
+            <input type="number" id="in-labor-rate" value="11.00" min="0" step="0.50">
+          </div>
+          <div class="field">
+            <label>Remove old fence?</label>
+            <div class="seg" id="seg-removal" role="group" aria-label="Old fence removal">
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+              <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            </div>
+            <input type="hidden" id="calc-removal" value="no">
+          </div>
+          <div class="field"><label for="in-removal-rate">Removal &amp; haul-away ($ per linear ft) <span class="hint">typical $3–$10/LF</span></label><input type="number" id="in-removal-rate" value="5.00" min="0" step="0.50"></div>
+          <div class="field"><label for="in-walk-gates">Walk gates (3–4 ft)</label><input type="number" id="in-walk-gates" value="1" min="0" step="1"></div>
+          <div class="field"><label for="in-walk-price">Price per walk gate ($) <span class="hint">typical $150–$400 installed</span></label><input type="number" id="in-walk-price" value="250" min="0" step="10"></div>
+          <div class="field"><label for="in-drive-gates">Driveway / double gates</label><input type="number" id="in-drive-gates" value="0" min="0" step="1"></div>
+          <div class="field"><label for="in-drive-price">Price per driveway gate ($) <span class="hint">typical $400–$1,500 installed</span></label><input type="number" id="in-drive-price" value="800" min="0" step="50"></div>
+          <div class="field"><label for="in-permit">Permit &amp; fees ($) <span class="hint">most cities $20–$400; some waive it</span></label><input type="number" id="in-permit" value="75" min="0" step="5"></div>
+        </div>
+      </div>
+      <div id="calc-result" class="result" aria-live="polite"></div>
+    </form>
+
+    <div style="max-width:46rem">
+    <h2>Worked example: 150 LF wood privacy, fully itemized</h2>
+    <p class="data-date">Computed by the calculator above · wood standard tier @ $20.00/LF materials · 6 ft · pro install · 1 walk gate · October 2026 prices</p>
+    <table>
+      <thead><tr><th>Line item</th><th>Math</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td>Linear feet</td><td>2 × (40 + 35)</td><td>150 LF</td></tr>
+        <tr><td>Fence materials</td><td>150 × $20.00</td><td><strong>$3,000.00</strong></td></tr>
+        <tr><td>Install labor</td><td>150 × $11.00 (level ground)</td><td><strong>$1,650.00</strong></td></tr>
+        <tr><td>Walk gate</td><td>1 × $250</td><td><strong>$250.00</strong></td></tr>
+        <tr><td>Permit</td><td>flat</td><td><strong>$75.00</strong></td></tr>
+        <tr><td><strong>Total — pro install</strong></td><td></td><td><strong>$4,975.00</strong></td></tr>
+        <tr><td><strong>Total — DIY</strong></td><td>materials + gate + permit</td><td><strong>$3,325.00</strong></td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead><tr><th>Scenario</th><th>Total</th><th>Typical range (±25%)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>DIY</strong></td><td><strong>$3,325</strong></td><td>$2,494 – $4,156</td></tr>
+        <tr><td><strong>Hire a pro</strong></td><td><strong>$4,975</strong></td><td>$3,731 – $6,219</td></tr>
+      </tbody>
+    </table>
+    <p class="src">Run the calculator above with these inputs and you'll get the same numbers. At $31.00/LF installed all-in (with gate), this lands inside the 2026 national wood-privacy range of $18–$45/LF — the model checks out against published data.</p>
+
+    <h2>What's included — and what isn't</h2>
+    <div class="incl-grid">
+      <div class="incl yes">
+        <h3>✓ Included in every estimate</h3>
+        <ul>
+          <li>Fence materials per linear foot: panels/pickets or fabric, posts, concrete, hardware</li>
+          <li>Pro install labor per linear foot, when you select "Hire a pro"</li>
+          <li>Height adjustment (4 ft ≈ −15%, 8 ft ≈ +30% vs. 6-ft baseline)</li>
+          <li>Terrain adder on labor for sloped or rocky ground, when selected</li>
+          <li>Walk and driveway gates, at your count and price</li>
+          <li>Old-fence removal, when you toggle it on</li>
+          <li>Permit &amp; fees, when you enter an amount</li>
+        </ul>
+      </div>
+      <div class="incl no">
+        <h3>✗ Not included</h3>
+        <ul>
+          <li>Property survey ($200–$1,200 if your line is uncertain — get one before you build)</li>
+          <li>Land clearing, tree/root removal, or major grading</li>
+          <li>Gate automation / openers ($500–$5,000+)</li>
+          <li>Staining or sealing a wood fence after install (budget $300–$700 per 150 ft every 2–3 years)</li>
+          <li>Retaining walls or drainage work under the fence line</li>
+        </ul>
+      </div>
+    </div>
+    <p class="src">If a contractor's bid covers items on the right-hand list and ours doesn't, ask them to itemize — that's exactly how you compare bids honestly.</p>
+
+    <h2>The price data behind this calculator</h2>
+    <p class="data-date">Checked October 3, 2026</p>
+    <p class="fresh-note"><strong>Data freshness:</strong> prices verified October 2026 · next scheduled re-check January 2027. Stale data is misinformation — our <a href="../../methodology/">update policy</a> is public.</p>
+    <table>
+      <thead><tr><th>Material</th><th>Materials / LF</th><th>Pro labor / LF</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Chain-link (galvanized)</td><td>$8–$15</td><td>$5–$10</td><td class="src"><a href="https://bhumicalculator.com/countries/united-states/average-cost-of-fence-per-foot">Bhumi Calculator 2026</a>; <a href="https://usecalcpro.com/pets/dog-fence-install-cost-calculator">UseCalcPro 2026</a></td></tr>
+        <tr><td>Wood privacy (pine/cedar)</td><td>$10–$30</td><td>$8–$15</td><td class="src"><a href="https://bhumicalculator.com/countries/united-states/average-cost-of-fence-per-foot">Bhumi Calculator 2026</a>; <a href="https://howmuchfence.com/">HowMuchFence 2026</a></td></tr>
+        <tr><td>Vinyl / PVC privacy</td><td>$20–$35</td><td>$10–$20</td><td class="src"><a href="https://bhumicalculator.com/countries/united-states/average-cost-of-fence-per-foot">Bhumi Calculator 2026</a>; <a href="https://howmuchfence.com/">HowMuchFence 2026</a></td></tr>
+        <tr><td>Aluminum ornamental</td><td>$25–$40</td><td>$12–$20</td><td class="src"><a href="https://bhumicalculator.com/countries/united-states/average-cost-of-fence-per-foot">Bhumi Calculator 2026</a></td></tr>
+        <tr><td>Composite privacy</td><td>$30–$50</td><td>$14–$22</td><td class="src"><a href="https://howmuchfence.com/">HowMuchFence 2026</a> <span class="src">(labor range — industry estimate)</span></td></tr>
+        <tr><td>Old-fence removal</td><td colspan="2">$3–$10 / LF <span class="src">(default $5.00 — industry estimate)</span></td><td class="src"><a href="https://www.livingetc.com/advice/how-much-does-a-backyard-fence-cost">Livingetc / Angie Hicks</a></td></tr>
+        <tr><td>Walk gate (3–4 ft)</td><td colspan="2">$150–$400 installed <span class="src">(default $250)</span></td><td class="src"><a href="https://howmuchfence.com/">HowMuchFence 2026</a></td></tr>
+        <tr><td>Driveway / double gate</td><td colspan="2">$400–$1,500 installed <span class="src">(default $800)</span></td><td class="src"><a href="https://howmuchfence.com/">HowMuchFence 2026</a></td></tr>
+        <tr><td>Permit</td><td colspan="2">$20–$400 by municipality <span class="src">(default $75)</span></td><td class="src"><a href="https://www.livingetc.com/advice/how-much-does-a-backyard-fence-cost">Angie Hicks via Livingetc</a></td></tr>
+      </tbody>
+    </table>
+    <p class="src">Ranges move by store, region, and product line — every default above is editable in the calculator. Height multipliers (4 ft −15%, 8 ft +30%) and terrain adders (slope +15%, rocky +35% on labor) are industry rules of thumb, labeled as estimates. Full sourcing and update policy: <a href="../../methodology/">methodology</a>.</p>
+
+    <h2>Three ways people get the math wrong</h2>
+    <ul>
+      <li><strong>Forgetting gates.</strong> A $28/LF quote × 150 LF = $4,200 — then the walk gate ($250) and permit ($75) push it past $4,500. Gates need heavier posts and hardware; per-foot math alone always comes in low.</li>
+      <li><strong>Comparing material price without install.</strong> Chain-link at $10/LF sounds half the price of wood at $20 — but installed it's $17 vs. $31/LF, and the privacy difference is the whole point. Always compare <em>installed</em> cost per linear foot.</li>
+      <li><strong>Ignoring the ground.</strong> A slope that forces stepped panels or rocky soil that needs an auger can add 15–35% to labor. Flat-yard quotes don't survive contact with a hillside — toggle your terrain above.</li>
+    </ul>
+
+    <div class="faq">
+      <h2>Fence cost FAQs</h2>
+      <details><summary>How much does a fence cost per linear foot in 2026?</summary>
+        <p>Installed at 6 ft: chain-link $13–$25, wood privacy $18–$45, vinyl $30–$55, aluminum $37–$60, composite roughly $44–$72 per linear foot — before gates, removal, permits, and terrain. Punch your numbers into the calculator above for your material and yard.</p></details>
+      <details><summary>How many linear feet of fence do I need?</summary>
+        <p>Rectangular yard: 2 × (length + width). A 40×35 ft backyard = 150 LF. Irregular lots: walk each run with a measuring wheel and add them up, or enter LF directly in the calculator.</p></details>
+      <details><summary>Is it cheaper to build a fence yourself?</summary>
+        <p>Usually — labor is 30–50% of a pro job. Wood privacy and chain-link are the most DIY-friendly; most DIYers report 2–4 weekends for 150 LF with a helper and a rented auger. Vinyl and aluminum need precise post spacing, which is where DIY most often goes wrong. Toggle DIY/pro in the calculator to see both numbers.</p></details>
+      <details><summary>Do I need a permit to build a fence?</summary>
+        <p>Most cities require one — typically $20–$400, though some waive it for fences under 6 ft. Check your municipality <em>before</em> you dig, and call 811 for a free utility locate. Fence companies pull permits routinely; DIYers forget this step most.</p></details>
+      <details><summary>How accurate is this calculator?</summary>
+        <p>It's a budgeting estimate built on October 2026 installed-price ranges and installer labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because soil, slope, and regional labor move real quotes. See <a href="../../methodology/">how we compute costs</a> for the full method and limitations.</p></details>
+    </div>
+
+    <div class="related">
+      <h2>Keep going</h2>
+      <ul>
+        <li><a href="../../cost-guides/fence-material-comparison/">Fence material comparison — wood vs. vinyl vs. chain-link vs. aluminum</a></li>
+        <li><a href="../../cost-guides/fence-installation-cost/">Fence installation cost guide — labor, permits, gates, red flags</a></li>
+        <li><a href="../../comparisons/wood-vs-vinyl-fence-cost/">Head-to-head: wood vs. vinyl fence over 15 years</a></li>
+      </ul>
+    </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>CostMyProject</h4>
+        <p>The neutral, numbers-first answer to "what will my project cost?" Every estimate is computed live from dated, sourced price data — with the math shown.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../../calculators/fence-cost/">Fence Cost Calculator</a></li>
+          <li><a href="../../calculators/">All calculators</a></li>
+          <li><a href="../../comparisons/wood-vs-vinyl-fence-cost/">Wood vs. vinyl fence comparison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../../methodology/">Methodology</a></li>
+          <li><a href="../../contact/">Contact</a></li>
+          <li><a href="../../privacy/">Privacy</a></li>
+          <li><a href="../../disclosure/">Disclosure</a></li>
+          <li><a href="../../editorial-policy/">Editorial Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Estimates, not quotes. Actual costs vary by location, soil, slope, and contractor. © 2026 CostMyProject. Price data last checked October 2026.</p>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/fence-calculator.js"></script>
+</body>
+</html>

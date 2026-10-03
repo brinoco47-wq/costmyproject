@@ -175,3 +175,39 @@ Path convention: parent converted all files to relative internal links for the G
 - Functional test (stubbed DOM, 2 scenarios, 14 checks): ALL PASS — S1 (20×15 LVP DIY): $1,402.50, range $1,051.88–$1,753.13, 330.0 sqft ordered, materials 100%; S2 (12×12 carpet budget pro + removal): $730.80, range $548.10–$913.50, materials $356.40 / labor $374.40, split 49/51
 - Internal link check on 5 new files: 0 broken, 0 root-absolute; unique titles/metas site-wide; exactly one H1 per page; all JSON-LD parses
 - Conventions: depth-relative links (`../../`), canonicals + JSON-LD to https://brinoco47-wq.github.io/costmyproject/, GA4 tag on all 5 pages, no invented numbers presented as fact
+
+---
+
+# Phase 4 — Cluster 4: Fence (built 2026-10-03)
+
+## What was built
+- `calculators/fence-cost/index.html` — FLAGSHIP estimator: linear feet (direct or 2×(L+W) perimeter), 5 materials (wood privacy / chain-link / vinyl / aluminum / composite), quality tier (budget/standard/premium), 3 heights (4/6/8 ft), DIY-vs-pro toggle, terrain selector (level/sloped/rocky), old-fence removal toggle, walk + driveway gate counts with editable prices, editable material/labor/removal prices, permit flat input, **side-by-side 5-material comparison for the user's inputs**, "show the math" panel, price-data table with sources, worked example, included/excluded checklists. Engine: `assets/js/fence-calculator.js` (vanilla JS, mirrors paint/moving/flooring architecture).
+- `cost-guides/fence-material-comparison/index.html` — 5-material table (installed $/LF, lifespan, maintenance), 15-year true-cost table (150 LF), material notes, yard-match table.
+- `cost-guides/fence-installation-cost/index.html` — pro labor rates by material, extras table (gates/removal/permit/terrain/survey), DIY-vs-pro decision table, 6 quote red flags, 3-bid rule.
+- `comparisons/wood-vs-vinyl-fence-cost/index.html` — 150-LF worked example + year-by-year 15-year amortization (crossover ~year 11–12), when-wood-wins / when-vinyl-wins.
+- Hub wiring NOT done (parent handles afterward): calculators/index.html, cost-guides/index.html, comparisons/index.html, sitemap.xml untouched per constraint.
+
+## Verified data (Oct 3, 2026 — sourced on-page)
+- Installed $/LF: chain-link $13–$25, wood privacy $18–$45, vinyl $30–$55, aluminum $37–$60 — Bhumi Calculator 2026 (material/labor splits), HowMuchFence 2026, UseCalcPro 2026
+- Labor $/LF: chain-link $5–$10, wood $8–$15, vinyl $10–$20, aluminum $12–$20 — Bhumi / HowMuchFence 2026
+- Lifespans: wood 15–20, vinyl 25–30, chain-link 20–25, aluminum 30+ — industry-standard ranges (Dubya Fence 2026, Bhumi)
+- Gates: walk $150–$400, driveway/double $400–$1,500 — HowMuchFence 2026
+- Removal $3–$10/LF; permit $20–$400 — Angie Hicks via Livingetc; Home Depot install breakdown
+- Wood staining $300–$700 per 150 ft every 2–3 yrs — YardAndGardenGuru 2026
+
+## UNVERIFIED / estimated — re-check at quarterly review
+(Phase 1 items 1–10, Phase 2 items 11–20, overhaul items 11–14, Phase 3 items 21–28 unchanged; new items 29–36)
+29. All calculator material/labor defaults = midpoints of the published ranges above; tier mapping budget=low/standard=mid/premium=high is a methodological convention. User-adjustable.
+30. Composite defaults (material $30–$50, labor $14–$22, installed ~$44–$72) — fewer published data points; labor range is an industry estimate. Labeled on-page.
+31. Height multipliers (4 ft ×0.85, 8 ft ×1.30 vs. 6-ft baseline) — industry rule of thumb (HowMuchFence 2026), not measured. Labeled on-page as estimate.
+32. Terrain adders (sloped +15%, rocky +35% applied to labor portion only) — industry rule of thumb. Labeled on-page as estimate.
+33. Removal default $5.00/LF = within $3–$10 industry range; permit default $75 = within $20–$400 range; walk-gate $250 / driveway-gate $800 defaults = within published ranges. User-adjustable.
+34. Vinyl gate $450 in wood-vs-vinyl scenario — industry estimate (vinyl gates need reinforced frames).
+35. 15-year tables = straight-line, no discounting, illustrative; staining assumed $500/cycle hired (midpoint of $300–$700). Labeled on-page.
+36. Worked-example numbers are calculator outputs (verified by functional test 2026-10-03), not independent data.
+
+## Validation done
+- `node --check` on fence-calculator.js: clean
+- Functional test (stubbed DOM, 3 scenarios, 13 checks): ALL PASS — S1 (150 LF wood std 6ft pro + gate + permit): $4,975.00, range $3,731.25–$6,218.75, $33.17/LF, split 67/33; S2 (150 LF chain-link budget 4ft DIY sloped + removal): $1,770.00, range $1,327.50–$2,212.50, split 58/42; S3 (200 LF vinyl premium 8ft pro rocky + 3 gates): $15,765.00, range $11,823.75–$19,706.25
+- Internal link check on 4 new files: 0 broken, 0 root-absolute; unique titles/metas site-wide; exactly one H1 per page; all JSON-LD parses (3 blocks each); GA4 + AdSense tags present on all 4 pages
+- Conventions: depth-relative links (`../../`), canonicals + JSON-LD to https://brinoco47-wq.github.io/costmyproject/, "budgeting estimate, not a quote" framing, ±25% planning ranges, dated October 2026 stamps
