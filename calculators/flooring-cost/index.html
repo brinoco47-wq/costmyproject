@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flooring Cost Calculator — Materials, Labor &amp; Total Project Cost (2026 Prices)</title>
+<meta name="description" content="Free flooring cost calculator: pick LVP, laminate, hardwood, tile, or carpet, get materials + underlayment + labor rolled into one total. October 2026 US prices, math shown.">
+<link rel="canonical" href="https://brinoco47-wq.github.io/costmyproject/calculators/flooring-cost/">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Flooring Cost Calculator",
+ "applicationCategory":"WebApplication","operatingSystem":"Any",
+ "url":"https://brinoco47-wq.github.io/costmyproject/calculators/flooring-cost/",
+ "description":"Calculates flooring material, underlayment, labor, removal, and total project cost from square footage and current US prices.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "author":{"@type":"Organization","name":"CostMyProject","url":"https://brinoco47-wq.github.io/costmyproject/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://brinoco47-wq.github.io/costmyproject/"},
+ {"@type":"ListItem","position":2,"name":"Calculators","item":"https://brinoco47-wq.github.io/costmyproject/calculators/"},
+ {"@type":"ListItem","position":3,"name":"Flooring Cost Calculator","item":"https://brinoco47-wq.github.io/costmyproject/calculators/flooring-cost/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"How much does it cost to install 1,000 sq ft of flooring?",
+  "acceptedAnswer":{"@type":"Answer","text":"Installed, with a pro: roughly $5,500–$8,500 for LVP or laminate, $8,000–$18,000 for engineered hardwood, $12,000–$25,000 for solid hardwood, $7,000–$20,000 for tile, and $4,000–$8,000 for carpet (2026 US ranges, including 10% waste). DIY cuts the labor portion, typically 40–60% of a pro job."}},
+ {"@type":"Question","name":"What is the cheapest flooring to install?",
+  "acceptedAnswer":{"@type":"Answer","text":"Carpet and laminate are cheapest installed ($3–$8/sq ft); LVP runs $4–$10/sq ft installed. But cheapest per year of use is different: solid hardwood at $12–$25/sq ft installed lasts 50+ years, working out to roughly $0.25–$0.50 per sq ft per year — often cheaper than carpet over its life."}},
+ {"@type":"Question","name":"How much extra flooring should I order for waste?",
+  "acceptedAnswer":{"@type":"Answer","text":"Order 10% extra for simple rectangular rooms, 12–15% for diagonal layouts, L-shaped rooms, or lots of closets. Stairs need their own math (treads + risers + nosing). The calculator's default is 10%."}},
+ {"@type":"Question","name":"Does flooring labor cost more than the material?",
+  "acceptedAnswer":{"@type":"Answer","text":"Often yes for hard surfaces. Tile labor ($4–$10/sq ft) can exceed the tile itself; hardwood labor ($4–$8/sq ft) roughly matches mid-range wood. For carpet and laminate, labor is the smaller share ($0.50–$4/sq ft). The calculator splits materials vs. labor on every result."}}]}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTHH0CBTVS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CTHH0CBTVS');
+</script>
+<!-- Google AdSense -->
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../">Cost<span>My</span>Project</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../../calculators/" aria-current="page">Calculators</a>
+      <a href="../../cost-guides/">Cost Guides</a>
+      <a href="../../comparisons/">Comparisons</a>
+      <a href="../../methodology/">Methodology</a>
+      <a href="../../about/">About</a>
+    </nav>
+  </div>
+</header>
+<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
+  <li><a href="../../">Home</a></li><li><a href="../../calculators/">Calculators</a></li><li aria-current="page">Flooring Cost Calculator</li>
+</ol></div></nav>
+
+<main id="main" class="wrap">
+  <article class="article" style="max-width:none">
+    <h1>Flooring Cost Calculator</h1>
+    <p class="byline">CostMyProject Research Team <span class="verified">Prices checked October 2026</span></p>
+    <p class="lede" style="max-width:62ch">What will new floors actually cost? Pick a material, enter your square footage — get materials + underlayment + labor + extras rolled into one honest total, with every step of the math shown. No email required.</p>
+    <p><span class="trust-badge"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2"/><path d="M5 8.5l2 2 4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No email required — instant results, nothing to sign up for</span></p>
+
+    <form id="calc-form" class="calc" onsubmit="return false" aria-label="Flooring cost calculator">
+      <div class="calc-grid">
+        <div>
+          <div class="field">
+            <label>How do you want to enter size?</label>
+            <div class="seg" id="seg-mode" role="group" aria-label="Size entry mode">
+              <button type="button" data-val="dims" aria-pressed="true">Room dimensions</button>
+              <button type="button" data-val="area" aria-pressed="false">Square footage</button>
+            </div>
+            <input type="hidden" id="calc-mode" value="dims">
+            <div class="presets" role="group" aria-label="Presets">
+              <button type="button" class="preset" data-preset="bedroom" aria-pressed="false">12×12 bedroom</button>
+              <button type="button" class="preset" data-preset="living" aria-pressed="true">20×15 living room</button>
+              <button type="button" class="preset" data-preset="wholehome" aria-pressed="false">1,000 sq ft whole home</button>
+            </div>
+          </div>
+          <div id="dims-fields">
+            <div class="field"><label for="in-length">Length (ft)</label><input type="number" id="in-length" value="20" min="0" step="0.5"></div>
+            <div class="field"><label for="in-width">Width (ft)</label><input type="number" id="in-width" value="15" min="0" step="0.5"></div>
+            <span class="hint">Measure wall to wall. For L-shaped rooms, split into rectangles and add them — <a href="../../cost-guides/how-to-measure-sqft/">measuring guide</a>.</span>
+          </div>
+          <div id="area-field" style="display:none">
+            <div class="field"><label for="in-area">Floor area (sq ft)</label><input type="number" id="in-area" value="1000" min="0" step="1">
+            <span class="hint">Total floor area to be covered.</span></div>
+          </div>
+          <div class="field">
+            <label for="calc-material">Flooring material</label>
+            <select id="calc-material">
+              <option value="lvp" selected>Luxury vinyl plank (LVP) — $2.50–$6.00/sq ft</option>
+              <option value="laminate">Laminate — $1.50–$4.00/sq ft</option>
+              <option value="engineered">Engineered hardwood — $4.00–$10.00/sq ft</option>
+              <option value="hardwood">Solid hardwood — $6.00–$12.00/sq ft</option>
+              <option value="tile">Ceramic / porcelain tile — $2.50–$8.00/sq ft</option>
+              <option value="carpet">Carpet — $1.50–$5.00/sq ft</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Quality tier</label>
+            <div class="seg" id="seg-tier" role="group" aria-label="Quality tier">
+              <button type="button" data-val="budget" aria-pressed="false">Budget</button>
+              <button type="button" data-val="standard" aria-pressed="true">Standard</button>
+              <button type="button" data-val="premium" aria-pressed="false">Premium</button>
+            </div>
+            <input type="hidden" id="calc-tier" value="standard">
+            <span class="hint">Budget = low end of the price range · Standard = middle · Premium = top end.</span>
+          </div>
+          <div class="field">
+            <label>Who's installing?</label>
+            <div class="seg" id="seg-labor" role="group" aria-label="Labor">
+              <button type="button" data-val="diy" aria-pressed="true">DIY</button>
+              <button type="button" data-val="pro" aria-pressed="false">Hire a pro</button>
+            </div>
+            <input type="hidden" id="calc-labor" value="diy">
+          </div>
+        </div>
+        <div>
+          <div class="field"><label for="in-material-price">Material price ($ per sq ft)</label><input type="number" id="in-material-price" value="4.25" min="0" step="0.01">
+          <span class="hint" id="material-where"></span></div>
+          <div class="field"><label for="in-underlay-rate">Underlayment / setting materials ($ per sq ft)</label><input type="number" id="in-underlay-rate" value="0.00" min="0" step="0.01">
+          <span class="hint">Foam pad, thinset + grout, or carpet pad — varies by material, auto-set above.</span></div>
+          <div class="field" id="labor-rate-field" style="display:none">
+            <label for="in-labor-rate">Pro install rate ($ per sq ft) <span class="hint">auto-set by material; 2026 range $0.50–$10</span></label>
+            <input type="number" id="in-labor-rate" value="2.75" min="0" step="0.10">
+          </div>
+          <div class="field"><label for="in-waste">Waste &amp; cuts allowance (%)</label><input type="number" id="in-waste" value="10" min="0" max="30" step="1">
+          <span class="hint">10% standard · 12–15% for diagonal layouts or L-shaped rooms.</span></div>
+          <div class="field">
+            <label>Remove old flooring?</label>
+            <div class="seg" id="seg-removal" role="group" aria-label="Old floor removal">
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+              <button type="button" data-val="yes" aria-pressed="false">Yes (+$1.50/sq ft)</button>
+            </div>
+            <input type="hidden" id="calc-removal" value="no">
+          </div>
+          <div class="field">
+            <label>Subfloor prep / leveling needed?</label>
+            <div class="seg" id="seg-prep" role="group" aria-label="Subfloor prep">
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+              <button type="button" data-val="yes" aria-pressed="false">Yes (+$3.00/sq ft)</button>
+            </div>
+            <input type="hidden" id="calc-prep" value="no">
+            <span class="hint">Older homes often need leveling compound — a common quote surprise.</span>
+          </div>
+          <div class="field"><label for="in-trim">Trim, transitions &amp; thresholds ($) <span class="hint">typically $150–$400 for a few rooms</span></label><input type="number" id="in-trim" value="0" min="0" step="10"></div>
+        </div>
+      </div>
+      <div id="calc-result" class="result" aria-live="polite"></div>
+    </form>
+
+    <div style="max-width:46rem">
+    <h2>Worked example: 1,000 sq ft of LVP, fully itemized</h2>
+    <p class="data-date">Computed by the calculator above · LVP standard tier @ $4.25/sq ft · pro install · October 2026 prices</p>
+    <table>
+      <thead><tr><th>Line item</th><th>Math</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td>Order quantity</td><td>1,000 sq ft × 1.10 waste</td><td>1,100 sq ft</td></tr>
+        <tr><td>LVP flooring</td><td>1,100 × $4.25</td><td><strong>$4,675.00</strong></td></tr>
+        <tr><td>Underlayment</td><td>$0 — most LVP ships with an attached pad</td><td>$0.00</td></tr>
+        <tr><td>Install labor</td><td>1,100 × $2.75</td><td><strong>$3,025.00</strong></td></tr>
+        <tr><td><strong>Total — pro install</strong></td><td></td><td><strong>$7,700.00</strong></td></tr>
+        <tr><td><strong>Total — DIY</strong></td><td>materials only</td><td><strong>$4,675.00</strong></td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead><tr><th>Scenario</th><th>Total</th><th>Typical range (±25%)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>DIY</strong></td><td><strong>$4,675</strong></td><td>$3,506 – $5,844</td></tr>
+        <tr><td><strong>Hire a pro</strong></td><td><strong>$7,700</strong></td><td>$5,775 – $9,625</td></tr>
+      </tbody>
+    </table>
+    <p class="src">Run the calculator above with these inputs and you'll get the same numbers. Notice: at $7.70/sq ft installed, this lands squarely in the 2026 national LVP range of $6.50–$9.00 — the model checks out against published data.</p>
+
+    <h2>What's included — and what isn't</h2>
+    <div class="incl-grid">
+      <div class="incl yes">
+        <h3>✓ Included in every estimate</h3>
+        <ul>
+          <li>Flooring material, per your tier and price</li>
+          <li>Underlayment or setting materials (pad, thinset, grout)</li>
+          <li>Pro install labor, when you select "Hire a pro"</li>
+          <li>Waste &amp; cuts allowance (default 10%, rounded into order quantity)</li>
+          <li>Old-floor removal and subfloor prep, when you toggle them on</li>
+          <li>Trim and transitions, when you enter an amount</li>
+        </ul>
+      </div>
+      <div class="incl no">
+        <h3>✗ Not included</h3>
+        <ul>
+          <li>Furniture moving (often $50–$150/room if the crew does it)</li>
+          <li>Subfloor replacement (rotted plywood, not just leveling)</li>
+          <li>Stairs — priced per step, not per square foot (see measuring guide)</li>
+          <li>Radiant-heat systems under the floor</li>
+          <li>Repairs to the material itself down the line (see lifetime costs)</li>
+        </ul>
+      </div>
+    </div>
+    <p class="src">If a contractor's bid covers items on the right-hand list and ours doesn't, ask them to itemize — that's exactly how you compare bids honestly.</p>
+
+    <h2>The price data behind this calculator</h2>
+    <p class="data-date">Checked October 3, 2026</p>
+    <p class="fresh-note"><strong>Data freshness:</strong> prices verified October 2026 · next scheduled re-check January 2027. Stale data is misinformation — our <a href="../../methodology/">update policy</a> is public.</p>
+    <table>
+      <thead><tr><th>Material</th><th>Material / sq ft</th><th>Pro labor / sq ft</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Luxury vinyl plank (LVP)</td><td>$2.50–$6.00</td><td>$1.50–$4.00</td><td class="src"><a href="https://bhumicalculator.com/countries/united-states/cost-to-install-flooring-per-square-foot">Bhumi Calculator 2026</a>; <a href="https://woodworkingadvisor.com/hardwood-flooring-prices-home-depot/">Woodworking Advisor (Home Depot)</a></td></tr>
+        <tr><td>Laminate</td><td>$1.50–$4.00</td><td>$1.50–$4.00</td><td class="src"><a href="https://bhumicalculator.com/countries/united-states/cost-to-install-flooring-per-square-foot">Bhumi Calculator 2026</a>; <a href="https://www.angi.com/articles/how-much-does-laminate-flooring-cost.htm?cid=ssabadge&amp;page=16&amp;entry_point_id=33797117">Angi 2026</a></td></tr>
+        <tr><td>Engineered hardwood</td><td>$4.00–$10.00</td><td>$4.00–$8.00</td><td class="src"><a href="https://usecalcpro.com/blog/how-much-does-flooring-cost-2026">UseCalcPro 2026</a></td></tr>
+        <tr><td>Solid hardwood</td><td>$6.00–$12.00</td><td>$4.00–$8.00</td><td class="src"><a href="https://usecalcpro.com/blog/how-much-does-flooring-cost-2026">UseCalcPro 2026</a>; <a href="https://woodworkingadvisor.com/hardwood-flooring-prices-home-depot/">Woodworking Advisor</a></td></tr>
+        <tr><td>Ceramic / porcelain tile</td><td>$2.50–$8.00</td><td>$4.00–$10.00</td><td class="src"><a href="https://usecalcpro.com/blog/how-much-does-flooring-cost-2026">UseCalcPro 2026</a>; <a href="https://www.yelp.com/costs/tile_floor_installation">Yelp Cost Guide Oct 2026</a></td></tr>
+        <tr><td>Carpet</td><td>$1.50–$5.00</td><td>$0.50–$1.50</td><td class="src"><a href="https://bhumicalculator.com/countries/united-states/cost-to-install-flooring-per-square-foot">Bhumi Calculator 2026</a></td></tr>
+        <tr><td>Old-floor removal</td><td colspan="2">$1–$3 / sq ft <span class="src">(default $1.50 — industry estimate)</span></td><td class="src"><a href="https://www.yelp.com/costs/tile_floor_installation">Yelp</a>; <a href="https://flooringcostpro.com/flooring-labor-cost-per-sq-ft/">FlooringCostPro 2026</a></td></tr>
+        <tr><td>Subfloor leveling</td><td colspan="2">$2–$5 / sq ft <span class="src">(default $3.00 — industry estimate)</span></td><td class="src"><a href="https://flooringcostpro.com/flooring-labor-cost-per-sq-ft/">FlooringCostPro 2026</a></td></tr>
+      </tbody>
+    </table>
+    <p class="src">Ranges move by store, region, and product line — every default above is editable in the calculator. Full sourcing and update policy: <a href="../../methodology/">methodology</a>.</p>
+
+    <h2>Three ways people get the math wrong</h2>
+    <ul>
+      <li><strong>Forgetting waste.</strong> A 1,000 sq ft job needs ~1,100 sq ft of material. Quotes that skip the waste line look cheaper until the installer runs short mid-job.</li>
+      <li><strong>Comparing material price without install.</strong> Tile at $3/sq ft sounds cheaper than LVP at $5 — until $6–$10/sq ft of tile labor enters. Always compare <em>installed</em> cost per square foot.</li>
+      <li><strong>Ignoring the "invisible" layers.</strong> Underlayment, thinset, grout, and pad add $0–$1/sq ft. They're real money and the first thing vague quotes hide.</li>
+    </ul>
+
+    <div class="faq">
+      <h2>Flooring cost FAQs</h2>
+      <details><summary>How much does it cost to install 1,000 sq ft of flooring?</summary>
+        <p>With a pro in 2026: roughly $5,500–$8,500 for laminate, $6,500–$9,000 for LVP, $8,000–$18,000 for engineered hardwood, $12,000–$25,000 for solid hardwood, $7,000–$20,000 for tile, and $4,000–$8,000 for carpet — including ~10% waste. Punch your numbers into the calculator above for your material and market.</p></details>
+      <details><summary>What is the cheapest flooring to install?</summary>
+        <p>Installed, carpet and laminate ($3–$8/sq ft) are cheapest. But measure cost per <em>year of use</em>: solid hardwood at $12–$25/sq ft installed lasts 50+ years — roughly $0.25–$0.50 per sq ft per year, often cheaper than carpet over its life. Our <a href="../../comparisons/flooring-material-costs/">material comparison</a> runs the lifetime math.</p></details>
+      <details><summary>How much extra flooring should I order for waste?</summary>
+        <p>10% for simple rectangular rooms, 12–15% for diagonal patterns, L-shaped rooms, or many closets. Stairs are measured separately (treads + risers), not folded into the waste percentage. See our <a href="../../cost-guides/how-to-measure-sqft/">measuring guide</a>.</p></details>
+      <details><summary>Is it cheaper to install flooring yourself?</summary>
+        <p>Usually — labor is 40–60% of a pro job. LVP and laminate are genuinely DIY-friendly (click-lock, one weekend for a room). Tile and solid hardwood are where DIY most often goes wrong; a bad tile job costs more to fix than the labor you saved. Toggle DIY/pro in the calculator to see both numbers.</p></details>
+      <details><summary>How accurate is this calculator?</summary>
+        <p>It's a budgeting estimate built on October 2026 price ranges and installer labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because subfloor condition and regional labor move real quotes. See <a href="../../methodology/">how we compute costs</a> for the full method and limitations.</p></details>
+    </div>
+
+    <div class="related">
+      <h2>Keep going</h2>
+      <ul>
+        <li><a href="../../cost-guides/flooring-material-comparison/">Flooring material comparison — LVP vs. hardwood vs. tile vs. laminate vs. carpet</a></li>
+        <li><a href="../../cost-guides/flooring-installation-cost/">Flooring installation cost guide — DIY vs. pro, labor by material</a></li>
+        <li><a href="../../cost-guides/how-to-measure-sqft/">How to measure square footage (rooms, stairs, waste)</a></li>
+        <li><a href="../../comparisons/flooring-material-costs/">Head-to-head: material costs over 10 and 20 years</a></li>
+      </ul>
+    </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>CostMyProject</h4>
+        <p>The neutral, numbers-first answer to "what will my project cost?" Every estimate is computed live from dated, sourced price data — with the math shown.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../../calculators/flooring-cost/">Flooring Cost Calculator</a></li>
+          <li><a href="../../calculators/">All calculators</a></li>
+          <li><a href="../../comparisons/flooring-material-costs/">Flooring material comparison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../../methodology/">Methodology</a></li>
+          <li><a href="../../contact/">Contact</a></li>
+          <li><a href="../../privacy/">Privacy</a></li>
+          <li><a href="../../disclosure/">Disclosure</a></li>
+          <li><a href="../../editorial-policy/">Editorial Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Estimates, not quotes. Actual costs vary by location, subfloor condition, and contractor. © 2026 CostMyProject. Price data last checked October 2026.</p>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/flooring-calculator.js"></script>
+</body>
+</html>
