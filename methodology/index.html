@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How We Compute Costs — Methodology — CostMyProject</title>
+<meta name="description" content="Our full cost-computation methodology: formulas, dated price sources, coverage rates, labor assumptions, update cadence, and known limitations.">
+<link rel="canonical" href="https://costmyproject.me/methodology/">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://costmyproject.me/"},
+ {"@type":"ListItem","position":2,"name":"Methodology","item":"https://costmyproject.me/methodology/"}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Cost<span>My</span>Project</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/calculators/">Calculators</a>
+      <a href="/cost-guides/">Cost Guides</a>
+      <a href="/comparisons/">Comparisons</a>
+      <a href="/methodology/" aria-current="page">Methodology</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
+  <li><a href="/">Home</a></li><li aria-current="page">Methodology</li>
+</ol></div></nav>
+
+<main id="main" class="wrap">
+  <article class="article">
+    <h1>How we compute costs</h1>
+    <p class="byline">CostMyProject Research Team <span class="verified">Methodology v1.0 · September 2026</span></p>
+
+    <p>A cost estimate is only as good as the method behind it. This page documents ours in full — the formulas, the data sources, the update schedule, and the limitations. If any number on this site can't be traced back to something on this page, that's a bug: <a href="/contact/">tell us</a>.</p>
+
+    <div class="toc">
+      <p>On this page</p>
+      <ol>
+        <li><a href="#formula">The paint calculator formula</a></li>
+        <li><a href="#sources">Price data sources</a></li>
+        <li><a href="#labor">How we handle labor</a></li>
+        <li><a href="#updates">Update cadence</a></li>
+        <li><a href="#limits">Limitations</a></li>
+      </ol>
+    </div>
+
+    <h2 id="formula">The paint calculator formula</h2>
+    <div class="math"><code>wall area = 2 × (length + width) × height − doors×21 − windows×15
+paint gallons = wall area × coats ÷ (brand coverage × surface factor)
+primer gallons = wall area ÷ 400  (only when priming)
+buy gallons = ceil(paint gallons × 1.10)   ← 10% waste, rounded up
+paint cost = buy gallons × price per gallon
+total = paint cost + primer cost + labor + supplies</code></div>
+    <ul>
+      <li><strong>Doors and windows</strong> subtract standard openings: 21 sq ft per door (3×7 ft), 15 sq ft per window (3×5 ft).</li>
+      <li><strong>Surface factors</strong> adjust manufacturer coverage for reality: interior 1.0, ceilings 0.9, exterior 0.8 — rough siding and stucco absorb more paint than smooth drywall.</li>
+      <li><strong>Waste</strong> defaults to 10% for spillage, touch-ups, and the paint left in rollers and trays.</li>
+      <li><strong>Coats:</strong> 2 is the default because virtually all manufacturer guidance and pro practice assumes two finish coats; primer is added for new drywall, bare surfaces, or dramatic color changes.</li>
+    </ul>
+
+    <h2 id="sources">Price data sources</h2>
+    <p class="data-date">Last verified: September 23, 2026</p>
+    <table>
+      <thead><tr><th>Data point</th><th>Value used</th><th>Source</th><th>Checked</th></tr></thead>
+      <tbody>
+        <tr><td>Behr Premium Plus, 1 gal (interior)</td><td>$43.98</td><td>Home Depot product listing #303901388</td><td>Sept 2026</td></tr>
+        <tr><td>Behr Premium Plus, 5 gal</td><td>$196.00 ($39.20/gal)</td><td>Home Depot product listing #202761748</td><td>Sept 2026</td></tr>
+        <tr><td>Behr coverage</td><td>400 sq ft/gal</td><td>Manufacturer spec on Home Depot listing</td><td>Sept 2026</td></tr>
+        <tr><td>Sherwin-Williams SuperPaint, 1 gal</td><td>$70 (range $60–$77)</td><td>MSRP reporting, engineerfix.com; lightmenpainting.com</td><td>Sept 2026</td></tr>
+        <tr><td>Benjamin Moore Regal Select, 1 gal</td><td>$74 (range $70–$78)</td><td>Ace Hardware listings; O-Gee Paint, Miami</td><td>Sept 2026</td></tr>
+        <tr><td>Primer (Zinsser Bulls Eye 1-2-3), 1 gal</td><td>$30</td><td>Ace Hardware ($29.99); Home Depot 2-gal $46.98</td><td>Sept 2026</td></tr>
+        <tr><td>Pro labor, per sq ft (paintable area)</td><td>$1–$6, default $2.50</td><td>HomeGuide &amp; HomeAdvisor 2026 cost guides</td><td>Sept 2026</td></tr>
+        <tr><td>Pro labor, hourly</td><td>$25–$75</td><td>HomeGuide 2026</td><td>Sept 2026</td></tr>
+        <tr><td>Labor share of total project</td><td>70–85%</td><td>digitalestimating.com 2026 guide</td><td>Sept 2026</td></tr>
+      </tbody>
+    </table>
+    <p class="src">Where a source gives a range, our calculator default uses the midpoint or the most commonly listed single price, and the page states the full range. Sherwin-Williams runs frequent 30–40% sales; our default uses near-list price and notes the sale effect. Every price is user-overridable in the calculator — local reality beats our defaults.</p>
+
+    <h2 id="labor">How we handle labor</h2>
+    <p>Painting labor is quoted three ways in the US market: per square foot of <em>paintable</em> area ($1–$6), per hour ($25–$75), or per room/day. Our calculator uses per-square-foot of paintable area because it's the only basis that scales cleanly from a room to a whole house — and we label the basis explicitly so you're never comparing our number to a quote computed a different way.</p>
+    <p>Default rate is $2.50/sq ft: the middle of the standard-residential band. High cost-of-living metros and specialty work (cabinets, murals, heavy prep) run higher; straightforward repaints in lower-cost markets run lower. Adjust the rate to match quotes you're actually receiving — that's the right calibration.</p>
+
+    <h2 id="updates">Update cadence</h2>
+    <ul>
+      <li><strong>Paint prices:</strong> re-checked quarterly (January, April, July, October), or sooner if we detect a major price move.</li>
+      <li><strong>Labor ranges:</strong> re-checked semi-annually against published cost guides.</li>
+      <li><strong>Calculator logic:</strong> reviewed whenever user feedback or our own testing finds a flaw.</li>
+      <li>Every data table on the site carries its check date. If a date is older than the cadence above, the data is stale and we say so.</li>
+    </ul>
+
+    <h2 id="limits">Limitations — read this</h2>
+    <ul>
+      <li>Our numbers are <strong>planning estimates, not quotes</strong>. Surface condition, regional pricing, and contractor overhead move real bids ±30% or more.</li>
+      <li>We track <strong>US national pricing</strong>. Costs in high-cost metros (NYC, SF, Boston) routinely run 30–50% above our defaults.</li>
+      <li>Coverage rates are manufacturer specs under ideal conditions. Textured walls, porous surfaces, and dark colors need more paint — the waste factor and surface adjustments only partly capture this.</li>
+      <li>We don't have paid keyword or pricing datasets; where we report third-party figures we name the source and date, and mark anything we couldn't verify.</li>
+    </ul>
+
+    <div class="callout method">
+      <strong>Our commitment</strong>
+      If you find a price on this site that's wrong or stale, <a href="/contact/">report it</a> — corrections jump the queue and the check date updates the same day.
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>CostMyProject</h4>
+        <p>The neutral, numbers-first answer to "what will my project cost?" Every estimate is computed live from dated, sourced price data — with the math shown.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/calculators/paint-cost/">Paint Cost Calculator</a></li>
+          <li><a href="/calculators/">All calculators</a></li>
+          <li><a href="/comparisons/paint-brand-coverage/">Paint brand comparison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/methodology/">Methodology</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/disclosure/">Disclosure</a></li>
+          <li><a href="/editorial-policy/">Editorial Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Estimates, not quotes. Actual costs vary by location, surface condition, and contractor. © 2026 CostMyProject. Price data last checked September 2026.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
