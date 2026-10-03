@@ -105,6 +105,15 @@
     var total = paintCost + primerCost + laborCost + s.supplies;
     var perSqft = area > 0 ? total / area : 0;
 
+    /* materials vs labor split (BarrierBoss pattern: never a black-box total) */
+    var materials = paintCost + primerCost + s.supplies;
+    var labor = laborCost;
+
+    /* planning range: ±25% band covers regional pricing + surface-condition variance.
+       Documented on /methodology/ — a single false-precise number is never shown alone. */
+    var rangeLow = total * 0.75;
+    var rangeHigh = total * 1.25;
+
     /* what-if: cheapest alternative brand for the same job */
     var altKey = s.brandKey === 'behr' ? 'sw' : 'behr';
     var alt = BRANDS[altKey];
@@ -117,6 +126,8 @@
       paintGalRaw: paintGalRaw, paintGalBuy: paintGalBuy,
       primerNeeded: primerNeeded, primerGalBuy: primerGalBuy,
       paintCost: paintCost, primerCost: primerCost, laborCost: laborCost,
+      materials: materials, labor: labor,
+      rangeLow: rangeLow, rangeHigh: rangeHigh,
       total: total, perSqft: perSqft,
       altKey: altKey, altBuy: altBuy, altPaintCost: altPaintCost
     };
@@ -148,13 +159,28 @@
       ? 'Hiring a pro at ' + money(s.laborRate) + '/sq ft would add ' + money(r.area * s.laborRate) + ' in labor.'
       : 'Doing it yourself would save ' + money(r.laborCost) + ' in labor.';
 
+    var matPct = r.total > 0 ? Math.round(r.materials / r.total * 100) : 100;
+    var labPct = 100 - matPct;
+    var splitBar = s.laborMode === 'pro' && r.labor > 0
+      ? '<div class="splitbar" role="img" aria-label="Materials ' + matPct + ' percent, labor ' + labPct + ' percent">' +
+        '<div class="split-mat" style="width:' + matPct + '%">Materials ' + matPct + '%</div>' +
+        '<div class="split-lab" style="width:' + labPct + '%">Labor ' + labPct + '%</div></div>' +
+        '<p class="split-legend">Materials <strong>' + money(r.materials) + '</strong> (paint, primer, supplies) · ' +
+        'Labor <strong>' + money(r.labor) + '</strong> (pro, ' + money(s.laborRate) + '/sq ft)</p>'
+      : '<div class="splitbar" role="img" aria-label="Materials 100 percent, DIY labor">' +
+        '<div class="split-mat" style="width:100%">Materials 100% — ' + money(r.materials) + '</div></div>' +
+        '<p class="split-legend">DIY: you supply the labor, so the whole budget is materials.</p>';
+
     out.innerHTML =
       '<h2>Your estimate</h2>' +
       '<p class="total">' + money(r.total) + '</p>' +
+      '<p class="range">Typical range: <strong>' + money(r.rangeLow) + ' – ' + money(r.rangeHigh) + '</strong> ' +
+      '<span class="small">(±25% planning band — covers regional pricing and surface-condition variance)</span></p>' +
       '<p class="small">' + num1(r.area) + ' sq ft of ' + TYPE_LABEL[s.type].toLowerCase() +
       ' &middot; about ' + money(r.perSqft) + ' per sq ft &middot; ' +
       num1(r.paintGalRaw) + ' gal of paint needed &rarr; <strong>buy ' + r.paintGalBuy + ' gallon' + (r.paintGalBuy === 1 ? '' : 's') + '</strong>' +
       (r.primerNeeded ? ' + ' + r.primerGalBuy + ' gal primer' : '') + '</p>' +
+      splitBar +
       '<table><tbody>' + rows +
       '<tr><td><strong>Total project cost</strong></td><td><strong>' + money(r.total) + '</strong></td></tr>' +
       '</tbody></table>' +
@@ -163,9 +189,10 @@
       '<div class="math"><code>' + mathBlock(s, r) + '</code></div>' +
       '<p class="src">Prices checked September 2026. Paint prices: Home Depot / Sherwin-Williams / Ace Hardware listings. ' +
       'Coverage rates: manufacturer-published specs. Labor range $1–$6/sq ft: HomeGuide &amp; HomeAdvisor 2026 guides. ' +
-      'Full methodology: <a href="/methodology/">/methodology/</a></p></details>' +
-      '<p class="note">Estimate, not a quote. Actual costs vary by store, region, surface condition, and contractor. ' +
-      'No email required — this calculator never asks for your contact info.</p>';
+      'Full methodology: <a href="../../methodology/">/methodology/</a></p></details>' +
+      '<p class="note"><strong>Budgeting estimate, not a contractor quote.</strong> Real bids typically land inside the ±25% ' +
+      'range above — region, surface condition, and prep move the number. Use this to budget and to sanity-check ' +
+      'quotes, not to replace them. No email required — this calculator never asks for your contact info.</p>';
 
     out.setAttribute('aria-live', 'polite');
   }
@@ -193,6 +220,10 @@
     lines.push('paint cost = ' + r.paintGalBuy + ' × ' + money(s.paintPrice) + ' = ' + money(r.paintCost));
     if (r.primerNeeded) lines.push('primer cost = ' + r.primerGalBuy + ' × ' + money(s.primerPrice) + ' = ' + money(r.primerCost));
     if (s.laborMode === 'pro') lines.push('labor = ' + num1(r.area) + ' × ' + money(s.laborRate) + ' = ' + money(r.laborCost));
+    lines.push('materials subtotal = paint + primer + supplies = ' + money(r.materials));
+    lines.push('labor subtotal = ' + money(r.labor));
+    lines.push('planning range = total × 0.75 … total × 1.25 = ' + money(r.rangeLow) + ' … ' + money(r.rangeHigh));
+    lines.push('  (±25% covers regional pricing + surface-condition variance — see /methodology/)');
     lines.push('TOTAL = ' + money(r.paintCost) + ' + ' + money(r.primerCost) + ' + ' + money(r.laborCost) + ' + ' + money(s.supplies) + ' = ' + money(r.total));
     return lines.join('\n');
   }
