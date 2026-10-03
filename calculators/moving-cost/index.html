@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moving Cost Calculator — Local &amp; Long-Distance Estimates (2026 Prices)</title>
+<meta name="description" content="Free moving cost calculator: home size + distance gives you DIY truck vs. container vs. full-service mover totals side by side. October 2026 US prices, math shown.">
+<link rel="canonical" href="https://brinoco47-wq.github.io/costmyproject/calculators/moving-cost/">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Moving Cost Calculator",
+ "applicationCategory":"WebApplication","operatingSystem":"Any",
+ "url":"https://brinoco47-wq.github.io/costmyproject/calculators/moving-cost/",
+ "description":"Estimates moving costs from home size and distance: DIY truck rental vs. moving container vs. full-service movers, with packing add-ons and current US prices.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "author":{"@type":"Organization","name":"CostMyProject","url":"https://brinoco47-wq.github.io/costmyproject/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://brinoco47-wq.github.io/costmyproject/"},
+ {"@type":"ListItem","position":2,"name":"Calculators","item":"https://brinoco47-wq.github.io/costmyproject/calculators/"},
+ {"@type":"ListItem","position":3,"name":"Moving Cost Calculator","item":"https://brinoco47-wq.github.io/costmyproject/calculators/moving-cost/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"How much does a local move cost?",
+  "acceptedAnswer":{"@type":"Answer","text":"In 2026, a local full-service move runs roughly $400–$1,500 for a studio, $1,200–$2,500 for a 2-bedroom, and $1,500–$4,000 for a 3-bedroom (Lugg / American Moving and Storage Association). DIY truck rental for a local move typically costs $75–$160 all-in for the truck plus boxes."}},
+ {"@type":"Question","name":"How much does a cross-country move cost?",
+  "acceptedAnswer":{"@type":"Answer","text":"Full-service cross-country moves in 2026 run roughly $3,500–$6,500 for a 2-bedroom and $5,500–$9,000 for a 3-bedroom at 1,000+ miles. A DIY one-way truck rental for 2,500 miles costs about $2,600 (10 ft truck) to $3,900 (26 ft truck) including fuel; containers land in between."}},
+ {"@type":"Question","name":"Is it cheaper to rent a truck or hire movers?",
+  "acceptedAnswer":{"@type":"Answer","text":"Locally, DIY truck rental is usually far cheaper — often under $200 vs. $1,000+ for movers. On long-distance moves the gap narrows once you add fuel, lodging, and your time, and a moving container often splits the difference. The calculator above prices all three for your exact move."}},
+ {"@type":"Question","name":"What is the cheapest way to move long distance?",
+  "acceptedAnswer":{"@type":"Answer","text":"Usually a one-way DIY truck rental, especially if you can drive it yourself and the route isn't extreme. Moving containers (PODS, U-Pack) are the common middle ground — cheaper than full-service on long hauls, with storage built in. Freight trailers (pay-per-foot) can undercut both on some routes."}},
+ {"@type":"Question","name":"How accurate is this moving estimator?",
+  "acceptedAnswer":{"@type":"Answer","text":"It's a planning estimate fitted to October 2026 published price ranges — good for budgeting and comparing move types. Real quotes vary ±30% by city, season, and company, and long-distance carriers enforce minimum charges. Always get three written quotes; see our methodology page for the full model."}}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../">Cost<span>My</span>Project</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../../calculators/" aria-current="page">Calculators</a>
+      <a href="../../cost-guides/">Cost Guides</a>
+      <a href="../../comparisons/">Comparisons</a>
+      <a href="../../methodology/">Methodology</a>
+      <a href="../../about/">About</a>
+    </nav>
+  </div>
+</header>
+<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
+  <li><a href="../../">Home</a></li><li><a href="../../calculators/">Calculators</a></li><li aria-current="page">Moving Cost Calculator</li>
+</ol></div></nav>
+
+<main id="main" class="wrap">
+  <article class="article" style="max-width:none">
+    <h1>Moving Cost Calculator</h1>
+    <p class="byline">CostMyProject Research Team <span class="verified">Prices checked October 2026</span></p>
+    <p class="lede" style="max-width:62ch">What will your move actually cost? Enter home size and distance — get DIY truck rental, moving container, and full-service mover totals <strong>side by side</strong>, with packing add-ons and every step of the math shown. No email required.</p>
+
+    <form id="calc-form" class="calc" onsubmit="return false" aria-label="Moving cost calculator">
+      <div class="calc-grid">
+        <div>
+          <div class="field">
+            <label>Home size</label>
+            <div class="seg" id="seg-home" role="group" aria-label="Home size">
+              <button type="button" data-val="studio" aria-pressed="false">Studio</button>
+              <button type="button" data-val="br1" aria-pressed="false">1 BR</button>
+              <button type="button" data-val="br2" aria-pressed="true">2 BR</button>
+              <button type="button" data-val="br3" aria-pressed="false">3 BR</button>
+              <button type="button" data-val="br4" aria-pressed="false">4 BR</button>
+              <button type="button" data-val="br5" aria-pressed="false">5 BR</button>
+            </div>
+            <input type="hidden" id="calc-home" value="br2">
+            <div class="presets" role="group" aria-label="Presets">
+              <button type="button" class="preset" data-preset="studio" aria-pressed="false">Studio across town</button>
+              <button type="button" class="preset" data-preset="br2mid" aria-pressed="false">2 BR · 500 miles</button>
+              <button type="button" class="preset" data-preset="br3long" aria-pressed="false">3 BR cross-country</button>
+              <button type="button" class="preset" data-preset="br4far" aria-pressed="false">4 BR coast to coast</button>
+            </div>
+          </div>
+          <div class="field"><label for="in-miles">Distance (miles)</label><input type="number" id="in-miles" value="25" min="0" step="1">
+            <span class="hint">≤100 mi counts as local (movers bill hourly); over 100 mi is long-distance (billed by weight).</span></div>
+          <div class="field">
+            <label>Move type</label>
+            <div class="seg" id="seg-type" role="group" aria-label="Move type">
+              <button type="button" data-val="diy" aria-pressed="false">DIY truck</button>
+              <button type="button" data-val="container" aria-pressed="false">Container</button>
+              <button type="button" data-val="full" aria-pressed="true">Full-service</button>
+            </div>
+            <input type="hidden" id="calc-type" value="full">
+            <span class="hint" id="truck-hint"></span>
+          </div>
+          <div class="field">
+            <label>Packing help</label>
+            <div class="seg" id="seg-packing" role="group" aria-label="Packing help">
+              <button type="button" data-val="none" aria-pressed="true">Pack myself</button>
+              <button type="button" data-val="fragile" aria-pressed="false">Fragile-only</button>
+              <button type="button" data-val="full" aria-pressed="false">Full pack</button>
+            </div>
+            <input type="hidden" id="calc-packing" value="none">
+          </div>
+        </div>
+        <div>
+          <div class="field"><label for="in-hourly">Mover rate ($/hr, crew + truck) <span class="hint">2026 typical: $80–$100/hr for 2 movers; more for bigger crews</span></label><input type="number" id="in-hourly" value="150" min="0" step="1"></div>
+          <div id="permile-field"><div class="field"><label for="in-permile">Truck mileage rate ($/mi) <span class="hint">local rentals: $0.59–$1.29</span></label><input type="number" id="in-permile" value="0.99" min="0" step="0.01"></div></div>
+          <div class="field"><label for="in-gas">Gas price ($/gal)</label><input type="number" id="in-gas" value="3.50" min="0" step="0.05"></div>
+          <div class="field"><label for="in-protect">Truck protection ($) <span class="hint">optional Safemove-type coverage</span></label><input type="number" id="in-protect" value="20" min="0" step="1"></div>
+          <div id="days-field"><div class="field"><label for="in-days">Rental days <span class="hint">local moves only</span></label><input type="number" id="in-days" value="1" min="1" step="1"></div></div>
+          <div class="field"><label for="in-contbase">Container base price ($) <span class="hint">local flat; long-distance adds mileage</span></label><input type="number" id="in-contbase" value="1100" min="0" step="10"></div>
+          <div class="field"><label for="in-packfull">Full packing service ($) <span class="hint">fragile-only = 40% of this</span></label><input type="number" id="in-packfull" value="765" min="0" step="10"></div>
+          <div class="field"><label for="in-supplies">Boxes &amp; materials ($) <span class="hint">DIY supplies; skipped when full packing is hired</span></label><input type="number" id="in-supplies" value="200" min="0" step="10"></div>
+        </div>
+      </div>
+      <div id="calc-result" class="result" aria-live="polite"></div>
+    </form>
+
+    <div style="max-width:46rem">
+    <h2>The price data behind this calculator</h2>
+    <p class="data-date">Checked October 3, 2026</p>
+    <table>
+      <thead><tr><th>Item</th><th>2026 price</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Local move, 2 movers</td><td>$80–$100/hr</td><td class="src"><a href="https://www.consumeraffairs.com/movers/how-much-do-movers-cost.html">ConsumerAffairs</a></td></tr>
+        <tr><td>National avg: local / long-distance</td><td>$1,250 / $4,300</td><td class="src"><a href="https://lugg.com/blog/cost-to-move-a-house">Lugg</a> (via American Moving &amp; Storage Assn.)</td></tr>
+        <tr><td>Local full-service: 2 BR / 3 BR</td><td>$1,200–$2,500 / $1,500–$4,000</td><td class="src"><a href="https://lugg.com/blog/cost-to-move-a-house">Lugg</a></td></tr>
+        <tr><td>Long-distance (1,000+ mi): 2 BR / 3 BR</td><td>$3,500–$6,500 / $5,500–$9,000</td><td class="src"><a href="https://lugg.com/blog/cost-to-move-a-house">Lugg</a></td></tr>
+        <tr><td>U-Haul truck rental</td><td>$19.95–$39.95/day + $0.79–$1.29/mi</td><td class="src"><a href="https://easystoragesearch.com/u-haul-cost-calculator-estimate-rental-and-mileage-expense/">Easy Storage Search</a></td></tr>
+        <tr><td>U-Haul one-way, 2,500 mi</td><td>~$2,600 (10 ft) / ~$3,900 (26 ft), fuel incl.</td><td class="src"><a href="https://easystoragesearch.com/u-haul-cost-calculator-estimate-rental-and-mileage-expense/">Easy Storage Search</a></td></tr>
+        <tr><td>PODS container</td><td>$400–$800 local; $3,200–$5,500+ cross-country</td><td class="src"><a href="https://www.freightwaves.com/checkpoint/pods-cost/">FreightWaves</a></td></tr>
+        <tr><td>U-Pack, 3 BR × 1,000 mi</td><td>~$4,100</td><td class="src"><a href="https://www.freightwaves.com/checkpoint/u-pack-review/">FreightWaves</a></td></tr>
+        <tr><td>Pro packing</td><td>$60–$80/hr per packer; 3 BR full pack $1,030–$2,200</td><td class="src"><a href="https://www.extraspace.com/moving/guides/trends/how-much-do-professional-packers-cost/">Extra Space Storage</a></td></tr>
+        <tr><td>Full-value protection</td><td>~1% of declared value <span class="src">(basic $0.60/lb released-value coverage is included by law)</span></td><td class="src"><a href="https://www.freightwaves.com/checkpoint/moving-cost-calculator/">FreightWaves</a></td></tr>
+      </tbody>
+    </table>
+    <p class="src">Every default above is editable in the calculator — your numbers override ours. Our full sourcing and update policy: <a href="../../methodology/">methodology</a>.</p>
+
+    <h2>How the model works</h2>
+    <ul>
+      <li><strong>Local (≤100 mi):</strong> movers bill by the hour. We multiply estimated crew hours for your home size by the crew rate — both editable. Typical 2026 crew rates run $80–$100/hr for two movers and scale with crew size.</li>
+      <li><strong>Long-distance (&gt;100 mi):</strong> movers bill by weight and distance. Our formula — <em>weight × ($0.50 + $0.0003 × miles)</em> — is fitted to 2026 published ranges, with a $1,200 minimum (carriers enforce minimums). It's a modeled estimate, shown in full in the math panel.</li>
+      <li><strong>DIY truck, local:</strong> daily base × days + per-mile charge + fuel (10 mpg) + protection. <strong>One-way:</strong> a fitted base + per-mile rate that bundles fuel and protection, matched to 2026 one-way quotes.</li>
+      <li><strong>Container:</strong> flat local price; long-distance adds $2.50/mile to the base (includes ~1 month rental).</li>
+      <li><strong>Packing:</strong> full-service price from 2026 packing ranges; fragile-only at 40%. When you hire full packing, box/material costs are treated as included.</li>
+    </ul>
+
+    <h2>Three ways people overpay for a move</h2>
+    <ul>
+      <li><strong>Wrong move type for the distance.</strong> Full-service for a studio across town is paying for convenience you barely need; DIY-driving a 26-ft truck 2,500 miles without pricing a container first leaves money on the table — containers routinely beat full-service by $1,000+ on long hauls.</li>
+      <li><strong>Comparing quotes on different bases.</strong> One quote is hourly, another is flat; one includes full-value protection, another the legal-minimum $0.60/lb. Normalize every quote to the same basis before comparing — see our <a href="../../cost-guides/hidden-moving-fees/">hidden fees guide</a>.</li>
+      <li><strong>Ignoring the calendar.</strong> Summer weekends are peak pricing. A mid-month, mid-week move in the off-season (Oct–Apr) can cut 20–30% off the same job — movers' demand curve is that steep.</li>
+    </ul>
+
+    <div class="faq">
+      <h2>Moving cost FAQs</h2>
+      <details><summary>How much does a local move cost?</summary>
+        <p>Full-service local moves in 2026 run roughly $400–$1,500 (studio), $1,200–$2,500 (2 BR), $1,500–$4,000 (3 BR). A DIY truck for a local move is typically $75–$160 all-in plus boxes. Run your home size through the calculator above for all three move types side by side.</p></details>
+      <details><summary>How much does a cross-country move cost?</summary>
+        <p>Full-service: roughly $3,500–$6,500 (2 BR) or $5,500–$9,000 (3 BR) at 1,000+ miles. DIY one-way truck: ~$2,600–$3,900 for 2,500 miles including fuel. Containers land between the two — about $4,600 for a 3 BR at 1,200 miles in our model.</p></details>
+      <details><summary>Is it cheaper to rent a truck or hire movers?</summary>
+        <p>Almost always the truck — locally, often by 5–10×. On long-distance moves the gap narrows once fuel, lodging, and two days of your life enter the math, and containers become the value pick. The comparison table in the calculator prices your exact scenario three ways.</p></details>
+      <details><summary>What is the cheapest way to move long distance?</summary>
+        <p>A one-way DIY truck rental is usually cheapest if you'll drive it. Next: moving containers, then freight trailers (pay-per-foot) on some routes, then full-service. If there's a gap between leases, a container's built-in storage month can make it the cheapest <em>total</em> option.</p></details>
+      <details><summary>How accurate is this estimator?</summary>
+        <p>It's a planning estimate fitted to October 2026 published ranges — good for budgeting and for choosing between move types. Real quotes vary ±30% by city, season, and carrier, and long-distance carriers enforce minimum charges. Get three written quotes and sanity-check each here before signing. <a href="../../methodology/">How we compute costs</a>.</p></details>
+    </div>
+
+    <div class="related">
+      <h2>Keep going</h2>
+      <ul>
+        <li><a href="../../cost-guides/local-vs-long-distance-move-cost/">Local vs. long-distance: how moving pricing actually works</a></li>
+        <li><a href="../../comparisons/truck-vs-container-vs-movers/">DIY truck vs. container vs. full-service movers — compared</a></li>
+        <li><a href="../../cost-guides/hidden-moving-fees/">9 hidden moving fees and how to dodge them</a></li>
+        <li><a href="../../cost-guides/moving-checklist-timeline/">The 8-week moving checklist &amp; timeline</a></li>
+      </ul>
+    </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>CostMyProject</h4>
+        <p>The neutral, numbers-first answer to "what will my project cost?" Every estimate is computed live from dated, sourced price data — with the math shown.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../../calculators/paint-cost/">Paint Cost Calculator</a></li>
+          <li><a href="../../calculators/moving-cost/">Moving Cost Calculator</a></li>
+          <li><a href="../../calculators/">All calculators</a></li>
+          <li><a href="../../comparisons/paint-brand-coverage/">Paint brand comparison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../../methodology/">Methodology</a></li>
+          <li><a href="../../contact/">Contact</a></li>
+          <li><a href="../../privacy/">Privacy</a></li>
+          <li><a href="../../disclosure/">Disclosure</a></li>
+          <li><a href="../../editorial-policy/">Editorial Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Estimates, not quotes. Actual costs vary by location, season, and carrier. © 2026 CostMyProject. Price data last checked October 2026.</p>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/moving-calculator.js"></script>
+</body>
+</html>
