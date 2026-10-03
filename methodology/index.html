@@ -5,30 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How We Compute Costs — Methodology — CostMyProject</title>
 <meta name="description" content="Our full cost-computation methodology: formulas, dated price sources, coverage rates, labor assumptions, update cadence, and known limitations.">
-<link rel="canonical" href="https://costmyproject.me/methodology/">
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="canonical" href="https://brinoco47-wq.github.io/costmyproject/methodology/">
+<link rel="stylesheet" href="../assets/css/style.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
- {"@type":"ListItem","position":1,"name":"Home","item":"https://costmyproject.me/"},
- {"@type":"ListItem","position":2,"name":"Methodology","item":"https://costmyproject.me/methodology/"}]}
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://brinoco47-wq.github.io/costmyproject/"},
+ {"@type":"ListItem","position":2,"name":"Methodology","item":"https://brinoco47-wq.github.io/costmyproject/methodology/"}]}
 </script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/">Cost<span>My</span>Project</a>
+    <a class="brand" href="../">Cost<span>My</span>Project</a>
     <nav class="site-nav" aria-label="Main">
-      <a href="/calculators/">Calculators</a>
-      <a href="/cost-guides/">Cost Guides</a>
-      <a href="/comparisons/">Comparisons</a>
-      <a href="/methodology/" aria-current="page">Methodology</a>
-      <a href="/about/">About</a>
+      <a href="../calculators/">Calculators</a>
+      <a href="../cost-guides/">Cost Guides</a>
+      <a href="../comparisons/">Comparisons</a>
+      <a href="../methodology/" aria-current="page">Methodology</a>
+      <a href="../about/">About</a>
     </nav>
   </div>
 </header>
 <nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
-  <li><a href="/">Home</a></li><li aria-current="page">Methodology</li>
+  <li><a href="../">Home</a></li><li aria-current="page">Methodology</li>
 </ol></div></nav>
 
 <main id="main" class="wrap">
@@ -36,7 +36,7 @@
     <h1>How we compute costs</h1>
     <p class="byline">CostMyProject Research Team <span class="verified">Methodology v1.0 · September 2026</span></p>
 
-    <p>A cost estimate is only as good as the method behind it. This page documents ours in full — the formulas, the data sources, the update schedule, and the limitations. If any number on this site can't be traced back to something on this page, that's a bug: <a href="/contact/">tell us</a>.</p>
+    <p>A cost estimate is only as good as the method behind it. This page documents ours in full — the formulas, the data sources, the update schedule, and the limitations. If any number on this site can't be traced back to something on this page, that's a bug: <a href="../contact/">tell us</a>.</p>
 
     <div class="toc">
       <p>On this page</p>
@@ -44,6 +44,7 @@
         <li><a href="#formula">The paint calculator formula</a></li>
         <li><a href="#sources">Price data sources</a></li>
         <li><a href="#labor">How we handle labor</a></li>
+        <li><a href="#disagree">Why cost estimates disagree across the web</a></li>
         <li><a href="#updates">Update cadence</a></li>
         <li><a href="#limits">Limitations</a></li>
       </ol>
@@ -55,12 +56,16 @@ paint gallons = wall area × coats ÷ (brand coverage × surface factor)
 primer gallons = wall area ÷ 400  (only when priming)
 buy gallons = ceil(paint gallons × 1.10)   ← 10% waste, rounded up
 paint cost = buy gallons × price per gallon
-total = paint cost + primer cost + labor + supplies</code></div>
+materials = paint cost + primer cost + supplies
+labor = wall area × labor rate  (pro jobs only; $0 for DIY)
+total = materials + labor
+planning range = total × 0.75 … total × 1.25   ← ±25%: regional + condition variance</code></div>
     <ul>
       <li><strong>Doors and windows</strong> subtract standard openings: 21 sq ft per door (3×7 ft), 15 sq ft per window (3×5 ft).</li>
       <li><strong>Surface factors</strong> adjust manufacturer coverage for reality: interior 1.0, ceilings 0.9, exterior 0.8 — rough siding and stucco absorb more paint than smooth drywall.</li>
       <li><strong>Waste</strong> defaults to 10% for spillage, touch-ups, and the paint left in rollers and trays.</li>
       <li><strong>Coats:</strong> 2 is the default because virtually all manufacturer guidance and pro practice assumes two finish coats; primer is added for new drywall, bare surfaces, or dramatic color changes.</li>
+      <li><strong>The ±25% planning range</strong> is a stated convention, not a measurement: real bids move with metro labor rates ($1–$6/sq ft nationally), surface condition, and prep scope. We show the range next to every total so a single number never pretends to be more precise than the inputs allow.</li>
     </ul>
 
     <h2 id="sources">Price data sources</h2>
@@ -85,6 +90,16 @@ total = paint cost + primer cost + labor + supplies</code></div>
     <p>Painting labor is quoted three ways in the US market: per square foot of <em>paintable</em> area ($1–$6), per hour ($25–$75), or per room/day. Our calculator uses per-square-foot of paintable area because it's the only basis that scales cleanly from a room to a whole house — and we label the basis explicitly so you're never comparing our number to a quote computed a different way.</p>
     <p>Default rate is $2.50/sq ft: the middle of the standard-residential band. High cost-of-living metros and specialty work (cabinets, murals, heavy prep) run higher; straightforward repaints in lower-cost markets run lower. Adjust the rate to match quotes you're actually receiving — that's the right calibration.</p>
 
+    <h2 id="disagree">Why cost estimates disagree across the web</h2>
+    <p>If you've ever seen two calculators give wildly different numbers for the same project, you're not imagining it. For one well-known query — the cost of a new deck — a major home site's calculator averages $16,007–$17,692 while another respected calculator puts the same project at $3,560–$5,120. Neither site explains the gap. Here's what usually causes it:</p>
+    <ul>
+      <li><strong>Different scopes.</strong> One estimate includes demolition, permits, railings, and stairs; the other assumes a bare-bones platform. Neither says so. Our fix: every estimate on this site lists <em>what's included and what isn't</em>.</li>
+      <li><strong>Different units.</strong> Painting quotes come per <em>paintable</em> square foot, per <em>floor</em> square foot, per room, or per day — a $3/sq ft floor-area quote is roughly a $1/sq ft wall-area quote. Our fix: we label the basis on every number.</li>
+      <li><strong>Different regions and dates.</strong> Labor in San Francisco vs. rural Ohio differs 2–3×, and a 2021 price table is not a 2026 price table. Our fix: dated sources on every figure, and the ±25% planning range shown next to every total.</li>
+      <li><strong>Different business models.</strong> Lead-generation sites are incentivized to show numbers that make you pick up the phone, in either direction. Our fix: we sell nothing and gate nothing — the calculator's math is the product.</li>
+    </ul>
+    <p>When you compare any two estimates — ours against a contractor's, or ours against another site — normalize them first: same scope, same unit, same year, same region. Most "disagreements" evaporate once you do.</p>
+
     <h2 id="updates">Update cadence</h2>
     <ul>
       <li><strong>Paint prices:</strong> re-checked quarterly (January, April, July, October), or sooner if we detect a major price move.</li>
@@ -103,7 +118,7 @@ total = paint cost + primer cost + labor + supplies</code></div>
 
     <div class="callout method">
       <strong>Our commitment</strong>
-      If you find a price on this site that's wrong or stale, <a href="/contact/">report it</a> — corrections jump the queue and the check date updates the same day.
+      If you find a price on this site that's wrong or stale, <a href="../contact/">report it</a> — corrections jump the queue and the check date updates the same day.
     </div>
   </article>
 </main>
@@ -118,20 +133,20 @@ total = paint cost + primer cost + labor + supplies</code></div>
       <div>
         <h4>Tools</h4>
         <ul>
-          <li><a href="/calculators/paint-cost/">Paint Cost Calculator</a></li>
-          <li><a href="/calculators/">All calculators</a></li>
-          <li><a href="/comparisons/paint-brand-coverage/">Paint brand comparison</a></li>
+          <li><a href="../calculators/paint-cost/">Paint Cost Calculator</a></li>
+          <li><a href="../calculators/">All calculators</a></li>
+          <li><a href="../comparisons/paint-brand-coverage/">Paint brand comparison</a></li>
         </ul>
       </div>
       <div>
         <h4>Company</h4>
         <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/methodology/">Methodology</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="/privacy/">Privacy</a></li>
-          <li><a href="/disclosure/">Disclosure</a></li>
-          <li><a href="/editorial-policy/">Editorial Policy</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../methodology/">Methodology</a></li>
+          <li><a href="../contact/">Contact</a></li>
+          <li><a href="../privacy/">Privacy</a></li>
+          <li><a href="../disclosure/">Disclosure</a></li>
+          <li><a href="../editorial-policy/">Editorial Policy</a></li>
         </ul>
       </div>
     </div>
