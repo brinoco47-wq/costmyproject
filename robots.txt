@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://costmyproject.me/sitemap.xml
+Sitemap: https://brinoco47-wq.github.io/costmyproject/sitemap.xml
