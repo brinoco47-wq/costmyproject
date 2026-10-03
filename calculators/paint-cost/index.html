@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paint Cost Calculator — Gallons, Primer &amp; Total Project Cost (2026 Prices)</title>
+<meta name="description" content="Free paint cost calculator: enter room dimensions, get gallons to buy, paint + primer + labor costs, and a total project estimate. September 2026 US prices, math shown.">
+<link rel="canonical" href="https://costmyproject.me/calculators/paint-cost/">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Paint Cost Calculator",
+ "applicationCategory":"WebApplication","operatingSystem":"Any",
+ "url":"https://costmyproject.me/calculators/paint-cost/",
+ "description":"Calculates paint gallons, primer, and total project cost (materials + labor) from room dimensions and current US paint prices.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "author":{"@type":"Organization","name":"CostMyProject","url":"https://costmyproject.me/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://costmyproject.me/"},
+ {"@type":"ListItem","position":2,"name":"Calculators","item":"https://costmyproject.me/calculators/"},
+ {"@type":"ListItem","position":3,"name":"Paint Cost Calculator","item":"https://costmyproject.me/calculators/paint-cost/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"How many gallons of paint do I need for a 12x12 room?",
+  "acceptedAnswer":{"@type":"Answer","text":"A 12×12 ft room with 8 ft ceilings has about 384 sq ft of wall (after subtracting a door and window). At 400 sq ft per gallon and 2 coats, you need about 1.9 gallons — buy 2 gallons, or 3 with a 10% waste allowance. Use the calculator above for your exact dimensions."}},
+ {"@type":"Question","name":"Do I need primer before painting?",
+  "acceptedAnswer":{"@type":"Answer","text":"Yes for new drywall, bare wood, or dramatic color changes (dark to light). No — usually — when repainting a similar color over paint in good condition, especially with a paint-and-primer-in-one product. The calculator auto-selects primer based on your surface condition."}},
+ {"@type":"Question","name":"How much does it cost to hire a painter vs. DIY?",
+  "acceptedAnswer":{"@type":"Answer","text":"Professional painters charge $1–$6 per sq ft of paintable area (2026 US average), or $25–$75 per hour. Labor is typically 70–85% of a professional job's total. DIY saves the labor cost entirely — paint and supplies for a 12×15 room run roughly $150–$300."}},
+ {"@type":"Question","name":"Is expensive paint worth it?",
+  "acceptedAnswer":{"@type":"Answer","text":"Often yes, on a per-square-foot-covered basis. Premium paints ($70–$78/gal) cover more area per gallon and hide better, so the cost per finished square foot can be close to mid-range paint ($44/gal). Our brand comparison breaks down the true cost per square foot covered."}}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Cost<span>My</span>Project</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/calculators/" aria-current="page">Calculators</a>
+      <a href="/cost-guides/">Cost Guides</a>
+      <a href="/comparisons/">Comparisons</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
+  <li><a href="/">Home</a></li><li><a href="/calculators/">Calculators</a></li><li aria-current="page">Paint Cost Calculator</li>
+</ol></div></nav>
+
+<main id="main" class="wrap">
+  <article class="article" style="max-width:none">
+    <h1>Paint Cost Calculator</h1>
+    <p class="byline">CostMyProject Research Team <span class="verified">Prices checked September 2026</span></p>
+    <p class="lede" style="max-width:62ch">How much paint do you need, and what will the whole project cost? Enter your measurements — get gallons to buy, paint + primer + optional pro labor, and a total, with every step of the math shown. No email required.</p>
+
+    <form id="calc-form" class="calc" onsubmit="return false" aria-label="Paint cost calculator">
+      <div class="calc-grid">
+        <div>
+          <div class="field">
+            <label>How do you want to enter size?</label>
+            <div class="seg" id="seg-mode" role="group" aria-label="Size entry mode">
+              <button type="button" data-val="dims" aria-pressed="true">Room dimensions</button>
+              <button type="button" data-val="area" aria-pressed="false">Square footage</button>
+            </div>
+            <input type="hidden" id="calc-mode" value="dims">
+            <div class="presets" role="group" aria-label="Presets">
+              <button type="button" class="preset" data-preset="bedroom" aria-pressed="false">10×10 bedroom</button>
+              <button type="button" class="preset" data-preset="living" aria-pressed="true">12×15 living room</button>
+              <button type="button" class="preset" data-preset="exterior" aria-pressed="false">2,000 sq ft home exterior</button>
+            </div>
+          </div>
+          <div id="dims-fields">
+            <div class="field"><label for="in-length">Length (ft)</label><input type="number" id="in-length" value="12" min="0" step="0.5"></div>
+            <div class="field"><label for="in-width">Width (ft)</label><input type="number" id="in-width" value="15" min="0" step="0.5"></div>
+            <div class="field"><label for="in-height">Ceiling height (ft)</label><input type="number" id="in-height" value="8" min="0" step="0.5"></div>
+            <div class="field"><label for="in-doors">Doors <span class="hint">(21 sq ft each)</span></label><input type="number" id="in-doors" value="2" min="0" step="1"></div>
+            <div class="field"><label for="in-windows">Windows <span class="hint">(15 sq ft each)</span></label><input type="number" id="in-windows" value="2" min="0" step="1"></div>
+          </div>
+          <div id="area-field" style="display:none">
+            <div class="field"><label for="in-area">Paintable area (sq ft)</label><input type="number" id="in-area" value="400" min="0" step="1">
+            <span class="hint">Wall/siding area to be painted, not floor area.</span></div>
+          </div>
+          <div class="field">
+            <label>What are you painting?</label>
+            <div class="seg" id="seg-type" role="group" aria-label="Surface type">
+              <button type="button" data-val="interior" aria-pressed="true">Interior walls</button>
+              <button type="button" data-val="ceiling" aria-pressed="false">Ceiling</button>
+              <button type="button" data-val="exterior" aria-pressed="false">Exterior</button>
+            </div>
+            <input type="hidden" id="calc-type" value="interior">
+          </div>
+          <div class="field">
+            <label>Surface condition</label>
+            <div class="seg" id="seg-condition" role="group" aria-label="Surface condition">
+              <button type="button" data-val="repaint" aria-pressed="true">Repaint, similar color</button>
+              <button type="button" data-val="new" aria-pressed="false">New / bare surface</button>
+              <button type="button" data-val="dramatic" aria-pressed="false">Dark → light change</button>
+            </div>
+            <input type="hidden" id="calc-condition" value="repaint">
+            <span class="hint" id="condition-hint"></span>
+          </div>
+          <div class="field">
+            <label for="calc-coats">Coats of paint</label>
+            <select id="calc-coats">
+              <option value="1">1 coat</option>
+              <option value="2" selected>2 coats (recommended)</option>
+              <option value="3">3 coats</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="field">
+            <label for="calc-brand">Paint brand</label>
+            <select id="calc-brand">
+              <option value="behr" selected>Behr Premium Plus — $43.98/gal</option>
+              <option value="sw">Sherwin-Williams SuperPaint — $70.00/gal</option>
+              <option value="bm">Benjamin Moore Regal Select — $74.00/gal</option>
+              <option value="custom">Custom — set your own price</option>
+            </select>
+            <span class="hint" id="brand-where"></span>
+          </div>
+          <div class="field"><label for="in-paint-price">Paint price per gallon ($)</label><input type="number" id="in-paint-price" value="43.98" min="0" step="0.01"></div>
+          <div class="field"><label for="in-paint-coverage">Coverage (sq ft per gallon) <span class="hint">manufacturer spec</span></label><input type="number" id="in-paint-coverage" value="400" min="1" step="1"></div>
+          <div class="field">
+            <label>Primer</label>
+            <div class="seg" id="seg-primer" role="group" aria-label="Primer">
+              <button type="button" data-val="auto" aria-pressed="true">Auto (by condition)</button>
+              <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+              <button type="button" data-val="no" aria-pressed="false">No</button>
+            </div>
+            <input type="hidden" id="calc-primer" value="auto">
+          </div>
+          <div class="field"><label for="in-primer-price">Primer price per gallon ($)</label><input type="number" id="in-primer-price" value="30.00" min="0" step="0.01"></div>
+          <div class="field">
+            <label>Who's doing the work?</label>
+            <div class="seg" id="seg-labor" role="group" aria-label="Labor">
+              <button type="button" data-val="diy" aria-pressed="true">DIY</button>
+              <button type="button" data-val="pro" aria-pressed="false">Hire a pro</button>
+            </div>
+            <input type="hidden" id="calc-labor" value="diy">
+          </div>
+          <div class="field" id="labor-rate-field" style="display:none">
+            <label for="in-labor-rate">Pro labor rate ($ per sq ft of paintable area) <span class="hint">US 2026 range: $1–$6</span></label>
+            <input type="number" id="in-labor-rate" value="2.50" min="0" step="0.10">
+          </div>
+          <div class="field"><label for="in-supplies">Supplies ($) <span class="hint">tape, rollers, drop cloths, brushes</span></label><input type="number" id="in-supplies" value="50" min="0" step="1"></div>
+          <div class="field"><label for="in-waste">Waste &amp; touch-up allowance (%)</label><input type="number" id="in-waste" value="10" min="0" max="50" step="1"></div>
+        </div>
+      </div>
+      <div id="calc-result" class="result" aria-live="polite"></div>
+    </form>
+
+    <div style="max-width:46rem">
+    <h2>The price data behind this calculator</h2>
+    <p class="data-date">Checked September 23, 2026</p>
+    <table>
+      <thead><tr><th>Product</th><th>Price / gal</th><th>Coverage</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Behr Premium Plus (interior)</td><td>$43.98 <span class="src">(5-gal: $39.20/gal)</span></td><td>400 sq ft</td><td class="src"><a href="https://www.homedepot.com/p/BEHR-PREMIUM-PLUS-1-gal-MQ4-56-El-Capitan-Semi-Gloss-Enamel-Low-Odor-Interior-Paint-Primer-340001/303901388">Home Depot listing</a></td></tr>
+        <tr><td>Sherwin-Williams SuperPaint</td><td>$70 <span class="src">(range $60–$77; frequent 30–40% sales)</span></td><td>350–400 sq ft</td><td class="src"><a href="https://engineerfix.com/how-much-does-sherwin-williams-superpaint-cost/">Engineer Fix MSRP reporting</a></td></tr>
+        <tr><td>Benjamin Moore Regal Select</td><td>$74 <span class="src">(range $70–$78 by sheen)</span></td><td>400–450 sq ft</td><td class="src"><a href="https://www.acehardware.com/departments/paint-and-supplies/interior-paint/wall-paint/1026517">Ace Hardware listings</a></td></tr>
+        <tr><td>Primer — Zinsser Bulls Eye 1-2-3</td><td>$30</td><td>400 sq ft</td><td class="src"><a href="https://www.acehardware.com/departments/paint-and-supplies/primers/primers/16890">Ace Hardware</a>; <a href="http://www.homedepot.com/p/Zinsser-2-Gal-White-Bulls-Eye-1-2-3-Water-Based-Primer-259115/202713102">Home Depot</a></td></tr>
+        <tr><td>Pro labor</td><td>$1–$6 / sq ft</td><td>—</td><td class="src"><a href="https://homeguide.com/costs/cost-to-hire-a-painter">HomeGuide</a>; <a href="https://www.homeadvisor.com/cost/painting/?entry_point_id=42373195">HomeAdvisor</a> (2026 guides)</td></tr>
+      </tbody>
+    </table>
+    <p class="src">Prices move by store, region, and sale cycle — every price above is editable in the calculator. Our full sourcing and update policy: <a href="/methodology/">methodology</a>.</p>
+
+    <h2>How to measure a room in 2 minutes</h2>
+    <ol class="steps">
+      <li><strong>Measure the perimeter.</strong> Walk the room with a tape: length and width of each wall, or just the room's length × width — the calculator does 2×(L+W)×height for you.</li>
+      <li><strong>Use 8 ft unless you know better.</strong> Standard US ceilings are 8 ft; 9 ft in many newer homes. Vaulted ceilings need the average height.</li>
+      <li><strong>Count doors and windows.</strong> The calculator subtracts standard openings (21 sq ft per door, 15 per window) — close enough for estimating; pros measure exactly.</li>
+      <li><strong>Round paint up, never down.</strong> Running out mid-wall means a visible lap line and a second trip. The calculator's 10% waste allowance + round-up handles this.</li>
+    </ol>
+
+    <h2>Three ways people get the math wrong</h2>
+    <ul>
+      <li><strong>Using floor square footage.</strong> A 12×15 room is 180 sq ft of floor but ~400 sq ft of wall. Quotes and calculators that don't specify which "square foot" they mean aren't comparable.</li>
+      <li><strong>One coat fantasies.</strong> "One-coat coverage" is a marketing claim tested under lab conditions. Budget two coats; celebrate if one suffices.</li>
+      <li><strong>Comparing price per gallon.</strong> A $74 gallon covering 425 sq ft can be cheaper per finished square foot than a $44 gallon covering 350. See our <a href="/comparisons/paint-brand-coverage/">brand comparison</a> for the real metric.</li>
+    </ul>
+
+    <div class="faq">
+      <h2>Paint cost FAQs</h2>
+      <details><summary>How many gallons of paint do I need for a 12×12 room?</summary>
+        <p>About 384 sq ft of wall after subtracting a door and window. At 400 sq ft per gallon and 2 coats, that's ~1.9 gallons — buy 2, or 3 with a waste allowance. Punch your exact dimensions into the calculator above.</p></details>
+      <details><summary>Do I need primer before painting?</summary>
+        <p>Yes for new drywall, bare wood, or dramatic color changes (dark to light). Usually no when repainting a similar color over sound paint — especially with a paint-and-primer-in-one. The calculator auto-selects primer based on the condition you pick.</p></details>
+      <details><summary>How much does it cost to hire a painter vs. DIY?</summary>
+        <p>Pros charge $1–$6 per sq ft of paintable area in 2026 (or $25–$75/hour); labor is typically 70–85% of a pro job's total. DIY for a 12×15 room runs roughly $150–$300 in paint and supplies. Toggle "Hire a pro" in the calculator to see both.</p></details>
+      <details><summary>Is expensive paint worth it?</summary>
+        <p>Often, measured correctly. Premium paints cover more square feet per gallon and hide in fewer coats, so cost per <em>finished</em> square foot can nearly match mid-range paint. Our <a href="/comparisons/paint-brand-coverage/">Behr vs. Sherwin-Williams vs. Benjamin Moore</a> comparison does this math with September 2026 shelf prices.</p></details>
+      <details><summary>How accurate is this calculator?</summary>
+        <p>It's a planning estimate built on verified September 2026 prices and manufacturer coverage specs — good for budgeting and sanity-checking bids. Real quotes vary ±30% by region, surface condition, and prep needs. See <a href="/methodology/">how we compute costs</a> for the full method and limitations.</p></details>
+    </div>
+
+    <div class="related">
+      <h2>Keep going</h2>
+      <ul>
+        <li><a href="/cost-guides/interior-paint-cost/">Interior painting cost guide — room-by-room breakdowns</a></li>
+        <li><a href="/cost-guides/exterior-paint-cost/">Exterior painting cost guide</a></li>
+        <li><a href="/comparisons/paint-brand-coverage/">Behr vs. Sherwin-Williams vs. Benjamin Moore</a></li>
+        <li><a href="/cost-guides/paint-finishes/">Which paint finish goes where</a></li>
+      </ul>
+    </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>CostMyProject</h4>
+        <p>The neutral, numbers-first answer to "what will my project cost?" Every estimate is computed live from dated, sourced price data — with the math shown.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="/calculators/paint-cost/">Paint Cost Calculator</a></li>
+          <li><a href="/calculators/">All calculators</a></li>
+          <li><a href="/comparisons/paint-brand-coverage/">Paint brand comparison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/methodology/">Methodology</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/disclosure/">Disclosure</a></li>
+          <li><a href="/editorial-policy/">Editorial Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Estimates, not quotes. Actual costs vary by location, surface condition, and contractor. © 2026 CostMyProject. Price data last checked September 2026.</p>
+    </div>
+  </div>
+</footer>
+<script src="/assets/js/paint-calculator.js"></script>
+</body>
+</html>
