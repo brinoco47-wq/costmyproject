@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deck Cost Calculator — Price Per Square Foot by Material (2026)</title>
+<meta name="description" content="Free deck cost calculator: pressure-treated wood, cedar, composite, or PVC — enter deck size and get materials + labor + stairs + railing in one total. October 2026 US prices, math shown.">
+<link rel="canonical" href="https://brinoco47-wq.github.io/costmyproject/calculators/deck-cost/">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Deck Cost Calculator",
+ "applicationCategory":"WebApplication","operatingSystem":"Any",
+ "url":"https://brinoco47-wq.github.io/costmyproject/calculators/deck-cost/",
+ "description":"Calculates deck material, install labor, stairs, railing, benches, old-deck removal, and total project cost from deck size, material, and height.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "author":{"@type":"Organization","name":"CostMyProject","url":"https://brinoco47-wq.github.io/costmyproject/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://brinoco47-wq.github.io/costmyproject/"},
+ {"@type":"ListItem","position":2,"name":"Calculators","item":"https://brinoco47-wq.github.io/costmyproject/calculators/"},
+ {"@type":"ListItem","position":3,"name":"Deck Cost Calculator","item":"https://brinoco47-wq.github.io/costmyproject/calculators/deck-cost/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"How much does a deck cost per square foot in 2026?",
+  "acceptedAnswer":{"@type":"Answer","text":"Installed at ground level: pressure-treated wood $15–$30/sqft, cedar/redwood $22–$45/sqft, composite $30–$58/sqft, PVC $35–$85/sqft (2026 US ranges). Stairs, railing, height, old-deck removal, and permits add on top — the calculator prices each separately."}},
+ {"@type":"Question","name":"Is a composite deck worth the extra cost over wood?",
+  "acceptedAnswer":{"@type":"Answer","text":"Often yes over a decade. A 400-sqft composite deck costs ~$12,400 installed with ~$100/yr upkeep; pressure-treated wood costs ~$7,200 installed but needs ~$1,000 in staining every 2 years plus a rebuild around year 12. Wood's total typically overtakes composite's around year 11."}},
+ {"@type":"Question","name":"How much does deck height change the price?",
+  "acceptedAnswer":{"@type":"Answer","text":"A lot. Ground-level decks use simple footings; a raised deck (2–8 ft) needs posts, beams, railing, and stairs — roughly +30% on the deck-surface price. A rooftop or second-story deck needs engineering and deeper footings — roughly +55% (industry rule of thumb)."}},
+ {"@type":"Question","name":"Is it cheaper to build a deck yourself?",
+  "acceptedAnswer":{"@type":"Answer","text":"Labor is 40–60% of an installed deck quote, so DIY saves thousands — pressure-treated wood is the most DIY-friendly. But framing mistakes are structural, and elevated decks need code-compliant footings, ledger attachment, and railing. Toggle DIY/pro in the calculator to see both numbers, then be honest about your skill level."}},
+ {"@type":"Question","name":"Do I need a permit to build a deck?",
+  "acceptedAnswer":{"@type":"Answer","text":"Usually yes — typically $100–$800 depending on the municipality, with inspections at footing and final stages. Ground-level decks under ~30 inches sometimes skip permits, but anything attached to the house or elevated almost always needs one. Your contractor can usually pull it."}},
+ {"@type":"Question","name":"How accurate is this calculator?",
+  "acceptedAnswer":{"@type":"Answer","text":"It's a budgeting estimate built on October 2026 installed-price ranges and pro labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because soil, access, height, and regional labor move real quotes. See how we compute costs for the full method and limitations."}}]}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTHH0CBTVS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CTHH0CBTVS');
+</script>
+<!-- Google AdSense -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249169140665725"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../">Cost<span>My</span>Project</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../../calculators/" aria-current="page">Calculators</a>
+      <a href="../../cost-guides/">Cost Guides</a>
+      <a href="../../comparisons/">Comparisons</a>
+      <a href="../../methodology/">Methodology</a>
+      <a href="../../about/">About</a>
+    </nav>
+  </div>
+</header>
+<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
+  <li><a href="../../">Home</a></li><li><a href="../../calculators/">Calculators</a></li><li aria-current="page">Deck Cost Calculator</li>
+</ol></div></nav>
+
+<main id="main" class="wrap">
+  <article class="article" style="max-width:none">
+    <h1>Deck Cost Calculator</h1>
+    <p class="byline">CostMyProject Research Team <span class="verified">Prices checked October 2026</span></p>
+    <p class="lede" style="max-width:62ch">What will a new deck actually cost? Pick a material, enter your deck size and height — get materials + install labor + stairs + railing rolled into one honest total, with every step of the math shown. No email required.</p>
+    <p><span class="trust-badge"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2"/><path d="M5 8.5l2 2 4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No email required — instant results, nothing to sign up for</span></p>
+
+    <form id="calc-form" class="calc" onsubmit="return false" aria-label="Deck cost calculator">
+      <div class="calc-grid">
+        <div>
+          <div class="field">
+            <label>How do you want to enter size?</label>
+            <div class="seg" id="seg-mode" role="group" aria-label="Size entry mode">
+              <button type="button" data-val="dims" aria-pressed="true">Deck dimensions</button>
+              <button type="button" data-val="sqft" aria-pressed="false">Square footage</button>
+            </div>
+            <input type="hidden" id="calc-mode" value="dims">
+            <div class="presets" role="group" aria-label="Presets">
+              <button type="button" class="preset" data-preset="classic" aria-pressed="false">Classic 12×16 (192 sqft)</button>
+              <button type="button" class="preset" data-preset="family" aria-pressed="true">Family 16×20 (320 sqft)</button>
+              <button type="button" class="preset" data-preset="entertainer" aria-pressed="false">Entertainer 20×24 (480 sqft)</button>
+            </div>
+          </div>
+          <div id="dims-fields">
+            <div class="field"><label for="in-length">Deck length (ft)</label><input type="number" id="in-length" value="16" min="0" step="1"></div>
+            <div class="field"><label for="in-width">Deck width (ft)</label><input type="number" id="in-width" value="20" min="0" step="1"></div>
+            <span class="hint">Area = length × width. For L-shaped or multi-level decks, enter total square footage directly.</span>
+          </div>
+          <div id="sqft-field" style="display:none">
+            <div class="field"><label for="in-sqft">Total square footage</label><input type="number" id="in-sqft" value="320" min="0" step="1">
+            <span class="hint">Total deck surface area in square feet.</span></div>
+          </div>
+          <div class="field">
+            <label for="calc-material">Deck material</label>
+            <select id="calc-material">
+              <option value="ptwood" selected>Pressure-treated wood — $15–$30/sqft installed</option>
+              <option value="cedar">Cedar / redwood — $22–$45/sqft installed</option>
+              <option value="composite">Composite (Trex/TimberTech) — $30–$58/sqft installed</option>
+              <option value="pvc">PVC / cellular vinyl — $35–$85/sqft installed</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Quality tier</label>
+            <div class="seg" id="seg-tier" role="group" aria-label="Quality tier">
+              <button type="button" data-val="budget" aria-pressed="false">Budget</button>
+              <button type="button" data-val="standard" aria-pressed="true">Standard</button>
+              <button type="button" data-val="premium" aria-pressed="false">Premium</button>
+            </div>
+            <input type="hidden" id="calc-tier" value="standard">
+            <span class="hint">Budget = low end of the price range · Standard = middle · Premium = top end.</span>
+          </div>
+          <div class="field">
+            <label>Deck height</label>
+            <div class="seg" id="seg-height" role="group" aria-label="Deck height">
+              <button type="button" data-val="ground" aria-pressed="true">Ground-level</button>
+              <button type="button" data-val="raised" aria-pressed="false">Raised</button>
+              <button type="button" data-val="rooftop" aria-pressed="false">Rooftop / 2nd story</button>
+            </div>
+            <input type="hidden" id="calc-height" value="ground">
+            <span class="hint">Raised ≈ +30% on the deck-surface price · Rooftop/second-story ≈ +55% (industry rule of thumb).</span>
+          </div>
+          <div class="field">
+            <label>Who's building?</label>
+            <div class="seg" id="seg-labor" role="group" aria-label="Labor">
+              <button type="button" data-val="diy" aria-pressed="true">DIY</button>
+              <button type="button" data-val="pro" aria-pressed="false">Hire a pro</button>
+            </div>
+            <input type="hidden" id="calc-labor" value="diy">
+          </div>
+        </div>
+        <div>
+          <div class="field"><label for="in-material-price">Material price ($ per sqft)</label><input type="number" id="in-material-price" value="14.00" min="0" step="0.50">
+          <span class="hint" id="material-where"></span></div>
+          <div class="field" id="labor-rate-field" style="display:none">
+            <label for="in-labor-rate">Pro install rate ($ per sqft) <span class="hint">auto-set by material; 2026 range $8–$26</span></label>
+            <input type="number" id="in-labor-rate" value="17.00" min="0" step="0.50">
+          </div>
+          <div class="field"><label for="in-steps">Stair steps</label><input type="number" id="in-steps" value="0" min="0" step="1">
+          <span class="hint">Number of individual steps. Set 0 for a ground-level deck with no stairs.</span></div>
+          <div class="field"><label for="in-step-price">Price per step ($) <span class="hint">typical $50–$100 installed</span></label><input type="number" id="in-step-price" value="75" min="0" step="5"></div>
+          <div class="field"><label for="in-railing-lf">Railing (linear feet)</label><input type="number" id="in-railing-lf" value="0" min="0" step="1">
+          <span class="hint">A 16×20 deck typically needs ~50–60 LF of railing (minus the house side and stair opening).</span></div>
+          <div class="field"><label for="in-railing-price">Railing price ($ per LF) <span class="hint">typical $25–$80; cable/glass $80+</span></label><input type="number" id="in-railing-price" value="45" min="0" step="5"></div>
+          <div class="field"><label for="in-benches">Built-in benches</label><input type="number" id="in-benches" value="0" min="0" step="1"></div>
+          <div class="field"><label for="in-bench-price">Price per bench ($) <span class="hint">typical $500–$1,200 installed</span></label><input type="number" id="in-bench-price" value="800" min="0" step="50"></div>
+          <div class="field">
+            <label>Remove old deck?</label>
+            <div class="seg" id="seg-removal" role="group" aria-label="Old deck removal">
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+              <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            </div>
+            <input type="hidden" id="calc-removal" value="no">
+          </div>
+          <div class="field"><label for="in-removal-rate">Tear-off &amp; disposal ($ per sqft) <span class="hint">typical $2–$5/sqft</span></label><input type="number" id="in-removal-rate" value="3.00" min="0" step="0.50"></div>
+          <div class="field"><label for="in-permit">Permit &amp; fees ($) <span class="hint">most municipalities $100–$800</span></label><input type="number" id="in-permit" value="250" min="0" step="25"></div>
+        </div>
+      </div>
+      <div id="calc-result" class="result" aria-live="polite"></div>
+    </form>
+
+    <div style="max-width:46rem">
+    <h2>Worked example: 16×20 composite deck, fully itemized</h2>
+    <p class="data-date">Computed by the calculator above · composite standard tier @ $14.00/sqft materials · raised · pro install · 6 steps · 60 LF railing · October 2026 prices</p>
+    <table>
+      <thead><tr><th>Line item</th><th>Math</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td>Deck area</td><td>16 × 20</td><td>320 sqft</td></tr>
+        <tr><td>Decking materials (×1.30 raised)</td><td>320 × 1.30 × $14.00</td><td><strong>$5,824.00</strong></td></tr>
+        <tr><td>Install labor (×1.30 raised)</td><td>320 × 1.30 × $17.00</td><td><strong>$7,072.00</strong></td></tr>
+        <tr><td>Stairs</td><td>6 × $75</td><td><strong>$450.00</strong></td></tr>
+        <tr><td>Railing</td><td>60 × $45</td><td><strong>$2,700.00</strong></td></tr>
+        <tr><td>Permit</td><td>flat</td><td><strong>$250.00</strong></td></tr>
+        <tr><td><strong>Total — pro install</strong></td><td></td><td><strong>$16,296.00</strong></td></tr>
+        <tr><td><strong>Per sqft all-in</strong></td><td>$16,296 ÷ 320</td><td><strong>$50.93</strong></td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead><tr><th>Scenario</th><th>Total</th><th>Typical range (±25%)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>DIY</strong> (materials + stairs + railing + permit)</td><td><strong>$9,224</strong></td><td>$6,918 – $11,530</td></tr>
+        <tr><td><strong>Hire a pro</strong></td><td><strong>$16,296</strong></td><td>$12,222 – $20,370</td></tr>
+      </tbody>
+    </table>
+    <p class="src">Run the calculator above with these inputs and you'll get the same numbers. At $50.93/sqft all-in (raised, with stairs and railing), this lands inside the 2026 national composite range — the model checks out against published data.</p>
+
+    <h2>What's included — and what isn't</h2>
+    <div class="incl-grid">
+      <div class="incl yes">
+        <h3>✓ Included in every estimate</h3>
+        <ul>
+          <li>Decking materials per square foot: boards, framing lumber, fasteners</li>
+          <li>Pro install labor per square foot, when you select "Hire a pro"</li>
+          <li>Height adjustment (raised ≈ +30%, rooftop/second-story ≈ +55% vs. ground-level)</li>
+          <li>Stairs, at your step count and price</li>
+          <li>Railing, at your linear footage and price</li>
+          <li>Built-in benches, when you add them</li>
+          <li>Old-deck tear-off &amp; disposal, when you toggle it on</li>
+          <li>Permit &amp; fees, when you enter an amount</li>
+        </ul>
+      </div>
+      <div class="incl no">
+        <h3>✗ Not included</h3>
+        <ul>
+          <li>Permit drawings / engineered plans ($500–$2,500 where required)</li>
+          <li>Lighting ($50–$200 per fixture installed) and electrical runs</li>
+          <li>Pergolas or roof structures ($3,500–$15,000+)</li>
+          <li>Hot tub or outdoor-kitchen structural reinforcement</li>
+          <li>Landscaping repair, sod, or drainage work around the deck</li>
+        </ul>
+      </div>
+    </div>
+    <p class="src">If a contractor's bid covers items on the right-hand list and ours doesn't, ask them to itemize — that's exactly how you compare bids honestly.</p>
+
+    <h2>The price data behind this calculator</h2>
+    <p class="data-date">Checked October 4, 2026</p>
+    <p class="fresh-note"><strong>Data freshness:</strong> prices verified October 2026 · next scheduled re-check January 2027. Stale data is misinformation — our <a href="../../methodology/">update policy</a> is public.</p>
+    <table>
+      <thead><tr><th>Material</th><th>Materials / sqft</th><th>Pro labor / sqft</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Pressure-treated wood</td><td>$4–$10</td><td>$8–$14</td><td class="src"><a href="https://fixupfirst.com/blog/deck-building-cost-per-square-foot/">FixUpFirst 2026</a>; <a href="https://honestcasa.com/blog/deck-building-cost-guide">HonestCasa 2026</a></td></tr>
+        <tr><td>Cedar / redwood</td><td>$7–$14</td><td>$10–$16</td><td class="src"><a href="https://fixupfirst.com/blog/deck-building-cost-per-square-foot/">FixUpFirst 2026</a>; <a href="https://remodelcalculators.com/deck-cost">RemodelCalculators 2026</a></td></tr>
+        <tr><td>Composite (Trex/TimberTech)</td><td>$10–$18</td><td>$14–$22</td><td class="src"><a href="https://fixupfirst.com/blog/deck-building-cost-per-square-foot/">FixUpFirst 2026</a>; <a href="https://www.iaremodelings.com/news/articles/national/decks/patio-deck-cost-guide-2026">IARemodelings 2026</a></td></tr>
+        <tr><td>PVC / cellular vinyl</td><td>$13–$24</td><td>$16–$26</td><td class="src"><a href="https://fixupfirst.com/blog/deck-building-cost-per-square-foot/">FixUpFirst 2026</a>; <a href="https://honestcasa.com/blog/deck-building-cost-guide">HonestCasa 2026</a> <span class="src">(labor range — industry estimate)</span></td></tr>
+        <tr><td>Stairs</td><td colspan="2">$50–$100 / step <span class="src">(default $75)</span></td><td class="src"><a href="https://honestcasa.com/blog/deck-building-cost-guide">HonestCasa 2026</a></td></tr>
+        <tr><td>Railing</td><td colspan="2">$25–$80 / LF <span class="src">(default $45; cable/glass $80+)</span></td><td class="src"><a href="https://fixupfirst.com/blog/deck-building-cost-per-square-foot/">FixUpFirst 2026</a>; <a href="https://honestcasa.com/blog/deck-building-cost-guide">HonestCasa 2026</a></td></tr>
+        <tr><td>Built-in benches</td><td colspan="2">$500–$1,200 each <span class="src">(default $800)</span></td><td class="src"><a href="https://honestcasa.com/blog/deck-building-cost-guide">HonestCasa 2026</a></td></tr>
+        <tr><td>Old-deck removal</td><td colspan="2">$2–$5 / sqft <span class="src">(default $3.00)</span></td><td class="src"><a href="https://puetzconstruction.com/blog/trex-decking-cost/">Puetz Construction 2026</a></td></tr>
+        <tr><td>Permit</td><td colspan="2">$100–$800 by municipality <span class="src">(default $250)</span></td><td class="src"><a href="https://www.everydaycarstips.com/dsr/home+depot+deck+installation+cost+breakdown">Home Depot install breakdown</a></td></tr>
+      </tbody>
+    </table>
+    <p class="src">Ranges move by store, region, and product line — every default above is editable in the calculator. Height multipliers (raised +30%, rooftop/second-story +55%) are industry rules of thumb, labeled as estimates. Full sourcing and update policy: <a href="../../methodology/">methodology</a>.</p>
+
+    <h2>Three ways people get the math wrong</h2>
+    <ul>
+      <li><strong>Comparing board prices instead of installed prices.</strong> Composite boards at $12/sqft sound like 3× pressure-treated at $4 — but installed it's $31 vs. $18/sqft, because the frame is pressure-treated lumber either way. Always compare <em>installed</em> cost per square foot.</li>
+      <li><strong>Forgetting railing and stairs.</strong> A 320-sqft deck quote at $45/sqft = $14,400 — then 60 LF of railing ($2,700) and a stair run ($450) push it past $17,500. On small elevated decks, railing and stairs can rival the deck surface itself.</li>
+      <li><strong>Pricing a raised deck like a ground-level one.</strong> Posts, beams, deeper footings, railing, and stairs mean a raised deck costs roughly 30% more per square foot than the same deck at grade. Toggle your height above — it's the single biggest cost lever after material.</li>
+    </ul>
+
+    <div class="faq">
+      <h2>Deck cost FAQs</h2>
+      <details><summary>How much does a deck cost per square foot in 2026?</summary>
+        <p>Installed at ground level: pressure-treated wood $15–$30, cedar/redwood $22–$45, composite $30–$58, PVC $35–$85 per square foot. Stairs, railing, height, old-deck removal, and permits add on top — punch your numbers into the calculator above.</p></details>
+      <details><summary>Is a composite deck worth the extra cost over wood?</summary>
+        <p>Often yes over a decade. A 400-sqft composite deck costs ~$12,400 installed with ~$100/yr upkeep; pressure-treated wood costs ~$7,200 installed but needs ~$1,000 in staining every 2 years plus a rebuild around year 12. Wood's total typically overtakes composite's around year 11 — see our <a href="../../comparisons/composite-vs-wood-deck-cost/">25-year head-to-head</a>.</p></details>
+      <details><summary>How much does deck height change the price?</summary>
+        <p>A lot. Ground-level decks use simple footings. A raised deck (2–8 ft) needs posts, beams, railing, and stairs — roughly +30% on the deck-surface price. A rooftop or second-story deck needs engineering and deeper footings — roughly +55%. These are industry rules of thumb; toggle your height in the calculator.</p></details>
+      <details><summary>Is it cheaper to build a deck yourself?</summary>
+        <p>Labor is 40–60% of an installed deck quote, so DIY saves thousands — pressure-treated wood is the most DIY-friendly material. But framing mistakes are structural: elevated decks need code-compliant footings, proper ledger attachment, and railing. Toggle DIY/pro in the calculator to see both numbers, then be honest about your skill level.</p></details>
+      <details><summary>Do I need a permit to build a deck?</summary>
+        <p>Usually yes — typically $100–$800 depending on the municipality, with inspections at the footing and final stages. Low ground-level decks sometimes skip permits, but anything attached to the house or elevated almost always needs one. Contractors can usually pull it for you.</p></details>
+      <details><summary>How accurate is this calculator?</summary>
+        <p>It's a budgeting estimate built on October 2026 installed-price ranges and pro labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because soil, access, height, and regional labor move real quotes. See <a href="../../methodology/">how we compute costs</a> for the full method and limitations.</p></details>
+    </div>
+
+    <div class="related">
+      <h2>Keep going</h2>
+      <ul>
+        <li><a href="../../cost-guides/deck-material-comparison/">Deck material comparison — wood vs. cedar vs. composite vs. PVC</a></li>
+        <li><a href="../../cost-guides/deck-building-cost-guide/">Deck building cost guide — labor, permits, stairs, red flags</a></li>
+        <li><a href="../../comparisons/composite-vs-wood-deck-cost/">Head-to-head: composite vs. wood deck over 25 years</a></li>
+      </ul>
+    </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>CostMyProject</h4>
+        <p>The neutral, numbers-first answer to "what will my project cost?" Every estimate is computed live from dated, sourced price data — with the math shown.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../../calculators/deck-cost/">Deck Cost Calculator</a></li>
+          <li><a href="../../calculators/">All calculators</a></li>
+          <li><a href="../../comparisons/composite-vs-wood-deck-cost/">Composite vs. wood deck comparison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../../methodology/">Methodology</a></li>
+          <li><a href="../../contact/">Contact</a></li>
+          <li><a href="../../privacy/">Privacy</a></li>
+          <li><a href="../../disclosure/">Disclosure</a></li>
+          <li><a href="../../editorial-policy/">Editorial Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Estimates, not quotes. Actual costs vary by location, height, access, and contractor. © 2026 CostMyProject. Price data last checked October 2026.</p>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/deck-calculator.js"></script>
+</body>
+</html>

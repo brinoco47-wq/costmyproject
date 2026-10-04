@@ -211,3 +211,42 @@ Path convention: parent converted all files to relative internal links for the G
 - Functional test (stubbed DOM, 3 scenarios, 13 checks): ALL PASS — S1 (150 LF wood std 6ft pro + gate + permit): $4,975.00, range $3,731.25–$6,218.75, $33.17/LF, split 67/33; S2 (150 LF chain-link budget 4ft DIY sloped + removal): $1,770.00, range $1,327.50–$2,212.50, split 58/42; S3 (200 LF vinyl premium 8ft pro rocky + 3 gates): $15,765.00, range $11,823.75–$19,706.25
 - Internal link check on 4 new files: 0 broken, 0 root-absolute; unique titles/metas site-wide; exactly one H1 per page; all JSON-LD parses (3 blocks each); GA4 + AdSense tags present on all 4 pages
 - Conventions: depth-relative links (`../../`), canonicals + JSON-LD to https://brinoco47-wq.github.io/costmyproject/, "budgeting estimate, not a quote" framing, ±25% planning ranges, dated October 2026 stamps
+
+---
+
+# Phase 5 — Cluster 5: Deck (built 2026-10-04)
+
+## What was built
+- `calculators/deck-cost/index.html` — FLAGSHIP estimator: deck dims (L×W) or direct sqft, 4 materials (pressure-treated wood / cedar-redwood / composite / PVC), quality tier (budget/standard/premium), 3 height levels (ground-level / raised / rooftop-second-story), DIY-vs-pro toggle, stair steps input with editable price, railing LF input with editable price, built-in bench count with editable price, old-deck removal toggle, permit flat input, editable material/labor prices, **side-by-side 4-material comparison for the user's inputs**, "show the math" panel, price-data table with sources, worked example (16×20 composite raised pro: $16,296), included/excluded checklists, 6-question FAQ. Engine: `assets/js/deck-calculator.js` (vanilla JS, mirrors fence/flooring architecture).
+- `cost-guides/deck-material-comparison/index.html` — 4-material table (installed $/sqft, lifespan, maintenance, $/sqft-per-year), 25-year true-cost table (400 sqft: PT $26,400 / cedar $28,400 / composite $14,900 / PVC $17,700), yard-match table, resale ROI (Remodeling Cost vs. Value 2026: wood 63.9%, composite 64.5%).
+- `cost-guides/deck-building-cost-guide/index.html` — pro labor rates ($10–$30/sqft, 40–60% of quote), cost-driver table (height/railing/stairs/footings/permit/removal/benches/lighting), DIY decision table, 6 quote red flags, footing/ledger/final inspection tips.
+- `comparisons/composite-vs-wood-deck-cost/index.html` — 400-sqft worked example + year-by-year 25-year amortization (crossover ≈ year 11), when-wood-wins / when-composite-wins.
+- Hub wiring NOT done (parent handles afterward): calculators/index.html, cost-guides/index.html, comparisons/index.html, sitemap.xml untouched per constraint.
+
+## Verified data (Oct 4, 2026 — sourced on-page)
+- Installed $/sqft: PT wood $15–$30, cedar/redwood $22–$45, composite $30–$58, PVC $35–$85 — FixUpFirst 2026, HonestCasa 2026, RemodelCalculators 2026, IARemodelings 2026 (materials-only and installed figures reconciled; installed ranges used)
+- Pro labor $10–$30/sqft, 40–60% of installed quote — Home Depot installer breakdown, FixUpFirst 2026
+- Lifespans: PT 10–15, cedar 15–20, composite 25–30, PVC 30–50 — industry-standard ranges (multiple 2026 guides)
+- Stairs $50–$100/step; railing wood $25–$40 / composite $40–$80 / metal $60–$120 / cable $80–$150 / glass $150–$300 per LF — HonestCasa, FixUpFirst 2026
+- Built-in benches $500–$1,200; old-deck removal $2–$5/sqft — HonestCasa 2026, Puetz Construction 2026
+- Permit $100–$800 — Home Depot installer breakdown 2026
+- Resale: wood deck addition $17,364 → $11,099 (63.9%); composite $25,623 → $16,533 (64.5%) — 2026 Remodeling Cost vs. Value via HonestCasa
+- Wood staining: ~$1,000/cycle per 400 sqft hired every 2 yrs (PT), ~$1,200 every 3 yrs (cedar); composite/PVC wash ~$100/yr — industry estimates (Woodworking Advisor, HonestCasa 2026)
+
+## UNVERIFIED / estimated — re-check at quarterly review
+(Phase 1 items 1–10, Phase 2 items 11–20, overhaul items 11–14, Phase 3 items 21–28, Phase 4 items 29–36 unchanged; new items 37–44)
+37. All calculator material/labor defaults = midpoints of the published ranges above; tier mapping budget=low/standard=mid/premium=high is a methodological convention. User-adjustable.
+38. Height multipliers (raised ×1.30, rooftop/second-story ×1.55 vs. ground-level) — industry rule of thumb fitted to FixUpFirst's elevated +$5–$10/sqft and second-story +$10–$20/sqft adders. Labeled estimate on-page.
+39. Stair default $75/step = within $50–$100 industry range; railing default $45/LF = within $25–$80 range; bench default $800 = within $500–$1,200 range; removal default $3.00/sqft = within $2–$5 range; permit default $250 = within $100–$800 range. User-adjustable.
+40. 25-year tables = straight-line, no discounting, illustrative; staining cycles hired-out ($1,000/2yr PT, $1,200/3yr cedar); rebuild at lifespan midpoint (PT yr 12, cedar yr 18). DIY staining roughly halves maintenance cost — noted on-page.
+41. Crossover ≈ year 11 (400-sqft example) — derived from the model above; moves with local staining prices. Labeled illustrative on-page.
+42. PVC labor range $16–$26/sqft — fewer published data points; industry estimate. Labeled on-page.
+43. Resale ROI figures — third-party 2026 Remodeling Cost vs. Value data via HonestCasa, not our measurements.
+44. Worked-example numbers are calculator outputs (verified by functional test 2026-10-04), not independent data.
+
+## Validation done
+- `node --check` on deck-calculator.js: clean
+- Functional test of the REAL JS (stubbed DOM, 5 scenarios): ALL PASS — S1 (16×20 composite std raised pro + 6 steps + 60 LF railing + $250 permit): $16,296.00, range $12,222.00–$20,370.00, $50.93/sqft; S2 (12×16 PT budget ground DIY + 4 steps + $250 permit): $1,318.00; S3 (20×24 PVC premium rooftop pro + 12 steps + 80 LF railing + removal + $400 permit): $39,076.00, range $29,307.00–$48,845.00, $81.41/sqft; S4 (16×20 cedar std ground DIY): $3,360.00; S5 (400 sqft direct composite std ground pro): $12,400.00. Comparison table + math panel render checks: PASS.
+- One real bug caught before delivery: worked-example arithmetic in the HTML ($16,246 → corrected to $16,296 after hand-verification; test then matched).
+- Internal link check on 4 new files: 91 links, 0 broken, 0 root-absolute; unique titles/metas site-wide; exactly one H1 per page; all JSON-LD parses (3 blocks each); GA4 + AdSense tags present on all 4 pages
+- Conventions: depth-relative links (`../../`), canonicals + JSON-LD to https://brinoco47-wq.github.io/costmyproject/, "budgeting estimate, not a quote" framing, ±25% planning ranges, dated October 2026 stamps, 44px tap targets via shared .seg/.preset CSS
