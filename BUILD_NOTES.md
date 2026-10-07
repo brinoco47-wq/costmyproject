@@ -250,3 +250,38 @@ Path convention: parent converted all files to relative internal links for the G
 - One real bug caught before delivery: worked-example arithmetic in the HTML ($16,246 → corrected to $16,296 after hand-verification; test then matched).
 - Internal link check on 4 new files: 91 links, 0 broken, 0 root-absolute; unique titles/metas site-wide; exactly one H1 per page; all JSON-LD parses (3 blocks each); GA4 + AdSense tags present on all 4 pages
 - Conventions: depth-relative links (`../../`), canonicals + JSON-LD to https://brinoco47-wq.github.io/costmyproject/, "budgeting estimate, not a quote" framing, ±25% planning ranges, dated October 2026 stamps, 44px tap targets via shared .seg/.preset CSS
+
+## Phase 6 — roof cluster (2026-10-07)
+- `assets/js/roof-calculator.js` (19KB) — engine mirroring deck architecture: state → compute → render, segmented controls, aria-live results, presets (ranch 40×30, colonial 40×50, estate 50×60), side-by-side 5-material comparison, show-the-math panel, materials/labor split bar, ±25% planning range.
+- `calculators/roof-cost/index.html` — flagship: footprint L×W or direct roof sqft; pitch selector (shows multiplier); 5 materials (3-tab, architectural, standing-seam metal, wood shake, clay/concrete tile); stories 1/2/3; tear-off layers 0/1/2; DIY/pro toggle (pro recommended, strong DIY warning); ice-shield toggle; skylight re-flash; permit; editable prices; side-by-side 5-material comparison; show-the-math; price table; worked example; included/excluded; 6 FAQ.
+- `cost-guides/roof-material-comparison/index.html` — 5-material table: installed $/sqft, lifespan, weight, fire rating, maintenance, 30-year true cost.
+- `cost-guides/roof-replacement-cost-guide/index.html` — pro labor rates, tear-off costs, pitch/height multipliers, permits, DIY warning, 6 quote red flags, bid-comparison checklist.
+- `comparisons/asphalt-vs-metal-roof-cost/index.html` — 2,000-sqft-footprint head-to-head ($17,120 vs. $33,890) + 30-year amortization.
+- Hub wiring NOT done (parent handles afterward): calculators/index.html, cost-guides/index.html, comparisons/index.html, sitemap.xml untouched per constraint.
+
+## Verified data (Oct 7, 2026 — sourced on-page)
+- Installed $/sqft (pro, 2026): 3-tab asphalt $3.50–$5.50; architectural asphalt $4.50–$7.50; standing-seam metal $10–$16; wood shake/shingle $8.50–$14; clay/concrete tile $11–$18 — bestroofingestimates 2026, Bhumi Calculator 2026, newenglandmetalroof 2026, Angi 2026, rangerroofingdfw 2026, domroofing 2026
+- Materials-only $/sqft: asphalt $1.00–$2.50 / arch $1.50–$3.50; metal $3.00–$8.50 / standing seam $5.00–$12.00; tile $4.00–$10.00 — bestroofingestimates 2026, Bhumi Calculator 2026
+- Tear-off $1–$2/sqft per layer (second layer doubles); disposal $300–$600; deck repair ~$85/sheet (industry estimate) — martinandsons-stl 2026, theflhomepros 2026
+- Labor share 55–65% of total (higher for metal/tile/slate) — theflhomepros 2026
+- Lifespans: 3-tab 15–20; architectural 25–30; metal 40–70; wood 25–40; tile 50–100 — industry-standard ranges (multiple 2026 guides)
+- Pitch multipliers are exact geometry √(1+(rise/12)²): 3/12 → 1.031; 6/12 → 1.118; 9/12 → 1.250; 12/12 → 1.414
+
+## UNVERIFIED / estimated — re-check at quarterly review
+(Phase 1 items 1–10, Phase 2 items 11–20, overhaul items 11–14, Phase 3 items 21–28, Phase 4 items 29–36, Phase 5 items 37–44 unchanged; new items 45–54)
+45. All calculator material/labor defaults = midpoints of the published ranges above; tier mapping budget=low/standard=mid/premium=high is a methodological convention. User-adjustable.
+46. Steep-pitch labor surcharges (+15% at 9/12, +25% at 12/12) and stories multipliers (+10%/+20%) — industry rules of thumb. Labeled estimates on-page.
+47. Ice-and-water shield default $0.75/sqft (within $0.50–$1.00), skylight re-flash default $350 (within $200–$500), permit default $350 (within $150–$500) — industry estimates, user-adjustable.
+48. Wood shake labor range $3.50–$6.00/sqft — fewer published data points; industry estimate. Labeled on-page.
+49. 30-year true-cost tables = straight-line prorating (total × 30÷lifespan), no discounting, illustrative; maintenance adders are labeled industry estimates (3-tab $1,200; arch $600; metal ~$0; wood $9,000 = ~$1,500 treatment every 5 yrs; tile $5,000 = underlayment refresh ~yr 25).
+50. Per-year-of-life figures ($623 arch / $616 metal / $819 3-tab) derived from calculator standard-tier totals ÷ lifespan midpoints; the "metal cheaper from day one" claim rests on these midpoints.
+51. Tile structural reinforcement costs are NOT in any number on-site; tile weight 6–10 lbs/sqft is an industry-standard estimate.
+52. Worked-example numbers are calculator outputs (verified by functional test 2026-10-07), not independent data.
+53. One inconsistency caught and fixed before delivery: calculator FAQ claimed metal ~$29,980 (~$500/yr) from an earlier draft; corrected to calculator-verified $33,890 (~$616/yr).
+54. Search volumes for roof keywords UNVERIFIED — validate via Search Console post-launch (standing Project Atlas caveat).
+
+## Validation done
+- `node --check` on roof-calculator.js: clean
+- Functional test of the REAL JS (stubbed DOM, 3 scenarios): ALL PASS — S1 (40×50, 6/12, arch std, pro, 1 layer, $350 permit): $17,120.00, range $12,840.00–$21,400.00; S2 (30×50, 3/12, 3-tab budget, DIY, 2 layers): $6,536.00; S3 (40×60, 12/12, metal premium, pro, 2-story, shield, 2 skylights, $500 permit): $61,012.20. Pitch conversion, comparison table, and math-panel render checks: PASS.
+- One test-harness issue caught: harness bypassed the material-change sync (the browser fires it on change); fixed by simulating change events — all pass.
+- Internal link check on 4 new files: 90 links, 0 broken, 0 root-absolute; titles/metas unique site-wide; exactly one H1 per page; all JSON-LD blocks parse (3 per page); GA4 + AdSense tags present on all 4 pages; 44px tap targets via shared .seg CSS

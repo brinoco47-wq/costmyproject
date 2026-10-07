@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roof Cost Calculator — Price Per Square Foot by Material (2026)</title>
+<meta name="description" content="Free roof replacement cost calculator: asphalt shingle, metal, wood shake, or tile — enter your home's footprint and pitch, get materials + labor + tear-off in one total. October 2026 US prices, math shown.">
+<link rel="canonical" href="https://brinoco47-wq.github.io/costmyproject/calculators/roof-cost/">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Roof Cost Calculator",
+ "applicationCategory":"WebApplication","operatingSystem":"Any",
+ "url":"https://brinoco47-wq.github.io/costmyproject/calculators/roof-cost/",
+ "description":"Calculates roof replacement cost from home footprint, roof pitch, material, stories, tear-off layers, and extras — with materials, labor, and a planning range.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "author":{"@type":"Organization","name":"CostMyProject","url":"https://brinoco47-wq.github.io/costmyproject/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://brinoco47-wq.github.io/costmyproject/"},
+ {"@type":"ListItem","position":2,"name":"Calculators","item":"https://brinoco47-wq.github.io/costmyproject/calculators/"},
+ {"@type":"ListItem","position":3,"name":"Roof Cost Calculator","item":"https://brinoco47-wq.github.io/costmyproject/calculators/roof-cost/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"How much does a roof cost per square foot in 2026?",
+  "acceptedAnswer":{"@type":"Answer","text":"Installed, per square foot of roof surface: 3-tab asphalt $3.50–$5.50, architectural asphalt $4.50–$7.50, standing-seam metal $10–$16, wood shake $8.50–$14, clay/concrete tile $11–$18 (2026 US ranges). Tear-off, pitch, stories, and permits add on top — the calculator prices each separately."}},
+ {"@type":"Question","name":"How do I calculate my roof's square footage from my home's footprint?",
+  "acceptedAnswer":{"@type":"Answer","text":"Multiply your home's footprint (length × width) by a pitch factor: 1.031 for a low 3/12 pitch, 1.118 for a moderate 6/12, 1.250 for a steep 9/12, and 1.414 for a very steep 12/12. The factor is pure geometry — the hypotenuse of the roof slope. A 2,000-sqft footprint at 6/12 is 2,236 sqft of actual roof."}},
+ {"@type":"Question","name":"Is a metal roof worth the extra cost over asphalt shingles?",
+  "acceptedAnswer":{"@type":"Answer","text":"On a per-year basis, yes. A 2,000-sqft-footprint architectural shingle roof costs ~$17,120 installed with a ~27.5-year life (~$623/yr); standing-seam metal costs ~$33,890 with a ~55-year life (~$616/yr). Metal costs ~98% more upfront but is cheaper per year of service from day one — see our 30-year head-to-head."}},
+ {"@type":"Question","name":"How much does roof pitch change the price?",
+  "acceptedAnswer":{"@type":"Answer","text":"Two ways: steeper pitch means more roof surface (a 12/12 roof has 41% more area than its footprint), and crews charge 15–25% more labor on steep pitches for safety gear and slower work. Toggle your pitch in the calculator — it's the biggest cost lever after material."}},
+ {"@type":"Question","name":"Can I install a new roof myself to save money?",
+  "acceptedAnswer":{"@type":"Answer","text":"Technically possible, strongly discouraged. Labor is 40–65% of a roof quote, so the savings look tempting — but falls are a leading cause of construction deaths, most manufacturer warranties require professional installation, and a bad install voids both. Toggle DIY/pro in the calculator to see both numbers, then hire a pro."}},
+ {"@type":"Question","name":"How accurate is this calculator?",
+  "acceptedAnswer":{"@type":"Answer","text":"It's a budgeting estimate built on October 2026 installed-price ranges and pro labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because region, pitch, access, decking condition, and complexity move real quotes. See how we compute costs for the full method and limitations."}}]}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTHH0CBTVS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CTHH0CBTVS');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249169140665725"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../">Cost<span>My</span>Project</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../../calculators/" aria-current="page">Calculators</a>
+      <a href="../../cost-guides/">Cost Guides</a>
+      <a href="../../comparisons/">Comparisons</a>
+      <a href="../../methodology/">Methodology</a>
+      <a href="../../about/">About</a>
+    </nav>
+  </div>
+</header>
+<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
+  <li><a href="../../">Home</a></li><li><a href="../../calculators/">Calculators</a></li><li aria-current="page">Roof Cost Calculator</li>
+</ol></div></nav>
+
+<main id="main" class="wrap">
+  <article class="article" style="max-width:none">
+    <h1>Roof Cost Calculator</h1>
+    <p class="byline">CostMyProject Research Team <span class="verified">Prices checked October 2026</span></p>
+    <p class="lede" style="max-width:62ch">What will a new roof actually cost? Enter your home's footprint and roof pitch — we convert it to true roof square footage, then roll materials + install labor + tear-off into one honest total, with every step of the math shown. No email required.</p>
+    <p><span class="trust-badge"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2"/><path d="M5 8.5l2 2 4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No email required — instant results, nothing to sign up for</span></p>
+
+    <form id="calc-form" class="calc" onsubmit="return false" aria-label="Roof cost calculator">
+      <div class="calc-grid">
+        <div>
+          <div class="field">
+            <label>How do you want to enter size?</label>
+            <div class="seg" id="seg-mode" role="group" aria-label="Size entry mode">
+              <button type="button" data-val="dims" aria-pressed="true">Home footprint</button>
+              <button type="button" data-val="sqft" aria-pressed="false">Roof square footage</button>
+            </div>
+            <input type="hidden" id="calc-mode" value="dims">
+            <div class="presets" role="group" aria-label="Presets">
+              <button type="button" class="preset" data-preset="ranch" aria-pressed="false">Ranch 40×30 (1,200)</button>
+              <button type="button" class="preset" data-preset="colonial" aria-pressed="true">Colonial 40×50 (2,000)</button>
+              <button type="button" class="preset" data-preset="estate" aria-pressed="false">Estate 50×60 (3,000)</button>
+            </div>
+          </div>
+          <div id="dims-fields">
+            <div class="field"><label for="in-length">Home length (ft)</label><input type="number" id="in-length" value="40" min="0" step="1"></div>
+            <div class="field"><label for="in-width">Home width (ft)</label><input type="number" id="in-width" value="50" min="0" step="1"></div>
+            <span class="hint">Footprint of the roofed area (include garage if it's under the same roof). We multiply by the pitch factor below to get true roof surface.</span>
+          </div>
+          <div id="sqft-field" style="display:none">
+            <div class="field"><label for="in-sqft">Roof surface (sqft)</label><input type="number" id="in-sqft" value="2236" min="0" step="1">
+            <span class="hint">Actual roof surface in square feet (already pitch-adjusted). Roofers call 100 sqft one "square".</span></div>
+          </div>
+          <div class="field">
+            <label for="calc-material">Roof material</label>
+            <select id="calc-material">
+              <option value="threetab">3-tab asphalt shingle — $3.50–$5.50/sqft installed</option>
+              <option value="arch" selected>Architectural asphalt shingle — $4.50–$7.50/sqft installed</option>
+              <option value="metal">Standing-seam metal — $10–$16/sqft installed</option>
+              <option value="wood">Wood shake / shingle — $8.50–$14/sqft installed</option>
+              <option value="tile">Clay / concrete tile — $11–$18/sqft installed</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Quality tier</label>
+            <div class="seg" id="seg-tier" role="group" aria-label="Quality tier">
+              <button type="button" data-val="budget" aria-pressed="false">Budget</button>
+              <button type="button" data-val="standard" aria-pressed="true">Standard</button>
+              <button type="button" data-val="premium" aria-pressed="false">Premium</button>
+            </div>
+            <input type="hidden" id="calc-tier" value="standard">
+            <span class="hint">Budget = low end of the price range · Standard = middle · Premium = top end.</span>
+          </div>
+          <div class="field">
+            <label>Roof pitch</label>
+            <div class="seg" id="seg-pitch" role="group" aria-label="Roof pitch">
+              <button type="button" data-val="low" aria-pressed="false">Low 3/12</button>
+              <button type="button" data-val="mod" aria-pressed="true">Moderate 6/12</button>
+              <button type="button" data-val="steep" aria-pressed="false">Steep 9/12</button>
+              <button type="button" data-val="vsteep" aria-pressed="false">Very steep 12/12</button>
+            </div>
+            <input type="hidden" id="calc-pitch" value="mod">
+            <span class="hint">Surface multiplier: 3/12 ×1.031 · 6/12 ×1.118 · 9/12 ×1.250 (+15% labor) · 12/12 ×1.414 (+25% labor). Pure geometry for area; labor surcharges are industry rules of thumb.</span>
+          </div>
+          <div class="field">
+            <label>Stories</label>
+            <div class="seg" id="seg-stories" role="group" aria-label="Stories">
+              <button type="button" data-val="1" aria-pressed="true">1 story</button>
+              <button type="button" data-val="2" aria-pressed="false">2 stories</button>
+              <button type="button" data-val="3" aria-pressed="false">3 stories</button>
+            </div>
+            <input type="hidden" id="calc-stories" value="1">
+            <span class="hint">Taller homes need more staging and safety setup: +10% labor per extra story (industry rule of thumb).</span>
+          </div>
+          <div class="field">
+            <label>Who's installing?</label>
+            <div class="seg" id="seg-labor" role="group" aria-label="Labor">
+              <button type="button" data-val="diy" aria-pressed="false">DIY</button>
+              <button type="button" data-val="pro" aria-pressed="true">Hire a pro</button>
+            </div>
+            <input type="hidden" id="calc-labor" value="pro">
+            <span class="hint">Roofing is the one project where pros urge caution — most manufacturer warranties require professional installation.</span>
+          </div>
+        </div>
+        <div>
+          <div class="field"><label for="in-material-price">Material price ($ per sqft of roof)</label><input type="number" id="in-material-price" value="2.50" min="0" step="0.25">
+          <span class="hint" id="material-where"></span></div>
+          <div class="field" id="labor-rate-field">
+            <label for="in-labor-rate">Pro install rate ($ per sqft) <span class="hint">auto-set by material; 2026 range $2–$8</span></label>
+            <input type="number" id="in-labor-rate" value="3.50" min="0" step="0.25">
+          </div>
+          <div class="field">
+            <label>Old roof tear-off</label>
+            <div class="seg" id="seg-tearoff" role="group" aria-label="Tear-off layers">
+              <button type="button" data-val="0" aria-pressed="false">None (new construction)</button>
+              <button type="button" data-val="1" aria-pressed="true">1 layer</button>
+              <button type="button" data-val="2" aria-pressed="false">2 layers</button>
+            </div>
+            <input type="hidden" id="calc-tearoff" value="1">
+            <span class="hint">Most codes allow max 2 shingle layers; a second layer doubles tear-off cost.</span>
+          </div>
+          <div class="field"><label for="in-tearoff-rate">Tear-off &amp; disposal ($ per sqft per layer) <span class="hint">typical $1–$2</span></label><input type="number" id="in-tearoff-rate" value="1.50" min="0" step="0.25"></div>
+          <div class="field">
+            <label>Ice-and-water shield upgrade?</label>
+            <div class="seg" id="seg-shield" role="group" aria-label="Ice and water shield">
+              <button type="button" data-val="no" aria-pressed="true">No</button>
+              <button type="button" data-val="yes" aria-pressed="false">Yes</button>
+            </div>
+            <input type="hidden" id="calc-shield" value="no">
+            <span class="hint">Self-adhering membrane at eaves/valleys — cheap insurance in snow and wind-driven-rain zones.</span>
+          </div>
+          <div class="field"><label for="in-shield-rate">Shield price ($ per sqft) <span class="hint">typical $0.50–$1.00</span></label><input type="number" id="in-shield-rate" value="0.75" min="0" step="0.25"></div>
+          <div class="field"><label for="in-skylights">Skylights to re-flash</label><input type="number" id="in-skylights" value="0" min="0" step="1">
+          <span class="hint">Each skylight, chimney, or vent cluster needs custom flashing work.</span></div>
+          <div class="field"><label for="in-skylight-price">Price per skylight ($) <span class="hint">typical $200–$500</span></label><input type="number" id="in-skylight-price" value="350" min="0" step="25"></div>
+          <div class="field"><label for="in-permit">Permit &amp; fees ($) <span class="hint">most municipalities $150–$500</span></label><input type="number" id="in-permit" value="350" min="0" step="25"></div>
+        </div>
+      </div>
+      <div id="calc-result" class="result" aria-live="polite"></div>
+    </form>
+
+    <div style="max-width:46rem">
+    <h2>Worked example: 40×50 colonial, architectural shingles, fully itemized</h2>
+    <p class="data-date">Computed by the calculator above · architectural standard tier @ $2.50/sqft materials · 6/12 pitch · 1 story · pro install · 1-layer tear-off · October 2026 prices</p>
+    <table>
+      <thead><tr><th>Line item</th><th>Math</th><th>Cost</th></tr></thead>
+      <tbody>
+        <tr><td>Home footprint</td><td>40 × 50</td><td>2,000 sqft</td></tr>
+        <tr><td>Roof surface (6/12 pitch)</td><td>2,000 × 1.118</td><td>2,236 sqft (22.4 squares)</td></tr>
+        <tr><td>Roofing materials</td><td>2,236 × $2.50</td><td><strong>$5,590.00</strong></td></tr>
+        <tr><td>Install labor</td><td>2,236 × $3.50</td><td><strong>$7,826.00</strong></td></tr>
+        <tr><td>Tear-off &amp; disposal (1 layer)</td><td>2,236 × $1.50</td><td><strong>$3,354.00</strong></td></tr>
+        <tr><td>Permit &amp; fees</td><td>flat</td><td><strong>$350.00</strong></td></tr>
+        <tr><td><strong>Total — pro install</strong></td><td></td><td><strong>$17,120.00</strong></td></tr>
+        <tr><td><strong>Per sqft of roof</strong></td><td>$17,120 ÷ 2,236</td><td><strong>$7.66</strong></td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead><tr><th>Scenario</th><th>Total</th><th>Typical range (±25%)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>DIY</strong> (materials + tear-off + permit)</td><td><strong>$9,294</strong></td><td>$6,971 – $11,618</td></tr>
+        <tr><td><strong>Hire a pro</strong></td><td><strong>$17,120</strong></td><td>$12,840 – $21,400</td></tr>
+      </tbody>
+    </table>
+    <p class="src">Run the calculator above with these inputs and you'll get the same numbers. At $7.66/sqft all-in for architectural shingles with tear-off, this lands inside the 2026 national installed range — the model checks out against published data.</p>
+
+    <h2>What's included — and what isn't</h2>
+    <div class="incl-grid">
+      <div class="incl yes">
+        <h3>✓ Included in every estimate</h3>
+        <ul>
+          <li>Roofing materials per sqft of roof surface: shingles/panels/tiles, underlayment, fasteners</li>
+          <li>Pro install labor per sqft, with pitch and stories adjustments, when you select "Hire a pro"</li>
+          <li>Pitch conversion: footprint × 1.031–1.414 to true roof surface (pure geometry)</li>
+          <li>Tear-off &amp; disposal per layer, when you select it</li>
+          <li>Ice-and-water shield upgrade, skylight re-flashing, and permit, when you add them</li>
+        </ul>
+      </div>
+      <div class="incl no">
+        <h3>✗ Not included</h3>
+        <ul>
+          <li>Decking replacement for rotted plywood/OSB (~$85/sheet installed, found at tear-off)</li>
+          <li>Structural reinforcement for heavy tile on homes not built for it</li>
+          <li>Gutters and downspouts ($5–$14 per linear foot)</li>
+          <li>Solar panel removal/reinstall (~$1,500–$3,000)</li>
+          <li>Interior repair for existing leak damage</li>
+        </ul>
+      </div>
+    </div>
+    <p class="src">If a contractor's bid covers items on the right-hand list and ours doesn't, ask them to itemize — that's exactly how you compare bids honestly.</p>
+
+    <h2>The price data behind this calculator</h2>
+    <p class="data-date">Checked October 7, 2026</p>
+    <p class="fresh-note"><strong>Data freshness:</strong> prices verified October 2026 · next scheduled re-check January 2027. Stale data is misinformation — our <a href="../../methodology/">update policy</a> is public.</p>
+    <table>
+      <thead><tr><th>Material</th><th>Materials / sqft</th><th>Pro labor / sqft</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>3-tab asphalt shingle</td><td>$1.00–$2.50</td><td>$2.00–$4.00</td><td class="src"><a href="https://bestroofingestimates.com/roofing-cost-by-the-square-foot/">bestroofingestimates 2026</a>; <a href="https://www.newenglandmetalroof.com/standing-seam-roof-cost-per-square-foot/">newenglandmetalroof 2026</a></td></tr>
+        <tr><td>Architectural asphalt shingle</td><td>$1.50–$3.50</td><td>$2.50–$4.50</td><td class="src"><a href="https://bestroofingestimates.com/roofing-cost-by-the-square-foot/">bestroofingestimates 2026</a>; <a href="https://bhumicalculator.com/countries/united-states/roof-cost-per-square-foot">Bhumi Calculator 2026</a></td></tr>
+        <tr><td>Standing-seam metal</td><td>$5.00–$12.00</td><td>$3.50–$6.50</td><td class="src"><a href="https://bhumicalculator.com/countries/united-states/roof-cost-per-square-foot">Bhumi Calculator 2026</a>; <a href="https://www.rangerroofingdfw.com/standing-seam-metal-roof-installation-in-dfw-cost-benefits/">rangerroofingdfw 2026</a>; <a href="https://www.angi.com/articles/how-much-does-it-cost-install-standing-seam-metal-roof.htm?entry_point_id=33797117">Angi 2026</a></td></tr>
+        <tr><td>Wood shake / shingle</td><td>$4.00–$7.00</td><td>$3.50–$6.00</td><td class="src"><a href="https://www.newenglandmetalroof.com/standing-seam-roof-cost-per-square-foot/">newenglandmetalroof 2026</a>; <a href="https://www.domroofing.com/roof-academy/cedar-shake-roofing-north-atlanta/">domroofing 2026</a> <span class="src">(labor range — industry estimate)</span></td></tr>
+        <tr><td>Clay / concrete tile</td><td>$5.00–$9.00</td><td>$4.50–$8.00</td><td class="src"><a href="https://bhumicalculator.com/countries/united-states/roof-cost-per-square-foot">Bhumi Calculator 2026</a>; <a href="https://www.newenglandmetalroof.com/standing-seam-roof-cost-per-square-foot/">newenglandmetalroof 2026</a></td></tr>
+        <tr><td>Tear-off &amp; disposal</td><td colspan="2">$1–$2 / sqft per layer <span class="src">(default $1.50)</span></td><td class="src"><a href="https://www.martinandsons-stl.com/the-ultimate-new-roof-cost-estimator-guide">martinandsons-stl 2026</a>; <a href="https://www.theflhomepros.com/guides/new-roof-cost">theflhomepros 2026</a></td></tr>
+        <tr><td>Ice-and-water shield</td><td colspan="2">$0.50–$1.00 / sqft <span class="src">(default $0.75)</span></td><td class="src"><a href="https://www.rangerroofingdfw.com/standing-seam-metal-roof-installation-in-dfw-cost-benefits/">rangerroofingdfw 2026</a> <span class="src">(industry estimate)</span></td></tr>
+        <tr><td>Skylight re-flash</td><td colspan="2">$200–$500 each <span class="src">(default $350)</span></td><td class="src"><span class="src">Industry estimate — user-adjustable</span></td></tr>
+        <tr><td>Permit</td><td colspan="2">$150–$500 by municipality <span class="src">(default $350)</span></td><td class="src"><span class="src">Industry estimate — user-adjustable</span></td></tr>
+      </tbody>
+    </table>
+    <p class="src">Ranges move by region and product line — every default above is editable in the calculator. Pitch multipliers are pure geometry; steep-pitch labor surcharges (+15% at 9/12, +25% at 12/12) and stories multipliers (+10%/+20%) are industry rules of thumb, labeled as estimates. Full sourcing and update policy: <a href="../../methodology/">methodology</a>.</p>
+
+    <h2>Three ways people get the math wrong</h2>
+    <ul>
+      <li><strong>Pricing the footprint instead of the roof.</strong> A 2,000-sqft home at 6/12 pitch has 2,236 sqft of roof — 12% more than the floor plan. At 12/12 it's 41% more. Quotes that skip the pitch factor are the #1 reason "per square foot" numbers disagree across the web.</li>
+      <li><strong>Forgetting tear-off.</strong> Stripping one layer of old shingles runs ~$1.50/sqft — on a 2,236-sqft roof that's $3,354, nearly 20% of an architectural-shingle job. "New roof $8,000" quotes that skip tear-off aren't comparable to ones that include it.</li>
+      <li><strong>Comparing material prices instead of installed prices.</strong> Metal panels at $6.75/sqft sound like 2.7× architectural shingles at $2.50 — but installed it's $11.75 vs. $6.00/sqft, because metal's specialized labor narrows the gap. Always compare <em>installed</em> cost per square foot, then divide by lifespan years for the honest number.</li>
+    </ul>
+
+    <div class="faq">
+      <h2>Roof cost FAQs</h2>
+      <details><summary>How much does a roof cost per square foot in 2026?</summary>
+        <p>Installed, per square foot of roof surface: 3-tab asphalt $3.50–$5.50, architectural asphalt $4.50–$7.50, standing-seam metal $10–$16, wood shake $8.50–$14, clay/concrete tile $11–$18. Tear-off, pitch, stories, and permits add on top — punch your numbers into the calculator above.</p></details>
+      <details><summary>How do I calculate my roof's square footage from my home's footprint?</summary>
+        <p>Multiply footprint (length × width) by a pitch factor: 1.031 for 3/12, 1.118 for 6/12, 1.250 for 9/12, 1.414 for 12/12. The factor is the hypotenuse of the slope — pure geometry. A 2,000-sqft footprint at 6/12 is 2,236 sqft of roof, or about 22.4 roofing "squares" (100 sqft each).</p></details>
+      <details><summary>Is a metal roof worth the extra cost over asphalt shingles?</summary>
+        <p>Per year of service, yes. A 2,000-sqft-footprint architectural roof costs ~$17,120 installed with a ~27.5-year life (~$623/yr); standing-seam metal costs ~$33,890 with a ~55-year life (~$616/yr). Metal costs ~98% more upfront but is cheaper per year from day one — see our <a href="../../comparisons/asphalt-vs-metal-roof-cost/">30-year head-to-head</a>.</p></details>
+      <details><summary>How much does roof pitch change the price?</summary>
+        <p>Two ways. Steeper pitch means more surface (a 12/12 roof has 41% more area than its footprint), and crews charge 15–25% more labor on steep pitches for safety gear and slower work. Toggle your pitch in the calculator — after material, it's the biggest cost lever.</p></details>
+      <details><summary>Can I install a new roof myself to save money?</summary>
+        <p>Technically possible, strongly discouraged. Labor is 40–65% of a roof quote, so the savings look tempting — but falls are a leading cause of construction deaths, most manufacturer warranties require professional installation, and a bad install voids both. Toggle DIY/pro above to see both numbers, then hire a pro.</p></details>
+      <details><summary>How accurate is this calculator?</summary>
+        <p>It's a budgeting estimate built on October 2026 installed-price ranges and pro labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because region, pitch, access, decking condition, and complexity move real quotes. See <a href="../../methodology/">how we compute costs</a> for the full method and limitations.</p></details>
+    </div>
+
+    <div class="related">
+      <h2>Keep going</h2>
+      <ul>
+        <li><a href="../../cost-guides/roof-material-comparison/">Roof material comparison — asphalt vs. metal vs. wood vs. tile</a></li>
+        <li><a href="../../cost-guides/roof-replacement-cost-guide/">Roof replacement cost guide — labor, tear-off, pitch, red flags</a></li>
+        <li><a href="../../comparisons/asphalt-vs-metal-roof-cost/">Head-to-head: asphalt vs. metal roof over 30 years</a></li>
+      </ul>
+    </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>CostMyProject</h4>
+        <p>The neutral, numbers-first answer to "what will my project cost?" Every estimate is computed live from dated, sourced price data — with the math shown.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../../calculators/roof-cost/">Roof Cost Calculator</a></li>
+          <li><a href="../../calculators/">All calculators</a></li>
+          <li><a href="../../comparisons/asphalt-vs-metal-roof-cost/">Asphalt vs. metal roof comparison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../../methodology/">Methodology</a></li>
+          <li><a href="../../contact/">Contact</a></li>
+          <li><a href="../../privacy/">Privacy</a></li>
+          <li><a href="../../disclosure/">Disclosure</a></li>
+          <li><a href="../../editorial-policy/">Editorial Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Estimates, not quotes. Actual costs vary by location, pitch, access, and contractor. © 2026 CostMyProject. Price data last checked October 2026.</p>
+    </div>
+  </div>
+</footer>
+<script src="../../assets/js/roof-calculator.js"></script>
+</body>
+</html>
