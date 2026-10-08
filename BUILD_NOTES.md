@@ -292,3 +292,35 @@ Path convention: parent converted all files to relative internal links for the G
 - Functional test of the REAL JS (stubbed DOM, 3 scenarios): ALL PASS — S1 (40×50, 6/12, arch std, pro, 1 layer, $350 permit): $17,120.00, range $12,840.00–$21,400.00; S2 (30×50, 3/12, 3-tab budget, DIY, 2 layers): $6,536.00; S3 (40×60, 12/12, metal premium, pro, 2-story, shield, 2 skylights, $500 permit): $61,012.20. Pitch conversion, comparison table, and math-panel render checks: PASS.
 - One test-harness issue caught: harness bypassed the material-change sync (the browser fires it on change); fixed by simulating change events — all pass.
 - Internal link check on 4 new files: 90 links, 0 broken, 0 root-absolute; titles/metas unique site-wide; exactly one H1 per page; all JSON-LD blocks parse (3 per page); GA4 + AdSense tags present on all 4 pages; 44px tap targets via shared .seg CSS
+
+## Phase 7 — state moving pages (2026-10-08)
+- 10 pages: `cost-guides/moving-costs-in-{california,texas,florida,new-york,pennsylvania,illinois,ohio,georgia,north-carolina,arizona}/index.html` (1,002–1,120 body words each). Built by generator `~/workspace/project-atlas/build_state_pages.py` (re-runnable).
+- Each page: H1 + lede + byline, local cost table (studio/2BR/4BR), long-distance corridor table (4 destinations, mileage band, 2BR/4BR ranges), worked 2BR example with effective hourly rate, 5 state-specific price drivers, DIY-vs-pro table, 4–5 money-saving tips, 5 state-specific FAQs (visible + FAQPage JSON-LD), Related box, methodology note.
+- Head: proper canonical (closed tag), OG tags, GA4, AdSense; JSON-LD: Article + BreadcrumbList + FAQPage (all parse).
+- Hub wiring + sitemap NOT done (parent handles).
+
+## UNVERIFIED / estimated — re-check at quarterly review
+(Phase 1–6 items 1–61 unchanged; new items 62–67)
+62. State multipliers are CostMyProject planning adjustments, NOT sourced state price data: CA 1.20, NY 1.20, IL 1.10, FL 1.10, TX 1.05, AZ 1.05, GA 1.00, NC 1.00, PA 0.95, OH 0.95. Labeled on-page as methodological conventions.
+63. Distance factor (<500 mi → 0.65×, 500–1,000 mi → 0.85× of the 1,000+ mile national base) is a labeled convention, not carrier tariff data.
+64. Corridor mileages are approximate (rounded, labeled "~"); actual origin/destination cities within states vary widely.
+65. DIY table anchors ($150–$300 local truck, $1,500–$2,500 long-distance truck, $2,000–$4,000 container) are planning estimates derived from the site's existing comparison-page figures — labeled on-page.
+66. State-specific factors/tips/FAQs (peak seasons, snowbird inversions, elevator/COI rules, weather patterns) are general industry knowledge, not state-sourced statistics. Cheapest-month claims are typical patterns, not guarantees.
+67. Worked-example effective hourly rates are back-derived from the page's own table midpoints (midpoint ÷ 21 crew-hours) — internally consistent arithmetic, not quoted rates.
+
+## Phase 8 — long-tail ranking pages (2026-10-08)
+- 5 pages: `cost-guides/deck-inspection-cost/`, `cost-guides/cost-to-paint-12x12-room/`, `cost-guides/roof-cost-per-square/`, `cost-guides/fence-cost-per-foot/`, `cost-guides/how-much-does-lvp-flooring-cost/` (1,210–1,435 body words each).
+- Each page: H1 + lede + byline ("Prices checked October 2026"), cost tables, worked examples with ±25% ranges, DIY-vs-pro content, 5 FAQs (visible + FAQPage JSON-LD), Related box.
+- Head: proper canonical (closed tag), OG tags, GA4, AdSense; JSON-LD: Article + BreadcrumbList + FAQPage (all parse). One H1/page; 0 broken internal links; relative links only.
+- Hub wiring + sitemap NOT done (parent handles).
+
+## UNVERIFIED / estimated — re-check at quarterly review
+(Phase 1–7 items 1–67 unchanged; new items 68–75)
+68. Deck inspection costs ($150–$250 basic, $250–$400 detailed, $300–$500 with certification, $350–$600 multi-level) — contractor-reported industry estimates, labeled on-page.
+69. Deck post-inspection repair table ($200–$800 minor … $8,000–$25,000+ full rebuild) — planning figures, labeled on-page; repair-vs-rebuild framing is editorial guidance.
+70. Paint tier bands ($25–$35 budget, $40–$60 mid, $65–$90 premium per gallon) — labeled shelf-price ranges, not brand quotes. DIY supply costs ($60–$120) and primer guidance are planning estimates.
+71. Roof per-square material-only splits (3-tab $100–$150 … tile $450–$800) — derived estimates from installed rates. Tear-off $100–$200/square, underlayment upgrades $50–$100/square, flashing $200–$500/penetration, decking $50–$100/sheet — industry estimates, labeled.
+72. Fence materials-only per-foot splits (~40–60% of installed) — derived estimates. Terrain adders (slope +$3–$8, rocky +$5–$15, removal +$2–$5/ft), gate costs ($150–$400 walk, $400–$1,200 drive), height multipliers — industry estimates, labeled.
+73. LVP material tier bands ($2–$3 budget, $3–$5 mid, $5–$8 premium) — labeled retail ranges. Extras (removal $1–$3, leveling $2–$5, underlayment $0.30–$0.60/sq ft) — industry estimates.
+74. All worked-example totals are internally consistent derived arithmetic from each page's own mid-range rates — not independently sourced project totals.
+75. Pro labor mid-rates used in worked examples (paint $3/sq ft wall, roof tear-off $150/square, LVP install $2.75/sq ft) are mid-range planning figures, not quoted rates.
