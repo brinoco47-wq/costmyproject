@@ -279,6 +279,13 @@ Path convention: parent converted all files to relative internal links for the G
 52. Worked-example numbers are calculator outputs (verified by functional test 2026-10-07), not independent data.
 53. One inconsistency caught and fixed before delivery: calculator FAQ claimed metal ~$29,980 (~$500/yr) from an earlier draft; corrected to calculator-verified $33,890 (~$616/yr).
 54. Search volumes for roof keywords UNVERIFIED — validate via Search Console post-launch (standing Project Atlas caveat).
+55. Thin-page expansion (2026-10-08): 5 pages expanded to 1,500+ body words. New per-size/per-scenario worked math (room sizes, yard sizes, deck sizes, project sizes) is derived arithmetic from the same mid-range rates already on each page — internally consistent, not independently sourced.
+56. Add-on/upcharge tables (popcorn removal, skim coat, slope surcharge, demo, railings, stairs, prep adders, primer/supplies) are industry estimates labeled on-page; confirm against local quotes.
+57. DIY-vs-pro tables (time estimates, difficulty ratings, DIY material totals) are methodological conventions / planning estimates.
+58. Paint brand tier table budget/premium rows ($25–$100/gal bands) are labeled typical ranges, not verified shelf prices; only the mid-tier row uses verified Sept 2026 prices.
+59. Deck material tier table ($15–$45/sqft bands) and cedar notes are labeled planning ranges.
+60. Fence resale recoup (50–70%), deck Cost vs. Value (~64%), repaint cycles, and maintenance calendars are industry-reported typicals — labeled as such, not guarantees.
+61. New FAQ answers added 2026-10-08 (visible + FAQPage JSON-LD) restate page content; no new sourced facts introduced.
 
 ## Validation done
 - `node --check` on roof-calculator.js: clean
