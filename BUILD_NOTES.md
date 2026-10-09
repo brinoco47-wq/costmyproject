@@ -324,3 +324,39 @@ Path convention: parent converted all files to relative internal links for the G
 73. LVP material tier bands ($2–$3 budget, $3–$5 mid, $5–$8 premium) — labeled retail ranges. Extras (removal $1–$3, leveling $2–$5, underlayment $0.30–$0.60/sq ft) — industry estimates.
 74. All worked-example totals are internally consistent derived arithmetic from each page's own mid-range rates — not independently sourced project totals.
 75. Pro labor mid-rates used in worked examples (paint $3/sq ft wall, roof tear-off $150/square, LVP install $2.75/sq ft) are mid-range planning figures, not quoted rates.
+
+---
+
+# Phase 9 — Cluster 7: Siding (built 2026-10-09)
+
+## What was built
+- `calculators/siding-cost/index.html` — FLAGSHIP estimator: wall sqft (direct or auto from house footprint L×W×stories via 2(L+W)×9ft/story), 5 materials (vinyl / fiber cement / engineered wood / cedar / brick veneer), quality tier, stories 1/2/3, DIY-vs-pro toggle, old-siding tear-off toggle, house-wrap toggle, trim/soffit/fascia flat input, permit flat input, editable material/labor prices, **side-by-side 5-material comparison for the user's inputs**, "show the math" panel, price-data table with sources, worked example (40×50 colonial fiber cement pro: $38,250), included/excluded checklists, 6-question FAQ. Engine: `assets/js/siding-calculator.js` (vanilla JS, mirrors roof/deck architecture).
+- `cost-guides/siding-material-comparison/index.html` — 5-material table (installed $/sqft, lifespan, maintenance, fire rating) + 25-year true-cost table (2,500 sqft wall: vinyl $10,938 / brick $13,833 / fiber $18,063 / engwood $19,625 / cedar $34,375 — vinyl wins, brick surprises second).
+- `cost-guides/siding-installation-cost-guide/index.html` — pro labor rates by material, tear-off/sheathing section, house-wrap case, trim package guidance, permits, DIY decision table, 6 quote red flags, bid-normalization checklist.
+- `comparisons/vinyl-vs-fiber-cement-siding-cost/index.html` — same-house head-to-head (2,500 sqft: $19,300 vs. $28,675, ~49% more upfront) + 25-year amortization (vinyl $16,083 / $643-yr vs. fiber $21,922 / $877-yr — vinyl wins on cost; fiber cement's premium framed as durability/fire/resale, not value).
+- Hub wiring + sitemap NOT done (parent handles): calculators/index.html ("Next up: Siding Estimator" placeholder replaced), cost-guides/index.html, comparisons/index.html, sitemap.xml untouched per constraint.
+
+## Verified data (Oct 9, 2026 — sourced on-page)
+- Installed $/sqft (pro, 2026): vinyl $3.50–$7.50; engineered wood $5.50–$10; fiber cement $7–$12; cedar/wood $8–$14; brick veneer $9.50–$18 — Angi 2026, HomeGuide 2026, LatestCost 2026, HomeGuide brick guide 2026 (installed ranges reconciled across sources)
+- Fiber cement detail: materials $1.50–$4.50/sqft, labor $4–$9/sqft, installed $8–$13 — LatestCost 2026; 30-yr product warranty, ColorPlus 15-yr finish warranty — James Hardie via contractor guides 2026
+- Lifespans: vinyl 20–40; engineered wood 20–40; fiber cement 30–50; cedar 20–40; brick veneer 50–100 — industry-standard ranges (Angi/HomeGuide 2026)
+- Tear-off $1,000–$3,000 flat for typical home — contractor-published 2026 guides
+- Resale ROI: fiber cement 70–85%+, vinyl ~60–70% — industry-reported (labeled estimates)
+
+## UNVERIFIED / estimated — re-check at quarterly review
+(Phase 1–8 items 1–75 unchanged; new items 76–83)
+76. All calculator material/labor defaults = midpoints of the published ranges above; tier mapping budget=low/standard=mid/premium=high is a methodological convention. Labor default = material base rate regardless of tier (matches roof/deck pattern). User-adjustable.
+77. Wall-area formula 2(L+W) × 9 ft/story — 9 ft/story and no window/door deduction are planning conventions (cutouts roughly offset gables/corners/waste), labeled on-page.
+78. Stories labor multipliers (+10%/+20%) — industry rule of thumb, labeled estimate.
+79. Tear-off default $1.00/sqft (typical $0.50–$1.50), wrap $0.75/sqft (typical $0.50–$1.00), trim $1,500 (typical $1,000–$3,000), permit $300 (typical $200–$500) — industry estimates, user-adjustable, labeled on-page.
+80. Engineered wood / cedar / brick labor ranges — fewer published data points; industry estimates, labeled on-page.
+81. 25-year true-cost tables = straight-line prorating (total × 25÷lifespan), no discounting, illustrative; maintenance adders labeled industry estimates (vinyl ~$0; engwood $4,000 one repaint; fiber $4,000 one repaint; cedar $12,500 = ~$2,500 stain every 5 yrs; brick $3,000 repoint ~yr 25–30).
+82. Sheathing repair ~$75–$100/sheet — industry estimate, labeled on-page.
+83. Worked-example numbers are calculator outputs (verified by functional test 2026-10-09), not independent data. Cross-page figures verified consistent (comparison-page $19,300/$28,675 reproducible in calculator; 25-yr table totals match calculator standard-tier outputs).
+
+## Validation done
+- `node --check` on siding-calculator.js: clean
+- Functional test of the REAL JS (stubbed DOM, 4 scenarios, 14 checks): ALL PASS — S1 (40×50 2-story fiber std pro + tear-off + wrap + $1,500 trim + $300 permit): $38,250.00, range $28,687.50–$47,812.50, $11.81/sqft; S2 (40×30 1-story vinyl budget DIY, no tear-off/wrap/trim/permit): $2,520.00; S3 (50×60 2-story brick premium pro + tear-off + wrap + $2,500 trim + $500 permit): $71,706.00, range $53,779.50–$89,632.50; S4 (2,500 sqft direct engwood std pro): $24,925.00. Comparison table + math panel render checks: PASS.
+- Two test-harness issues caught (not code bugs): DIY explainer text contains "Tear-off" (test string refined to row label); labor default is material base rate not tier-adjusted (matches roof pattern — hand-calc corrected).
+- Internal link check on 5 new files: 0 broken, 0 root-absolute; titles/metas unique site-wide; exactly one H1 per page; all JSON-LD parses (3 blocks each); GA4 + AdSense + OG tags + byline + October 2026 footer stamps on all pages; canonical tags verified well-formed (closed `>`, regression test for the Oct 9 OG-script bug)
+- Tap targets: forms use shared .seg/.preset CSS (44px, validated in earlier phases)
