@@ -377,3 +377,18 @@ Path convention: parent converted all files to relative internal links for the G
 88. All worked-example arithmetic is internally derived from mid-range planning figures (not independent data); ±25% ranges applied uniformly per site convention.
 89. Refinishing costs ($1–$2.50 screen/recoat, $3–$8 sand/refinish) — industry-typical 2026 estimates, labeled on-page.
 90. Cross-page consistency verified: installed ranges match flooring-material-comparison tables; labor ranges match flooring-installation-cost guide; LVP figures match how-much-does-lvp-flooring-cost page.
+
+## Phase 11 — Link-earning assets (2026-10-10)
+- `assets/js/embed.js` — embeddable mini-calculator widget (Shadow DOM, no dependencies). Usage: one `<script src=".../assets/js/embed.js" async>` + `<div data-cmp-calculator="paint-cost">`. Supports paint-cost + moving-cost via extensible CALCS config. Attribution link "Powered by CostMyProject" → full calculator page. node --check clean; compute functions tested (9/9: paint pro/DIY/1-coat totals, moving local/LD/diy/container).
+- `embed/index.html` — "Embed Our Free Calculators on Your Site" page: copy-paste snippets, LIVE previews (actual widget), customization note, terms (free, keep attribution). GA4 + AdSense + OG + canonical + BreadcrumbList/Article JSON-LD + byline; 1 H1; 0 broken links.
+- `cost-guides/2026-state-moving-cost-index/index.html` — ranked data study of all 10 states (1,614 words): local 2BR ranking (OH/PA cheapest −9%, CA/NY priciest +14%, baseline $1,960), interstate ~1,000mi ranking (GA cheapest −16%, NY priciest +19%, baseline $5,055), methodology note, 4 quotable insights, embeddable table snippet with attribution, press contact. FAQPage + Article + BreadcrumbList JSON-LD; 0 broken links; canonical well-formed.
+- Hub wiring + sitemap NOT done (parent handles).
+
+## UNVERIFIED / estimated — re-check at quarterly review
+(Phase 1–10 items 1–90 unchanged; new items 91–96)
+91. Embed widget paint math is a SIMPLIFIED version of paint-calculator.js: 375 sq ft/gal coverage, 10% waste, $45/gal paint, $2.50/sq ft pro labor — no door/window deduction, no primer/supplies line items. Labeled as simplified on embed page.
+92. Embed widget moving math mirrors moving-calculator.js defaults (crew hours × hourly local; weight formula + $1,200 floor LD; one-way truck base+per-mile; container base + $2.50/mi LD) — no packing/supplies adders. Simplified, labeled.
+93. State Moving Cost Index rankings are derived from the 10 state pages' published ranges (midpoints), which themselves rest on state planning multipliers (CA/NY 1.20 … OH/PA 0.95) — methodological conventions, not surveyed mover quotes. Labeled on-page.
+94. Interstate ranking uses each state's corridor closest to 1,000 miles; distances approximate ("~"); corridor choice affects ranking order.
+95. Seasonal swing figures (peak +20–30%, FL/AZ summer dips, IL/PA winter discounts) — industry-typical patterns, labeled as estimates on-page.
+96. DIY-vs-pro state comparisons in the index are arithmetic from the same modeled ranges, not independent data.
