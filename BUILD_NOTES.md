@@ -392,3 +392,17 @@ Path convention: parent converted all files to relative internal links for the G
 94. Interstate ranking uses each state's corridor closest to 1,000 miles; distances approximate ("~"); corridor choice affects ranking order.
 95. Seasonal swing figures (peak +20–30%, FL/AZ summer dips, IL/PA winter discounts) — industry-typical patterns, labeled as estimates on-page.
 96. DIY-vs-pro state comparisons in the index are arithmetic from the same modeled ranges, not independent data.
+
+## Phase 12 — Kitchen remodel cluster (2026-10-10)
+- `calculators/kitchen-remodel-cost/index.html` — interactive calculator: kitchen sq ft, scope (refresh/mid/major/luxury), cabinets (reface/stock/semi/custom), countertop (5 materials), flooring (5 options), appliances (4 packages), region multiplier, layout-change toggle. Component-sum model: cabinets (lf = sqft×0.25, min 20), countertop (sqft×0.5 installed rates), flooring, appliance packages, scope-based plumbing/electrical allowance, labor 25–40% of materials × region 0.85–1.2. ±25% range, line-by-line breakdown. Spot-checked: mid-range 10×10 = $28,860 (sanity range $25K–$45K ✓); refresh 10×10 = $9,852; luxury 200 sqft = $117,438. SoftwareApplication + BreadcrumbList + FAQPage JSON-LD (matches paint-calculator pattern).
+- `cost-guides/kitchen-remodel-cost-guide/index.html` — 1,824 words: scope tiers, budget-share table, 10×10 worked example, price levers, saving tips, ROI/resale, timelines, per-sq-ft bands, financing, when-not-to-remodel, 6 FAQs.
+- `cost-guides/kitchen-cabinet-cost/index.html` — 1,510 words: per-linear-foot tiers, reface-vs-replace table, tier deep-dives, box construction, hardware/install extras, painting alternative, 10×10 example, decision guide, 5 FAQs.
+- `cost-guides/kitchen-countertop-cost/index.html` — 1,549 words: per-sq-ft installed table, material deep-dives, quartz-vs-granite table, edge profiles, hidden costs, 50 sq ft worked example, quote-reading checklist, 5 FAQs.
+- Hub wiring + sitemap NOT done (parent handles).
+
+## UNVERIFIED / estimated — re-check at quarterly review
+(Phase 1–11 items 1–96 unchanged; new items 97–100)
+97. Kitchen calculator component rates are October 2026 planning estimates: cabinets reface $4K–$8K flat / stock $100–$200/lf / semi $200–$400/lf / custom $400–$800/lf; countertops laminate $22 / butcher $70 / granite $85 / quartz $100 / marble $135 per sq ft (midpoints of published ranges); flooring vinyl/laminate $5.50 / tile $12 / hardwood $18 per sq ft; appliance suites $3K/$5.5K/$15K; plumbing-electrical allowance $1K–$12K by scope; labor 25–40% of materials; region multipliers 0.85–1.2. All labeled on-page as planning estimates.
+98. Kitchen guide figures (scope bands $8K–$250K+, budget shares, ROI 70–80%/50–60%, timelines, per-sq-ft bands $75–$1,200+, financing rate examples) — industry-typical 2026 estimates, labeled on-page.
+99. Cabinet guide: linear-foot ≈ 25 lf for 10×10 is a planning convention; hardware/install/demo ranges and lifespan figures (stock 15–25 yrs, semi 25–40, custom 40+) — industry-typical, labeled on-page.
+100. Countertop guide: 50 sq ft reference size is a planning convention; material bands, edge-profile upcharges ($10–$30/lf), and hidden-cost ranges — industry-typical estimates, labeled on-page.
