@@ -360,3 +360,20 @@ Path convention: parent converted all files to relative internal links for the G
 - Two test-harness issues caught (not code bugs): DIY explainer text contains "Tear-off" (test string refined to row label); labor default is material base rate not tier-adjusted (matches roof pattern — hand-calc corrected).
 - Internal link check on 5 new files: 0 broken, 0 root-absolute; titles/metas unique site-wide; exactly one H1 per page; all JSON-LD parses (3 blocks each); GA4 + AdSense + OG tags + byline + October 2026 footer stamps on all pages; canonical tags verified well-formed (closed `>`, regression test for the Oct 9 OG-script bug)
 - Tap targets: forms use shared .seg/.preset CSS (44px, validated in earlier phases)
+
+## Phase 10 — Flooring supporting pages (2026-10-10)
+- `cost-guides/hardwood-floor-installation-cost/index.html` — solid $12–$25 / engineered $8–$18 installed; species tiers (red oak $5–$8 … exotics $10–$16+); 3 room worked examples; refinishing ($3–$8) vs new; DIY-vs-pro; 5 FAQs. 1,545 words.
+- `cost-guides/tile-flooring-cost-per-sqft/index.html` — ceramic $7–$15 / porcelain $8–$18 / stone $12–$25+ installed; layout-labor rule; bath/kitchen examples; heated floors; 5 FAQs. 1,216 words.
+- `cost-guides/carpet-installation-cost/index.html` — $3–$8 installed; fiber guide (nylon vs polyester); pad-upgrade rule; stairs $40–$100+/step; 3 room examples; 5 FAQs. 1,304 words.
+- `cost-guides/laminate-flooring-cost/index.html` — $3–$8 installed; thickness tiers (7/8–10/12mm+); laminate-vs-LVP head-to-head; 3 room examples; 5 FAQs. 1,230 words.
+- All link to calculators/flooring-cost/ + 3 flooring siblings; hub wiring + sitemap NOT done (parent handles).
+
+## UNVERIFIED / estimated — re-check at quarterly review
+(Phase 1–9 items 1–83 unchanged; new items 84–90)
+84. Hardwood species material bands (red oak $5–$8 … exotics $10–$16+), engineered $3–$10 materials — retail planning ranges derived from installed-minus-labor arithmetic, labeled on-page; not independently shelf-verified.
+85. Tile material splits (ceramic $0.50–$5, porcelain $3–$10, stone $5–$15) — derived from installed ranges minus site labor data; layout upcharge +20–40%, heated floor $8–$15/sq ft, stone sealing $1–$2/sq ft — industry estimates, labeled on-page.
+86. Carpet material bands ($1–$5/sq ft) and pad ($0.35–$0.80/sq ft) — derived planning ranges; stair pricing $40–$100+/step and fiber guidance (nylon vs polyester) — industry-typical, labeled on-page.
+87. Laminate material bands ($1–$5/sq ft by thickness tier) — derived planning ranges; AC-rating guidance and pattern-repeat claims — industry-typical, labeled on-page.
+88. All worked-example arithmetic is internally derived from mid-range planning figures (not independent data); ±25% ranges applied uniformly per site convention.
+89. Refinishing costs ($1–$2.50 screen/recoat, $3–$8 sand/refinish) — industry-typical 2026 estimates, labeled on-page.
+90. Cross-page consistency verified: installed ranges match flooring-material-comparison tables; labor ranges match flooring-installation-cost guide; LVP figures match how-much-does-lvp-flooring-cost page.
