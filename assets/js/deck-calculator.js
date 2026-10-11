@@ -123,6 +123,7 @@
 
     var materialCost = sqft * hMult * matPrice;
     var laborCost = s.laborMode === 'pro' ? sqft * hMult * laborRate : 0;
+    if (window.CMPZipLabor) laborCost = CMPZipLabor.adjust(laborCost);
     var stairsCost = s.steps * s.stepPrice;
     var railingCost = s.railingLF * s.railingPrice;
     var benchesCost = s.benches * s.benchPrice;
@@ -169,6 +170,8 @@
     } else {
       rows += row('Install labor', 'DIY — $0.00');
     }
+    var zipRow = window.CMPZipLabor ? CMPZipLabor.noteRow() : null;
+    if (zipRow) rows += row(zipRow.label, zipRow.val);
     if (s.steps > 0) rows += row('Stairs — ' + s.steps + ' steps × ' + money(s.stepPrice), money(r.stairsCost));
     if (s.railingLF > 0) rows += row('Railing — ' + num1(s.railingLF) + ' LF × ' + money(s.railingPrice), money(r.railingCost));
     if (s.benches > 0) rows += row('Built-in benches — ' + s.benches + ' × ' + money(s.benchPrice), money(r.benchesCost));
@@ -301,6 +304,7 @@
 
   function init() {
     if (!$('calc-form')) return;
+    if (window.CMPZipLabor) CMPZipLabor.bind('in-zip', 'zip-note', recalc);
     segWire('seg-mode', 'calc-mode', function () { syncModeUI(); recalc(); });
     segWire('seg-tier', 'calc-tier', function () { syncMaterialUI(); recalc(); });
     segWire('seg-height', 'calc-height', function () { recalc(); });

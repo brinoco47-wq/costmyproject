@@ -126,6 +126,7 @@
 
     var materialCost = roofSqft * matPrice;
     var laborCost = s.laborMode === 'pro' ? roofSqft * laborRate * laborMult : 0;
+    if (window.CMPZipLabor) laborCost = CMPZipLabor.adjust(laborCost);
     var tearoffCost = s.layers * roofSqft * s.tearoffRate;
     var shieldCost = s.shield ? roofSqft * s.shieldRate : 0;
     var skylightCost = s.skylights * s.skylightPrice;
@@ -172,6 +173,8 @@
     } else {
       rows += row('Install labor', 'DIY — $0.00');
     }
+    var zipRow = window.CMPZipLabor ? CMPZipLabor.noteRow() : null;
+    if (zipRow) rows += row(zipRow.label, zipRow.val);
     if (s.layers > 0) rows += row('Tear-off &amp; disposal — ' + s.layers + ' layer' + (s.layers > 1 ? 's' : '') + ' × ' + money(s.tearoffRate) + '/sqft', money(r.tearoffCost));
     if (s.shield) rows += row('Ice-and-water shield upgrade @ ' + money(s.shieldRate) + '/sqft', money(r.shieldCost));
     if (s.skylights > 0) rows += row('Skylights re-flashed — ' + s.skylights + ' × ' + money(s.skylightPrice), money(r.skylightCost));
@@ -298,6 +301,7 @@
 
   function init() {
     if (!$('calc-form')) return;
+    if (window.CMPZipLabor) CMPZipLabor.bind('in-zip', 'zip-note', recalc);
     segWire('seg-mode', 'calc-mode', function () { syncModeUI(); recalc(); });
     segWire('seg-tier', 'calc-tier', function () { syncMaterialUI(); recalc(); });
     segWire('seg-pitch', 'calc-pitch', function () { recalc(); });

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Labor Rates Vary by ZIP Code (2026 Methodology)</title>
+<meta name="description" content="How CostMyProject's ZIP-code labor multipliers work: BLS wage data for construction laborers across 912 ZIP3 areas, three data tiers, and honest limitations. October 2026.">
+<link rel="canonical" href="https://brinoco47-wq.github.io/costmyproject/cost-guides/how-labor-rates-vary-by-zip/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How Labor Rates Vary by ZIP Code (2026 Methodology)">
+<meta property="og:description" content="How CostMyProject's ZIP-code labor multipliers work: BLS wage data for construction laborers across 912 ZIP3 areas, three data tiers, and honest limitations.">
+<meta property="og:url" content="https://brinoco47-wq.github.io/costmyproject/cost-guides/how-labor-rates-vary-by-zip/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How Labor Rates Vary by ZIP Code (2026 Methodology)",
+ "author":{"@type":"Organization","name":"CostMyProject","url":"https://brinoco47-wq.github.io/costmyproject/"},
+ "datePublished":"2026-10-11","dateModified":"2026-10-11",
+ "mainEntityOfPage":"https://brinoco47-wq.github.io/costmyproject/cost-guides/how-labor-rates-vary-by-zip/"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://brinoco47-wq.github.io/costmyproject/"},
+ {"@type":"ListItem","position":2,"name":"Cost Guides","item":"https://brinoco47-wq.github.io/costmyproject/cost-guides/"},
+ {"@type":"ListItem","position":3,"name":"How Labor Rates Vary by ZIP Code","item":"https://brinoco47-wq.github.io/costmyproject/cost-guides/how-labor-rates-vary-by-zip/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"Why does my ZIP code change the labor estimate?",
+  "acceptedAnswer":{"@type":"Answer","text":"Construction labor wages vary enormously by metro. BLS data shows construction laborers in the Chicago metro earn about 41% above the national average, while in Texas they earn about 21% below it. Materials cost roughly the same everywhere (national retail chains), so geography mostly moves the labor line — which is the part we adjust."}},
+ {"@type":"Question","name":"Where does the wage data come from?",
+  "acceptedAnswer":{"@type":"Answer","text":"The U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), May 2023 release — mean hourly wages for construction laborers (SOC 47-2061), the occupation closest to general home-improvement labor. National mean: $23.69/hour. Every multiplier is that area's wage divided by the national mean."}},
+ {"@type":"Question","name":"What if my ZIP code is not in the table?",
+  "acceptedAnswer":{"@type":"Answer","text":"You get the national average (×1.00) with a note saying so. Military APO/FPO ZIPs and a few unmapped areas fall back to 1.00. The estimate still works — it just doesn't apply a local adjustment."}},
+ {"@type":"Question","name":"Does the multiplier apply to materials too?",
+  "acceptedAnswer":{"@type":"Answer","text":"No — deliberately. Lumber, paint, and shingles are priced by national retailers with modest regional variation, while labor is hyper-local. Scaling only the labor portion keeps the adjustment honest instead of inflating the whole project."}},
+ {"@type":"Question","name":"How accurate is the ZIP adjustment?",
+  "acceptedAnswer":{"@type":"Answer","text":"It is a planning estimate, not a quote. Tier 1 (major metros) and Tier 2 (14 states) use published BLS means; Tier 3 uses state estimates calibrated to BLS data. All values are rounded to 2 decimals and clamped to 0.80–1.40. Real contractor quotes in your ZIP can still differ — always get three written quotes."}}]}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTHH0CBTVS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CTHH0CBTVS');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9249169140665725"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap head-in">
+    <a class="brand" href="../../">CostMyProject</a>
+    <nav aria-label="Primary"><a href="../../calculators/">Calculators</a><a href="../../cost-guides/">Cost Guides</a><a href="../../comparisons/">Comparisons</a><a href="../../methodology/">Methodology</a></nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+  <article>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../../">Home</a> / <a href="../../cost-guides/">Cost Guides</a> / How Labor Rates Vary by ZIP Code</nav>
+    <h1>How Labor Rates Vary by ZIP Code</h1>
+    <p class="byline">CostMyProject Research Team <span class="verified">Prices checked October 2026</span></p>
+
+    <p class="lede">Every CostMyProject calculator has an optional ZIP-code field. Enter it, and the <strong>labor portion</strong> of your estimate is scaled to your local labor market — using real Bureau of Labor Statistics wage data, not a guess. Here is exactly how it works, where the numbers come from, and where it falls short.</p>
+
+    <h2>Why ZIP codes matter more than you think</h2>
+    <p>A gallon of paint costs about the same in Boise and Boston — national retail chains see to that. Labor is a different story. The BLS Occupational Employment and Wage Statistics (OEWS) survey found that in May 2023, construction laborers in the Chicago metro earned a mean of <strong>$33.35/hour</strong>, while in Texas the state mean was <strong>$18.74/hour</strong>. That is a 78% gap for the same occupation. Any "national average" labor figure is therefore wrong almost everywhere — too high for Houston, too low for San Francisco. Our ZIP adjustment exists to fix that.</p>
+    <p>Most free calculators ignore geography entirely. The ones that handle it well (notably Homewyse) treat ZIP localization as their core feature. We built our version on public BLS data so the method is auditable: every multiplier below can be traced to a published BLS wage figure.</p>
+
+    <h2>How the multiplier is built</h2>
+    <p>The input is the <strong>first 3 digits of your ZIP code</strong> (the ZIP3 area — e.g. 90210 → 902). ZIP3 is the finest geography we can support honestly: BLS publishes wages by metro and state, not by 5-digit ZIP, and mapping 41,000+ ZIP codes to metros would pretend to a precision the source data does not have.</p>
+    <p>Each of the 912 ZIP3 areas in the US gets one multiplier between <strong>0.80 and 1.40</strong>, computed as:</p>
+    <p class="formula"><strong>multiplier = area mean hourly wage ÷ $23.69</strong> (the BLS OEWS May 2023 national mean for construction laborers, SOC 47-2061), rounded to 2 decimals and clamped to the 0.80–1.40 band.</p>
+    <p>When you enter a ZIP, only the <strong>labor lines</strong> of the estimate are multiplied. Materials, permits, and flat fees stay at national figures. The breakdown shows a <em>Local labor adjustment (ZIP 90210: ×1.23)</em> row so you can see exactly what changed. Leave the field empty and everything computes at ×1.00, exactly as before.</p>
+
+    <h2>The three data tiers</h2>
+    <p>Not all 912 areas have equally good data, so we label the source on every lookup:</p>
+    <ul>
+      <li><strong>Tier 1 — Metro-verified (98 ZIP3 areas).</strong> BLS OEWS May 2023 published mean wages for construction laborers in 16 major metropolitan areas, applied to their core ZIP3s. Example: Chicago metro $33.35 → ×1.40; Houston metro $19.08 → ×0.81.</li>
+      <li><strong>Tier 2 — State-verified (294 ZIP3 areas).</strong> BLS OEWS May 2023 published state means for 14 states, applied to ZIP3s outside the Tier 1 metros. Example: California $29.67 → ×1.25; Florida $19.56 → ×0.83.</li>
+      <li><strong>Tier 3 — State estimates (520 ZIP3 areas).</strong> Planning estimates for the remaining states, calibrated from BLS Current Employment Statistics (CES) state construction-earnings relativities anchored to the OEWS-verified states. Labeled as estimates everywhere they appear.</li>
+    </ul>
+    <p>ZIP codes the table does not cover (military APO/FPO addresses and a handful of unmapped areas) fall back to ×1.00 with a "national average" note — the calculator works fine, it just skips the local adjustment.</p>
+
+    <h2>Top metro multipliers</h2>
+    <p>The 16 BLS-verified metros and their multipliers (construction laborers, BLS OEWS May 2023):</p>
+    <table>
+      <thead><tr><th>Metro area</th><th>BLS mean wage</th><th>Multiplier</th></tr></thead>
+      <tbody>
+        <tr><td>Trenton, NJ</td><td>$35.45</td><td>×1.40</td></tr>
+        <tr><td>Chicago-Naperville-Elgin</td><td>$33.35</td><td>×1.40</td></tr>
+        <tr><td>San Francisco-Oakland-Hayward</td><td>$34.19</td><td>×1.40</td></tr>
+        <tr><td>Boston-Cambridge-Nashua</td><td>$33.26</td><td>×1.40</td></tr>
+        <tr><td>San Jose-Sunnyvale-Santa Clara</td><td>$33.21</td><td>×1.40</td></tr>
+        <tr><td>Atlantic City-Hammonton, NJ</td><td>$32.76</td><td>×1.38</td></tr>
+        <tr><td>New York-Newark-Jersey City</td><td>$32.80</td><td>×1.38</td></tr>
+        <tr><td>Urban Honolulu, HI</td><td>$31.84</td><td>×1.34</td></tr>
+        <tr><td>Seattle-Tacoma-Bellevue</td><td>$30.65</td><td>×1.29</td></tr>
+        <tr><td>Minneapolis-St. Paul-Bloomington</td><td>$29.82</td><td>×1.26</td></tr>
+        <tr><td>Los Angeles-Long Beach-Anaheim</td><td>$29.14</td><td>×1.23</td></tr>
+        <tr><td>Philadelphia-Camden-Wilmington</td><td>$27.82</td><td>×1.17</td></tr>
+        <tr><td>Phoenix-Mesa-Scottsdale</td><td>$22.65</td><td>×0.96</td></tr>
+        <tr><td>Washington-Arlington-Alexandria</td><td>$22.18</td><td>×0.94</td></tr>
+        <tr><td>Dallas-Fort Worth-Arlington</td><td>$19.47</td><td>×0.82</td></tr>
+        <tr><td>Houston-The Woodlands-Sugar Land</td><td>$19.08</td><td>×0.81</td></tr>
+      </tbody>
+    </table>
+    <p>The pattern is real and worth internalizing: union-dense coastal and Great Lakes metros run 25–40% above the national average, while right-to-work Southern metros run 15–20% below it. Generic cost-of-living intuition gets this wrong — Washington DC's overall cost of living is sky-high, yet its construction-laborer wages sit <em>below</em> the national mean. That is exactly why we use occupation-specific BLS data instead of a cost-of-living index.</p>
+
+    <h2>Data sources</h2>
+    <ul>
+      <li>U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/oes/2023/may/oes472061.htm">Occupational Employment and Wage Statistics, May 2023 — Construction Laborers (47-2061)</a>: national, state, and metro mean hourly wages.</li>
+      <li>U.S. Bureau of Labor Statistics, <a href="https://www.bls.gov/iag/tgs/iag23.htm">Construction industry earnings (NAICS 23)</a>: OEWS May 2025 national context.</li>
+      <li>U.S. Bureau of Labor Statistics, Current Employment Statistics state construction earnings (via LBM Journal, Feb 2024): calibration for Tier 3 state estimates.</li>
+      <li>GeoNames US ZIP dataset: ZIP3-to-state crosswalk (majority state per ZIP3).</li>
+    </ul>
+    <p>The full machine-readable table (all 912 ZIP3 areas, tiers, and labels) ships with the site at <code>/assets/data/zip3-multipliers.json</code>.</p>
+
+    <h2>Limitations — read this before trusting the number</h2>
+    <ul>
+      <li><strong>It is a planning estimate, not a quote.</strong> BLS means describe employees of construction firms, not the bid price of your specific contractor, who adds overhead, profit, scheduling, and job-specific difficulty.</li>
+      <li><strong>ZIP3 is coarse.</strong> Manhattan (100) and the outer Bronx (104) share economics; so do Beverly Hills (902) and East LA (900)? Not exactly — both are "Los Angeles metro" in our table. Within-metro variation (often ±15%) is not captured.</li>
+      <li><strong>Occupation proxy.</strong> We use construction laborers (47-2061) as the proxy for all project labor. Licensed trades (electricians, plumbers) have different — usually wider — geographic spreads.</li>
+      <li><strong>Data vintage.</strong> May 2023 OEWS is the latest fully published detailed release we could verify at build time. Wages move; the relativities between areas move much more slowly, which is what the multiplier relies on.</li>
+      <li><strong>Tier 3 is estimated.</strong> 520 ZIP3 areas use state estimates, not published OEWS means. They are calibrated and clamped, but they are estimates — labeled as such on every lookup.</li>
+    </ul>
+    <p>Bottom line: the ZIP adjustment moves a national-average labor figure meaningfully closer to your market. It does not replace getting three written quotes from local contractors — nothing does.</p>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Why does my ZIP code change the labor estimate?</h3>
+    <p>Construction labor wages vary enormously by metro. BLS data shows construction laborers in the Chicago metro earn about 41% above the national average, while in Texas they earn about 21% below it. Materials cost roughly the same everywhere (national retail chains), so geography mostly moves the labor line — which is the part we adjust.</p>
+    <h3>Where does the wage data come from?</h3>
+    <p>The U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics (OEWS), May 2023 release — mean hourly wages for construction laborers (SOC 47-2061), the occupation closest to general home-improvement labor. National mean: $23.69/hour. Every multiplier is that area's wage divided by the national mean.</p>
+    <h3>What if my ZIP code is not in the table?</h3>
+    <p>You get the national average (×1.00) with a note saying so. Military APO/FPO ZIPs and a few unmapped areas fall back to 1.00. The estimate still works — it just doesn't apply a local adjustment.</p>
+    <h3>Does the multiplier apply to materials too?</h3>
+    <p>No — deliberately. Lumber, paint, and shingles are priced by national retailers with modest regional variation, while labor is hyper-local. Scaling only the labor portion keeps the adjustment honest instead of inflating the whole project.</p>
+    <h3>How accurate is the ZIP adjustment?</h3>
+    <p>It is a planning estimate, not a quote. Tier 1 (major metros) and Tier 2 (14 states) use published BLS means; Tier 3 uses state estimates calibrated to BLS data. All values are rounded to 2 decimals and clamped to 0.80–1.40. Real contractor quotes in your ZIP can still differ — always get three written quotes.</p>
+
+    <div class="related">
+      <h2>Keep going</h2>
+      <ul>
+        <li><a href="../../methodology/">Our full methodology — how every calculator works</a></li>
+        <li><a href="../../calculators/paint-cost/">Paint cost calculator — try the ZIP field</a></li>
+        <li><a href="../../cost-guides/2026-state-moving-cost-index/">2026 State Moving Cost Index — geography matters for moving too</a></li>
+        <li><a href="../../cost-guides/">All cost guides</a></li>
+      </ul>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>CostMyProject</h4>
+        <p>The neutral, numbers-first answer to "what will my project cost?" Every estimate is computed live from dated, sourced price data — with the math shown.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../../calculators/paint-cost/">Paint Cost Calculator</a></li>
+          <li><a href="../../calculators/moving-cost/">Moving Cost Estimator</a></li>
+          <li><a href="../../calculators/flooring-cost/">Flooring Cost Calculator</a></li>
+          <li><a href="../../calculators/kitchen-remodel-cost/">Kitchen Remodel Cost Calculator</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../../contact/">Contact</a></li>
+          <li><a href="../../privacy/">Privacy Policy</a></li>
+          <li><a href="../../disclosure/">Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="fine">Price data last checked October 2026. Estimates are planning figures, not quotes. © 2026 CostMyProject.</p>
+  </div>
+</footer>
+</body>
+</html>

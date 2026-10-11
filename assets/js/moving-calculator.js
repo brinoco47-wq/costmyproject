@@ -140,6 +140,8 @@
       container: costContainer(s) + pack + supFor('container'),
       full: costFull(s) + pack + supFor('full')
     };
+    /* ZIP: mover labor rates vary by metro — scale the full-service (labor-driven) option */
+    if (window.CMPZipLabor) totals.full = CMPZipLabor.adjust(totals.full);
     var selected = totals[s.type];
     var cheapest = 'diy';
     if (totals.container < totals[cheapest]) cheapest = 'container';
@@ -160,6 +162,8 @@
 
     var rows = '';
     rows += row(TYPE_LABEL[s.type] + ' — move cost', money(r.moveCost));
+    var zipRow = window.CMPZipLabor ? CMPZipLabor.noteRow() : null;
+    if (zipRow) rows += row(zipRow.label, zipRow.val);
     if (s.packing !== 'none') rows += row(PACK_LABEL[s.packing], money(r.pack));
     rows += row(s.packing === 'full' && s.type !== 'diy' ? 'Boxes &amp; materials <span class="src">(included in packing)</span>' : 'Boxes &amp; materials (DIY)', money(r.sup));
 
@@ -299,6 +303,7 @@
 
   function init() {
     if (!$('calc-form')) return;
+    if (window.CMPZipLabor) CMPZipLabor.bind('in-zip', 'zip-note', recalc);
     segWire('seg-home', 'calc-home', function () { syncHomeUI(); recalc(); });
     segWire('seg-type', 'calc-type', function () { recalc(); });
     segWire('seg-packing', 'calc-packing', function () { recalc(); });

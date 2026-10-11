@@ -406,3 +406,26 @@ Path convention: parent converted all files to relative internal links for the G
 98. Kitchen guide figures (scope bands $8K–$250K+, budget shares, ROI 70–80%/50–60%, timelines, per-sq-ft bands $75–$1,200+, financing rate examples) — industry-typical 2026 estimates, labeled on-page.
 99. Cabinet guide: linear-foot ≈ 25 lf for 10×10 is a planning convention; hardware/install/demo ranges and lifespan figures (stock 15–25 yrs, semi 25–40, custom 40+) — industry-typical, labeled on-page.
 100. Countertop guide: 50 sq ft reference size is a planning convention; material bands, edge-profile upcharges ($10–$30/lf), and hidden-cost ranges — industry-typical estimates, labeled on-page.
+
+## UNVERIFIED / estimated — re-check at quarterly review
+(Phase 13 — thin-page expansion 2026-10-11, items 101–120)
+101. Fence: regional labor multipliers 0.85×–1.3× — industry estimates, labeled planning ranges on-page.
+102. Fence: small-job minimums $800–$1,500; seasonal price swing 10–20% — industry norms, labeled on-page.
+103. Fence upgrade bumps: pine→cedar $7–$15/LF, vinyl wall thickness $5–$10/LF, chain-link gauge $2–$4/LF — estimates, labeled on-page.
+104. Fence DIY materials-only per-LF ranges (chain-link $6–$15 … composite $28–$50) — estimates, labeled on-page.
+105. Fence 10-yr maintenance figures (~$1,700 wood, ~$150 vinyl) — estimates, labeled on-page.
+106. Deck extras: permit drawings $500–$2,500, lighting $50–$200/fixture, pergolas $3,500–$15,000+ (match deck-cost page's own figures); height multipliers +30%/+55% as industry rules of thumb — labeled on-page.
+107. Kitchen worked example ($32,422 total, ±25% → $24,300–$40,500) derived from the page's own calculator math — computed, labeled on-page.
+108. Kitchen ROI 40–55% / 60–70%+ — from memory of Remodeling Cost vs. Value, needs source verification; kitchen timelines 6–10 wks / 3–5 mo — industry-typical, labeled on-page.
+109. Exterior paint regional labor bands: Midwest/SE $2.00–$2.80, Mountain West/TX $2.75–$3.50, NE/West Coast $3.50–$5.00 per sq ft siding — planning ranges, not sourced, labeled on-page.
+110. Exterior painting: shoulder-season discount 5–15% vs peak summer; summer booking lead 3–6 weeks; power-washer rental ~$75/day vs $300–$600 prep line item; annual maintenance wash ~$150 — industry norms, labeled on-page.
+111. Moving scenarios computed from the site's own calculator model (2BR/800 mi: truck ~$1,700, container ~$3,300, full-service ~$3,900; 4BR/2,500 mi: truck ~$4,300, container ~$8,400, full-service ~$15,500) — computed planning estimates ±25%, labeled on-page.
+112. Hybrid container+loaders: 2 loaders × 3–4 hrs × $60–$80/hr = $360–$640 (loader rate an industry norm); booking lead-time table; late-booking premium 10–25% (industry norm) — labeled on-page.
+113. Deposit norms (local $0–$300, LD $200–$500 or ~10%; red flag >25% upfront), tipping guide ($10–$20/half-day, $20–$40/full-day local, $30–$50 per LD crew), cancellation/reschedule norms (7+ days free refund, <7 days deposit forfeit, <72 hrs $200–$500 fee) — customary/industry norms, labeled on-page.
+114. Ancillary moving costs: parking permits $50–$150; storage $100–$250/mo; container extra month $200–$400; LD hotel $120–$180/night; lock change $100–$200 locksmith / ~$15 DIY deadbolt; declutter weight math ~$65–$90 saved per 100 lbs on 800–1,200 mi moves (derived from the site's $0.50+$0.0003×mi formula) — labeled on-page.
+115. Flooring installation regional labor map (South/Midwest/Northeast/West Coast LVP + tile labor bands) — industry estimates, labeled ±25% on-page.
+116. Flooring: $300–$500 small-job trip minimum; Jan–Feb 5–10% off-peak discount (described as anecdotal, not guaranteed); crew pace figures (carpet 400–600, LVP/laminate 150–250, hardwood 100–200, tile 75–150 sq ft/day) — industry planning estimates, labeled on-page.
+117. Flooring crossover years (~10 carpet→LVP, ~15 laminate→LVP, ~30 carpet→hardwood, ~40 LVP→hardwood) — straight-line math from the pages' own mid-range installed costs; replacement-timing sensitivity (pets compressing carpet life toward 5–7 yrs; DIY erasing ~$2,750 labor per 1,000 sq ft; ~$2,500 hardwood refinish pulling crossovers earlier) — computed, labeled on-page.
+118. Flooring rental scenario (1,600 sq ft, 14 yrs: carpet 3 installs = $26,400 vs LVP 1 install = $12,320) — computed from the page's own costs, labeled on-page.
+119. Flooring per-material material/labor splits (e.g., carpet material $1–$5 + pad $0.35–$0.80; tile setting materials on top of $2.50–$8 material) — consistent with sibling guides; split-level figures are estimates, labeled ±25% on-page.
+120. Flooring waste-by-material table (carpet 15–20%, hardwood 12–15%); worked-example room dimensions (open plan 432→484; ranch 840→924 sq ft); phone LiDAR ~1% accuracy claim; reorder cost ($50–$150); stairs-in-total labor ($520–$1,300 for 13 steps) — planning conventions/industry estimates, labeled on-page.

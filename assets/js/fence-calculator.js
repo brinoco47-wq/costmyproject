@@ -122,6 +122,7 @@
 
     var materialCost = lf * hMult * matPrice;
     var laborCost = s.laborMode === 'pro' ? lf * hMult * laborRate * tMult : 0;
+    if (window.CMPZipLabor) laborCost = CMPZipLabor.adjust(laborCost);
     var removalCost = s.removal ? lf * s.removalRate : 0;
     var gatesCost = s.walkGates * s.walkPrice + s.driveGates * s.drivePrice;
     var total = materialCost + laborCost + removalCost + gatesCost + s.permit;
@@ -163,6 +164,8 @@
     } else {
       rows += row('Install labor', 'DIY — $0.00');
     }
+    var zipRow = window.CMPZipLabor ? CMPZipLabor.noteRow() : null;
+    if (zipRow) rows += row(zipRow.label, zipRow.val);
     if (s.walkGates > 0) rows += row('Walk gates — ' + s.walkGates + ' × ' + money(s.walkPrice), money(s.walkGates * s.walkPrice));
     if (s.driveGates > 0) rows += row('Driveway gates — ' + s.driveGates + ' × ' + money(s.drivePrice), money(s.driveGates * s.drivePrice));
     if (s.removal) rows += row('Old fence removal &amp; haul-away @ ' + money(s.removalRate) + '/LF', money(r.removalCost));
@@ -293,6 +296,7 @@
 
   function init() {
     if (!$('calc-form')) return;
+    if (window.CMPZipLabor) CMPZipLabor.bind('in-zip', 'zip-note', recalc);
     segWire('seg-mode', 'calc-mode', function () { syncModeUI(); recalc(); });
     segWire('seg-tier', 'calc-tier', function () { syncMaterialUI(); recalc(); });
     segWire('seg-height', 'calc-height', function () { recalc(); });

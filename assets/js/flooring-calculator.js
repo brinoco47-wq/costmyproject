@@ -103,6 +103,7 @@
     var materialCost = orderSqft * matPrice;
     var underlayCost = orderSqft * s.underlayRate;
     var laborCost = s.laborMode === 'pro' ? orderSqft * laborRate : 0;
+    if (window.CMPZipLabor) laborCost = CMPZipLabor.adjust(laborCost);
     var removalCost = s.removal ? area * REMOVAL_RATE : 0;
     var prepCost = s.prep ? area * PREP_RATE : 0;
     var total = materialCost + underlayCost + laborCost + removalCost + prepCost + s.trim;
@@ -143,6 +144,8 @@
     } else {
       rows += row('Install labor', 'DIY — $0.00');
     }
+    var zipRow = window.CMPZipLabor ? CMPZipLabor.noteRow() : null;
+    if (zipRow) rows += row(zipRow.label, zipRow.val);
     if (s.removal) rows += row('Old floor removal @ ' + money(REMOVAL_RATE) + '/sq ft', money(r.removalCost));
     if (s.prep) rows += row('Subfloor prep / leveling @ ' + money(PREP_RATE) + '/sq ft', money(r.prepCost));
     if (s.trim > 0) rows += row('Trim, transitions & thresholds', money(s.trim));
@@ -274,6 +277,7 @@
 
   function init() {
     if (!$('calc-form')) return;
+    if (window.CMPZipLabor) CMPZipLabor.bind('in-zip', 'zip-note', recalc);
     segWire('seg-mode', 'calc-mode', function () { syncModeUI(); recalc(); });
     segWire('seg-tier', 'calc-tier', function () { syncMaterialUI(); recalc(); });
     segWire('seg-labor', 'calc-labor', function () { toggleLabor(); recalc(); });

@@ -102,6 +102,7 @@
     var paintCost = paintGalBuy * s.paintPrice;
     var primerCost = primerGalBuy * s.primerPrice;
     var laborCost = s.laborMode === 'pro' ? area * s.laborRate : 0;
+    if (window.CMPZipLabor) laborCost = CMPZipLabor.adjust(laborCost);
     var total = paintCost + primerCost + laborCost + s.supplies;
     var perSqft = area > 0 ? total / area : 0;
 
@@ -147,6 +148,8 @@
     } else {
       rows += row('Labor', 'DIY — $0.00');
     }
+    var zipRow = window.CMPZipLabor ? CMPZipLabor.noteRow() : null;
+    if (zipRow) rows += row(zipRow.label, zipRow.val);
     rows += row('Supplies — tape, rollers, drop cloths, brushes', money(s.supplies));
 
     var alt = BRANDS[r.altKey];
@@ -288,6 +291,7 @@
 
   function init() {
     if (!$('calc-form')) return;
+    if (window.CMPZipLabor) CMPZipLabor.bind('in-zip', 'zip-note', recalc);
     segWire('seg-mode', 'calc-mode', function () { syncModeUI(); recalc(); });
     segWire('seg-type', 'calc-type', function () { recalc(); });
     segWire('seg-condition', 'calc-condition', function () { syncConditionUI(); recalc(); });

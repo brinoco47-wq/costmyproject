@@ -27,11 +27,21 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
  {"@type":"Question","name":"How do I measure square footage for flooring?",
-  "acceptedAnswer":{"@type":"Answer","text":"Measure each room's length × width in feet, add the rooms together, then add 10% for waste (12–15% for diagonal layouts or irregular rooms). For L-shaped rooms, split into two rectangles and add them."}},
- {"@type":"Question","name":"How do you measure stairs for flooring?",
-  "acceptedAnswer":{"@type":"Answer","text":"Measure one tread (depth × width) plus one riser (height × width), multiply by the number of steps, and add the landing as a rectangle. Stairs are usually priced per step by installers, not per square foot."}},
- {"@type":"Question","name":"How much extra flooring should I order?",
-  "acceptedAnswer":{"@type":"Answer","text":"10% extra for simple rectangular rooms; 12–15% for diagonal patterns, L-shaped rooms, or many closets and doorways. Running short mid-install is far more expensive than a leftover box."}}]}
+  "acceptedAnswer":{"@type":"Answer","text":"Measure each room's length × width in feet, wall to wall, and add the rooms together. Then multiply by 1.10 for 10% waste (1.12–1.15 for diagonal layouts or irregular rooms) — that's your order quantity. Split L-shapes into rectangles, and measure stairs per step, separately. Round every measurement up to the nearest half foot; flooring is sold in full boxes anyway."}},
+ {"@type":"Question","name":"Do I measure closets for new flooring?",
+  "acceptedAnswer":{"@type":"Answer","text":"Walk-in closets: yes, always — they're real floor area. Reach-in closets: include them only if the new flooring runs inside; skip the math if the closet keeps its old floor. When in doubt, include them: the cost of a little extra material is nothing next to a mid-install reorder, and installers measure before ordering anyway."}},
+ {"@type":"Question","name":"How are stairs measured for flooring cost?",
+  "acceptedAnswer":{"@type":"Answer","text":"Per step: (tread depth × width) + (riser height × width), times the number of steps, plus the landing as a plain rectangle. A typical 13-step staircase is about 58 sq ft of material — and installers quote stairs at $40–$100+ per step (industry estimate), not per square foot. Keep stairs as a separate line item on every quote, never blended into the room rate."}},
+ {"@type":"Question","name":"What does \"10% waste\" actually mean?",
+  "acceptedAnswer":{"@type":"Answer","text":"Multiply your net square footage by 1.10 and order that much. The extra covers end cuts on every row, damaged pieces, and a few boards for future repairs. It's an industry planning convention, not a measurement — your installer confirms the order quantity before you buy. Running short mid-install costs far more than the leftover box: emergency delivery fees plus schedule delays, sometimes with dye-lot mismatches."}},
+ {"@type":"Question","name":"Should I round my measurements up or down?",
+  "acceptedAnswer":{"@type":"Answer","text":"Always round up to the nearest half foot. Flooring is sold in full boxes anyway, and rounding down is exactly how orders come up 20 sq ft short. Rounding up across a 7-room house adds roughly 15–20 sq ft of buffer — cheap insurance, not waste. The waste percentage goes on top of rounded numbers, not instead of rounding."}},
+ {"@type":"Question","name":"How do I measure a curved or round room?",
+  "acceptedAnswer":{"@type":"Answer","text":"Measure the widest diameter and treat it as a square — diameter × diameter — then accept the overage. Curves waste 15–20% because every perimeter cut is custom. For a curved wall inside an otherwise rectangular room, measure the bounding rectangle and bump the waste factor to 15% rather than doing precision geometry."}},
+ {"@type":"Question","name":"Will a contractor re-measure if my numbers are off?",
+  "acceptedAnswer":{"@type":"Answer","text":"Yes — every reputable installer measures before ordering, so your number is for budgeting and comparing quotes, not the final purchase order. Landing within 5% marks you as a serious buyer; landing 30% off just means your early quotes were fiction. Measure carefully anyway: accurate numbers get you accurate quotes the first time."}},
+ {"@type":"Question","name":"Can I measure with my phone instead of a tape?",
+  "acceptedAnswer":{"@type":"Answer","text":"LiDAR-based measuring apps on recent phones are accurate within about 1% on clear rectangles — fine for budgeting. Verify closets, angled walls, and stairs with a tape; phones struggle with cluttered corners. Whichever method you use, apply the full waste factor — phone precision doesn't reduce cutting waste."}}]}
 </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTHH0CBTVS"></script>
@@ -91,6 +101,23 @@
     </table>
     <p class="src">Use 12%+ waste on L-shapes: every inside corner forces angled cuts, and angled cuts eat material.</p>
 
+    <h2>Walkthrough: open-plan living room with kitchen peninsula</h2>
+    <p>Open plans aren't one rectangle — they're several. Sketch the outline, draw the fewest rectangles that cover it, and treat the peninsula as its own small rectangle:</p>
+    <table>
+      <thead><tr><th>Section</th><th>Math</th><th>Area</th></tr></thead>
+      <tbody>
+        <tr><td>Living area</td><td>20 × 14</td><td>280 sq ft</td></tr>
+        <tr><td>Kitchen wing</td><td>12 × 10</td><td>120 sq ft</td></tr>
+        <tr><td>Hallway stub</td><td>8 × 4</td><td>32 sq ft</td></tr>
+        <tr><td><strong>Net total</strong></td><td>280 + 120 + 32</td><td><strong>432 sq ft</strong></td></tr>
+        <tr><td>Order quantity (12% waste — multi-section)</td><td>432 × 1.12</td><td><strong>484 sq ft</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="src">Tip: blue painter's tape on the floor marking your rectangle boundaries keeps the tape-measure math honest — and gives the installer the same sections you measured.</p>
+
+    <h2>Angled walls and bay windows: triangle math</h2>
+    <p>For a wall that cuts diagonally across your rectangle, or a bay window bump-out, treat it as a triangle: <strong>area = ½ × base × height</strong>. Example: a bay window 8 ft wide jutting 3 ft out = ½ × 8 × 3 = 12 sq ft. Add it to (or subtract it from) your rectangle total. For a diagonal wall slicing a corner, measure the two legs of the missing triangle the same way and subtract. Curved walls: measure the widest rectangle the curve fits in and bump waste to 15% rather than doing precision geometry on a Sunday.</p>
+
     <h2>Closets, pantries, and doorways</h2>
     <ul>
       <li><strong>Walk-in closets:</strong> measure and include — they're real floor area.</li>
@@ -123,24 +150,77 @@
     </table>
     <p class="src">Waste percentages are industry-standard planning conventions, not measurements. When in doubt, round up: a leftover box is cheap insurance; a mid-job reorder is a schedule killer (dye lots can even mismatch).</p>
 
+    <p class="src">Waste percentages are industry-standard planning conventions, not measurements. When in doubt, round up: a leftover box is cheap insurance; a mid-job reorder is a schedule killer (dye lots can even mismatch).</p>
+
+    <h2>Waste factors by material</h2>
+    <p>The table above covers layout; this one covers the material itself — not every floor wastes the same:</p>
+    <table>
+      <thead><tr><th>Material</th><th>Waste to add</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>LVP / laminate</td><td><strong>10%</strong></td><td>Click-lock offcuts reuse well; standard minimum</td></tr>
+        <tr><td>Carpet</td><td><strong>15–20%</strong></td><td>Seam placement and pattern matching eat material; broadloom comes in 12-ft widths</td></tr>
+        <tr><td>Engineered / solid hardwood</td><td><strong>12–15%</strong></td><td>Nail-down racking, board-end defects, long planks with fewer reusable offcuts</td></tr>
+        <tr><td>Tile</td><td><strong>10–15%</strong></td><td>Breakage plus cuts; patterned or large-format tile trends higher</td></tr>
+      </tbody>
+    </table>
+    <p class="src">When material and layout both push high (diagonal hardwood, patterned tile in an L-shaped room), take the <em>higher</em> of the two factors, not the sum — 15% covers both.</p>
+
+    <h2>Your measuring-tool checklist</h2>
+    <ul>
+      <li><strong>25-ft tape measure</strong> — the workhorse. A laser measure is faster for big rooms, but verify odd corners with tape.</li>
+      <li><strong>Graph paper or a sketch app</strong> — draw each room and write measurements on the drawing, not on a scrap list you'll misread later.</li>
+      <li><strong>Calculator</strong> — your phone's is fine; do the waste multiplication at the store counter if you must, never in your head.</li>
+      <li><strong>Blue painter's tape</strong> — mark rectangle boundaries on open plans so section math stays honest.</li>
+      <li><strong>Phone camera</strong> — photograph every odd corner, angle, and closet. Future-you will thank present-you when the installer asks.</li>
+    </ul>
+
+    <h2>Worked example: full 3-bed, 2-bath ranch</h2>
+    <p>Every room measured wall to wall, closets included:</p>
+    <table>
+      <thead><tr><th>Room</th><th>Dimensions</th><th>Area</th></tr></thead>
+      <tbody>
+        <tr><td>Living room</td><td>16 × 12</td><td>192</td></tr>
+        <tr><td>Kitchen</td><td>12 × 10</td><td>120</td></tr>
+        <tr><td>Hallway</td><td>14 × 3.5</td><td>49</td></tr>
+        <tr><td>Primary bedroom</td><td>12 × 12</td><td>144</td></tr>
+        <tr><td>Bedroom 2</td><td>11 × 10</td><td>110</td></tr>
+        <tr><td>Bedroom 3</td><td>10 × 10</td><td>100</td></tr>
+        <tr><td>Bath 1 + Bath 2</td><td>2 × (8 × 5)</td><td>80</td></tr>
+        <tr><td>Closets (3)</td><td>3 × (5 × 3)</td><td>45</td></tr>
+        <tr><td><strong>Net total</strong></td><td></td><td><strong>840 sq ft</strong></td></tr>
+        <tr><td>Order quantity (10% waste)</td><td>840 × 1.10</td><td><strong>924 sq ft</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="src">At $7.70/sq ft installed LVP that's ~$7,115 for the whole house — run your own numbers in the <a href="../../calculators/flooring-cost/">flooring calculator</a>. Budgeting estimate, not a quote.</p>
+
     <h2>Common measuring mistakes</h2>
     <ul>
       <li><strong>Measuring the room, forgetting the closet.</strong> Then the last box runs out 10 sq ft from done.</li>
       <li><strong>Using outside dimensions.</strong> Measure inside, wall to wall — exterior measurements inflate the order.</li>
       <li><strong>Subtracting fixtures.</strong> Don't subtract for kitchen islands, vanities, or tubs unless the flooring genuinely stops at them — pros run flooring underneath.</li>
       <li><strong>Mixing units.</strong> Inches ÷ 12 = feet, every time. A 10'6" room is 10.5, not 106.</li>
+      <li><strong>Ordering exactly net square footage.</strong> No waste buffer means the first damaged box or miscut row stalls the job. An emergency reorder costs $50–$150 in delivery plus days of delay — and dye lots can mismatch.</li>
+      <li><strong>Forgetting the stairs in the room total.</strong> A 13-step staircase is ~60 sq ft of material plus $520–$1,300 in per-step labor — big enough to blow a "whole house" budget that only counted rooms.</li>
     </ul>
 
     <div class="faq">
       <h2>Measuring FAQs</h2>
       <details><summary>How do I measure square footage for flooring?</summary>
-        <p>Length × width per room in feet, add rooms together, then multiply by 1.10 (10% waste). L-shapes get split into rectangles; stairs get measured per step, separately.</p></details>
+        <p>Measure each room's length × width in feet, wall to wall, and add the rooms together. Then multiply by 1.10 for 10% waste (1.12–1.15 for diagonal layouts or irregular rooms) — that's your order quantity. Split L-shapes into rectangles, and measure stairs per step, separately. Round every measurement up to the nearest half foot; flooring is sold in full boxes anyway.</p></details>
       <details><summary>Do I measure closets for new flooring?</summary>
-        <p>Walk-ins, yes. Reach-ins, only if the new floor runs into them. When in doubt, include them — the cost of a little extra material beats a second delivery.</p></details>
+        <p>Walk-in closets: yes, always — they're real floor area. Reach-in closets: include them only if the new flooring runs inside; skip the math if the closet keeps its old floor. When in doubt, include them: the cost of a little extra material is nothing next to a mid-install reorder, and installers measure before ordering anyway.</p></details>
       <details><summary>How are stairs measured for flooring cost?</summary>
-        <p>Per step: (tread depth × width) + (riser height × width), times the number of steps, plus the landing as a rectangle. Installers quote stairs per step ($40–$100+, industry estimate), so keep them as a separate line item.</p></details>
+        <p>Per step: (tread depth × width) + (riser height × width), times the number of steps, plus the landing as a plain rectangle. A typical 13-step staircase is about 58 sq ft of material — and installers quote stairs at $40–$100+ per step (industry estimate), not per square foot. Keep stairs as a separate line item on every quote, never blended into the room rate.</p></details>
       <details><summary>What does "10% waste" actually mean?</summary>
-        <p>Multiply your net square footage by 1.10 and order that much. The extra covers end cuts, damaged pieces, and future repairs. It's a planning convention — your installer will confirm the order quantity before you buy.</p></details>
+        <p>Multiply your net square footage by 1.10 and order that much. The extra covers end cuts on every row, damaged pieces, and a few boards for future repairs. It's an industry planning convention, not a measurement — your installer confirms the order quantity before you buy. Running short mid-install costs far more than the leftover box: emergency delivery fees plus schedule delays, sometimes with dye-lot mismatches.</p></details>
+      <details><summary>Should I round my measurements up or down?</summary>
+        <p>Always round up to the nearest half foot. Flooring is sold in full boxes anyway, and rounding down is exactly how orders come up 20 sq ft short. Rounding up across a 7-room house adds roughly 15–20 sq ft of buffer — cheap insurance, not waste. The waste percentage goes on top of rounded numbers, not instead of rounding.</p></details>
+      <details><summary>How do I measure a curved or round room?</summary>
+        <p>Measure the widest diameter and treat it as a square — diameter × diameter — then accept the overage. Curves waste 15–20% because every perimeter cut is custom. For a curved wall inside an otherwise rectangular room, measure the bounding rectangle and bump the waste factor to 15% rather than doing precision geometry.</p></details>
+      <details><summary>Will a contractor re-measure if my numbers are off?</summary>
+        <p>Yes — every reputable installer measures before ordering, so your number is for budgeting and comparing quotes, not the final purchase order. Landing within 5% marks you as a serious buyer; landing 30% off just means your early quotes were fiction. Measure carefully anyway: accurate numbers get you accurate quotes the first time.</p></details>
+      <details><summary>Can I measure with my phone instead of a tape?</summary>
+        <p>LiDAR-based measuring apps on recent phones are accurate within about 1% on clear rectangles — fine for budgeting. Verify closets, angled walls, and stairs with a tape; phones struggle with cluttered corners. Whichever method you use, apply the full waste factor — phone precision doesn't reduce cutting waste.</p></details>
     </div>
 
     <div class="related">

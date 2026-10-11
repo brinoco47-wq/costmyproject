@@ -113,6 +113,7 @@
 
     var materialCost = wallSqft * matPrice;
     var laborCost = s.laborMode === 'pro' ? wallSqft * laborRate * laborMult : 0;
+    if (window.CMPZipLabor) laborCost = CMPZipLabor.adjust(laborCost);
     var tearoffCost = s.tearoff ? wallSqft * s.tearoffRate : 0;
     var wrapCost = s.wrap ? wallSqft * s.wrapRate : 0;
     var total = materialCost + laborCost + tearoffCost + wrapCost + s.trim + s.permit;
@@ -157,6 +158,8 @@
     } else {
       rows += row('Install labor', 'DIY — $0.00');
     }
+    var zipRow = window.CMPZipLabor ? CMPZipLabor.noteRow() : null;
+    if (zipRow) rows += row(zipRow.label, zipRow.val);
     if (s.tearoff) rows += row('Old-siding tear-off &amp; disposal @ ' + money(s.tearoffRate) + '/sqft', money(r.tearoffCost));
     if (s.wrap) rows += row('House wrap / weather barrier @ ' + money(s.wrapRate) + '/sqft', money(r.wrapCost));
     if (s.trim > 0) rows += row('Trim, soffit &amp; fascia package', money(s.trim));
@@ -294,6 +297,7 @@
 
   function init() {
     if (!$('calc-form')) return;
+    if (window.CMPZipLabor) CMPZipLabor.bind('in-zip', 'zip-note', recalc);
     segWire('seg-mode', 'calc-mode', function () { syncModeUI(); recalc(); });
     segWire('seg-tier', 'calc-tier', function () { syncMaterialUI(); recalc(); });
     segWire('seg-stories', 'calc-stories', function () { recalc(); });

@@ -87,6 +87,10 @@
 
     <form id="calc-form" class="calc" onsubmit="return false" aria-label="Kitchen remodel cost calculator">
       <div class="calc-grid">
+      <div class="field"><label for="in-zip">ZIP code <span class="hint">(optional &mdash; local labor rates)</span></label>
+        <input type="text" id="in-zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="e.g. 90210" style="max-width:12rem">
+        <span class="hint" id="zip-note" aria-live="polite" style="display:block;margin-top:.25rem"></span>
+        <span class="zip-tip" title="Construction labor costs vary a lot by metro. Enter your ZIP and we scale the LABOR part of your estimate using BLS wage data for your area (first 3 digits of the ZIP). Materials stay at national prices. Full methodology in our labor-by-ZIP guide." style="font-size:.8rem;color:var(--ink-soft);cursor:help;border-bottom:1px dotted">how it works</span></div>
         <div>
           <div class="field"><label for="in-sqft">Kitchen size (sq ft)</label><input type="number" id="in-sqft" value="120" min="20" step="1">
           <span class="hint">Floor area. A 10×12 kitchen = 120 sq ft.</span></div>
@@ -331,6 +335,7 @@
   seg("seg-scope","calc-scope"); seg("seg-cab","calc-cab"); seg("seg-counter","calc-counter");
   seg("seg-floor","calc-floor"); seg("seg-appl","calc-appl"); seg("seg-region","calc-region"); seg("seg-layout","calc-layout");
   $("in-sqft").addEventListener("input", calc);
+  if (window.CMPZipLabor) CMPZipLabor.bind("in-zip", "zip-note", calc);
 
   function money(n){ return "$" + Math.round(n).toLocaleString("en-US"); }
   function mid(pair){ return (pair[0]+pair[1])/2; }
@@ -365,7 +370,10 @@
     for(var i=0;i<lines.length;i++) materials += lines[i][1];
     // Labor
     var labor = materials * SCOPE_LABOR[scope] * REGION[region];
+    if (window.CMPZipLabor) labor = CMPZipLabor.adjust(labor);
     lines.push(["Labor (" + Math.round(SCOPE_LABOR[scope]*100) + "% of materials × " + REGION_LABEL[region] + " region " + REGION[region] + "×)", labor, ""]);
+    var zipRowK = window.CMPZipLabor ? CMPZipLabor.noteRow() : null;
+    if (zipRowK) lines.push([zipRowK.label, "", ""]);
 
     var total = materials + labor;
     var lo = Math.round(total * 0.75), hi = Math.round(total * 1.25);
@@ -374,7 +382,7 @@
     h += '<p class="result-range">Planning range (±25%): <strong>' + money(lo) + ' – ' + money(hi) + '</strong> — budgeting estimate, not a quote.</p>';
     h += '<table class="breakdown"><thead><tr><th>Line item</th><th>Estimate</th></tr></thead><tbody>';
     for(var j=0;j<lines.length;j++){
-      h += '<tr><td>' + lines[j][0] + (lines[j][2] ? ' <span class="hint">' + lines[j][2] + '</span>' : '') + '</td><td>' + money(lines[j][1]) + '</td></tr>';
+      h += '<tr><td>' + lines[j][0] + (lines[j][2] ? ' <span class="hint">' + lines[j][2] + '</span>' : '') + '</td><td>' + (lines[j][1] === "" ? "&mdash;" : money(lines[j][1])) + '</td></tr>';
     }
     h += '</tbody></table>';
     h += '<p class="hint">Scope: ' + SCOPE_LABEL[scope] + ' · ' + sqft + ' sq ft kitchen. Figures are October 2026 US planning estimates; real quotes vary by region, layout, and structural surprises.</p>';
@@ -383,5 +391,6 @@
   calc();
 })();
 </script>
+<script src="../../assets/js/zip-labor.js"></script>
 </body>
 </html>

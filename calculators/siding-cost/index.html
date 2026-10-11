@@ -80,6 +80,10 @@
 
     <form id="calc-form" class="calc" onsubmit="return false" aria-label="Siding cost calculator">
       <div class="calc-grid">
+      <div class="field"><label for="in-zip">ZIP code <span class="hint">(optional &mdash; local labor rates)</span></label>
+        <input type="text" id="in-zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="e.g. 90210" style="max-width:12rem">
+        <span class="hint" id="zip-note" aria-live="polite" style="display:block;margin-top:.25rem"></span>
+        <span class="zip-tip" title="Construction labor costs vary a lot by metro. Enter your ZIP and we scale the LABOR part of your estimate using BLS wage data for your area (first 3 digits of the ZIP). Materials stay at national prices. Full methodology in our labor-by-ZIP guide." style="font-size:.8rem;color:var(--ink-soft);cursor:help;border-bottom:1px dotted">how it works</span></div>
         <div>
           <div class="field">
             <label>How do you want to enter size?</label>
@@ -315,5 +319,6 @@
   </div>
 </footer>
 <script src="../../assets/js/siding-calculator.js"></script>
+<script src="../../assets/js/zip-labor.js"></script>
 </body>
 </html>
