@@ -62,9 +62,9 @@
 
   function noteText() {
     if (!state.zip) return '';
+    if (state.tier === 0) return 'Local labor ×1.00 — ' + state.label;
     var src = state.tier === 1 ? 'BLS metro wage data'
-      : state.tier === 2 ? 'BLS state wage data'
-      : state.tier === 3 ? 'state estimate' : 'national average';
+      : state.tier === 2 ? 'BLS state wage data' : 'state estimate';
     return 'Local labor ' + fmtMult(state.mult) + ' — ' + state.label + ' (' + src + ')';
   }
 
