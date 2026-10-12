@@ -75,12 +75,25 @@
   }
 
   var api = {
-    /* Wire a ZIP input. onChange is called whenever the effective multiplier changes. */
+    /* Wire a ZIP input. onChange is called whenever the effective multiplier changes.
+       The 53KB multiplier table is fetched lazily: only on first focus/typing in the
+       ZIP field (never on page load), keeping initial page weight minimal. */
     bind: function (inputId, noteId, onChange) {
       var input = document.getElementById(inputId);
       if (!input) return;
       boundOnChange = onChange || null;
+      var kicked = false;
+      var kick = function () {
+        if (!kicked) { kicked = true; load(); }
+      };
       var apply = function () {
+        var raw = String(input.value).replace(/\D/g, '');
+        if (/^\d{5}$/.test(raw) && !DATA) {
+          /* Valid ZIP but the table hasn't arrived yet: fetch now, re-apply on arrival. */
+          kick();
+          api.ready(apply);
+          return;
+        }
         var res = lookup(input.value);
         if (res) {
           var changed = res.mult !== state.mult || res.zip !== state.zip;
@@ -89,16 +102,16 @@
           if (changed && onChange) onChange();
         } else {
           /* mid-typing (fewer than 5 digits): keep last good state, clear only if emptied */
-          if (String(input.value).replace(/\D/g, '') === '' && state.zip !== '') {
+          if (raw === '' && state.zip !== '') {
             state = { zip: '', mult: 1.00, label: '', tier: 0, known: false };
             paintNote(noteId);
             if (onChange) onChange();
           }
         }
       };
+      input.addEventListener('focus', kick);
       input.addEventListener('input', apply);
       input.addEventListener('change', apply);
-      load();
     },
     /* Current multiplier (1.00 until a valid ZIP is entered / data loads). */
     mult: function () { return state.mult; },
@@ -126,9 +139,7 @@
   };
 
   window.CMPZipLabor = api;
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', load);
-  } else {
-    load();
-  }
+  /* NOTE: no eager load() here — the multiplier table is fetched lazily on first
+     ZIP-field focus/typing via bind(), so pages that never use the ZIP field
+     never download the 53KB JSON. */
 })();
