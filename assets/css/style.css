@@ -178,3 +178,19 @@ table.compare td.hl,table.compare th.hl{background:#eef4fb}
 .fresh-note{font-size:.82rem;color:var(--ink-soft);background:var(--bg-alt);border:1px solid var(--line);
   border-radius:8px;padding:.7rem 1rem;margin:1.2rem 0}
 .fresh-note strong{color:var(--ink)}
+
+/* --- Inline calculator result blocks (pattern since Oct 2026: result-total/result-range/breakdown) --- */
+.result-total{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+  background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1rem 1.2rem;margin-top:1.2rem}
+.result-total span{font-size:.82rem;font-weight:800;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em}
+.result-total strong{font-size:2rem;font-weight:800;color:var(--brand-dark);letter-spacing:-.02em}
+.result-range{font-size:1.02rem;margin:.6rem 0 0}
+.result-range strong{color:var(--brand-dark);font-size:1.15rem}
+table.breakdown{width:100%;border-collapse:collapse;margin-top:.8rem;font-size:.92rem}
+.breakdown th,.breakdown td{padding:.45rem 0;border-bottom:1px dashed var(--line);text-align:left}
+.breakdown th:last-child,.breakdown td:last-child{text-align:right;font-weight:700;white-space:nowrap}
+.checks{display:grid;gap:.45rem}
+.checks label{display:flex;align-items:center;gap:.55rem;font-weight:600;font-size:.92rem;cursor:pointer}
+.checks input[type=checkbox]{width:1.15rem;height:1.15rem;flex:none;accent-color:var(--brand)}
+.checks .hint{margin-left:auto;color:var(--ink-soft);font-weight:700}
