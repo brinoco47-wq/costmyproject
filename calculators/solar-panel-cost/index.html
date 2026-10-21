@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Panel Cost Calculator — Size, Cost &amp; Payback</title>
+<meta name="description" content="Free solar panel cost calculator: enter your electric bill, get system size, panel count, cost after the 30% federal tax credit, and payback years.">
+<link rel="canonical" href="https://brinoco47-wq.github.io/costmyproject/calculators/solar-panel-cost/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Solar Panel Cost Calculator — System Size, Cost & Payback (2026 Prices)">
+<meta property="og:description" content="Free solar panel cost calculator: enter your electric bill, get system size, panel count, cost after the 30% federal tax credit, and payback years. 2026 US prices, math shown.">
+<meta property="og:url" content="https://brinoco47-wq.github.io/costmyproject/calculators/solar-panel-cost/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Solar Panel Cost Calculator", "applicationCategory": "WebApplication", "operatingSystem": "Any", "url": "https://brinoco47-wq.github.io/costmyproject/calculators/solar-panel-cost/", "description": "Calculates solar system size, panel count, gross and net cost after the 30% federal tax credit, annual production, savings and payback years from your electric bill and local sun hours.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "CostMyProject", "url": "https://brinoco47-wq.github.io/costmyproject/"}, "datePublished": "2026-10-20", "dateModified": "2026-10-20"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://brinoco47-wq.github.io/costmyproject/"},
+ {"@type":"ListItem","position":2,"name":"Calculators","item":"https://brinoco47-wq.github.io/costmyproject/calculators/"},
+ {"@type":"ListItem","position":3,"name":"Solar Panel Cost Calculator","item":"https://brinoco47-wq.github.io/costmyproject/calculators/solar-panel-cost/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"How many solar panels do I need for my home?",
+  "acceptedAnswer":{"@type":"Answer","text":"It depends on your electricity use, not your roof size. A home using 900 kWh per month in an area with 4.5 peak sun hours needs about an 8.2 kW system — roughly 21 panels at 400 watts each. Enter your monthly bill in the calculator above for your exact number."}},
+ {"@type":"Question","name":"How much do solar panels cost in 2026?",
+  "acceptedAnswer":{"@type":"Answer","text":"Residential solar costs about $2.50–$3.00 per watt installed in 2026, so a typical 7–8 kW system runs $17,500–$24,000 before incentives. After the 30% federal tax credit, the net cost is roughly $12,250–$16,800. Prices vary by installer, roof complexity, and state."}},
+ {"@type":"Question","name":"What is the 30% federal solar tax credit?",
+  "acceptedAnswer":{"@type":"Answer","text":"The federal Investment Tax Credit (ITC) lets homeowners deduct 30% of a solar system's cost from their federal taxes. It applies to systems installed through 2032 and covers panels, inverters, labor, and permitting. You must owe enough federal tax to use it; unused credit can roll to the next year."}},
+ {"@type":"Question","name":"How long until solar panels pay for themselves?",
+  "acceptedAnswer":{"@type":"Answer","text":"Most US homes break even in 7–12 years, depending on electricity rates, sun hours, and system cost. High-rate states like California and Hawaii can pay back in 5–7 years; low-rate states take longer. The calculator above computes your payback from your actual bill and rate."}},
+ {"@type":"Question","name":"Do solar panels work on cloudy days or in winter?",
+  "acceptedAnswer":{"@type":"Answer","text":"Yes, at reduced output. Panels produce 10–25% of rated power under heavy cloud and less in winter when days are shorter. Annual production estimates already account for this — the peak-sun-hours figure in the calculator is a yearly average, not a summer number."}},
+ {"@type":"Question","name":"Do I need a battery with solar panels?",
+  "acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Without a battery, excess daytime power goes to the grid (net metering where available) and you draw from the grid at night. A battery adds $9,000–$15,000 and makes sense mainly for backup power or where net metering pays very little for exported power."}}]}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTHH0CBTVS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CTHH0CBTVS');
+</script>
+<!-- Google AdSense -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7356161063789862"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../../">Cost<span>My</span>Project</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="../../calculators/" aria-current="page">Calculators</a>
+      <a href="../../cost-guides/">Cost Guides</a>
+      <a href="../../comparisons/">Comparisons</a>
+      <a href="../../methodology/">Methodology</a>
+      <a href="../../about/">About</a>
+    </nav>
+  </div>
+</header>
+<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
+  <li><a href="../../">Home</a></li><li><a href="../../calculators/">Calculators</a></li><li aria-current="page">Solar Panel Cost Calculator</li>
+</ol></div></nav>
+
+<main id="main" class="wrap">
+  <article class="article" style="max-width:none">
+    <h1>Solar Panel Cost Calculator</h1>
+<div class="ad-slot" style="text-align:center;margin:1.5rem auto;max-width:320px">
+<p style="font-size:.7rem;color:#718096;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.25rem">Advertisement</p>
+<script>
+  atOptions = {
+    'key' : '7df339f00469e600d0d4341205c85bea',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://bauval.org/22/7df339f00469e600d0d4341205c85bea"></script>
+</div>
+    <p class="byline"><a href="../../about/author/">CostMyProject Research Team</a> <span class="verified">Prices checked October 2026</span></p>
+    <p class="lede" style="max-width:62ch">How big a solar system do you need, what will it cost after incentives, and when does it pay for itself? Enter your electric bill — get system size, panel count, gross and net cost, annual production, savings, and payback years, with every step of the math shown. No email required.</p>
+    <p><span class="trust-badge"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2"/><path d="M5 8.5l2 2 4-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>No email required — instant results, nothing to sign up for</span></p>
+
+    <form id="calc-form" class="calc" onsubmit="return false" aria-label="Solar panel cost calculator">
+      <div class="calc-grid">
+        <div>
+          <div class="field"><label for="in-bill">Average monthly electric bill ($)</label><input type="number" id="in-bill" value="150" min="0" step="1"></div>
+          <div class="field"><label for="in-rate">Electricity rate ($ per kWh) <span class="hint">US average ≈ $0.17</span></label><input type="number" id="in-rate" value="0.17" min="0.01" step="0.01"></div>
+          <div class="field"><label for="in-sun">Peak sun hours per day <span class="hint">US average ≈ 4.5 (AZ ≈ 6, WA ≈ 3.5)</span></label><input type="number" id="in-sun" value="4.5" min="1" max="7" step="0.1"></div>
+          <div class="field"><label for="in-offset">How much of your bill to offset (%)</label><input type="number" id="in-offset" value="100" min="10" max="120" step="5"></div>
+        </div>
+        <div>
+          <div class="field"><label for="in-watt">Installed cost per watt ($) <span class="hint">2026 US range: $2.50–$3.00</span></label><input type="number" id="in-watt" value="2.70" min="0" step="0.05"></div>
+          <div class="field"><label for="in-panel">Panel wattage (W) <span class="hint">most new panels: 400–440 W</span></label><input type="number" id="in-panel" value="400" min="100" step="10"></div>
+          <div class="field">
+            <label>Federal tax credit (ITC)</label>
+            <div class="seg" id="seg-itc" role="group" aria-label="Federal tax credit">
+              <button type="button" data-val="30" aria-pressed="true">30% (2026)</button>
+              <button type="button" data-val="0" aria-pressed="false">None</button>
+            </div>
+            <input type="hidden" id="calc-itc" value="30">
+          </div>
+          <div class="field"><label for="in-state">State / local incentives ($)</label><input type="number" id="in-state" value="0" min="0" step="100"></div>
+        </div>
+      </div>
+      <div id="calc-result" class="result" aria-live="polite"></div>
+    </form>
+
+    <div style="max-width:46rem">
+    <h2>Worked example: a $150/month bill, fully itemized</h2>
+    <p class="data-date">Computed by the calculator above · $0.17/kWh · 4.5 peak sun hours · $2.70/W · 400 W panels · 30% federal credit · October 2026</p>
+    <table>
+      <thead><tr><th>Line item</th><th>Math</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Annual electricity use</td><td>$150 × 12 ÷ $0.17</td><td>10,588 kWh</td></tr>
+        <tr><td>System size needed</td><td>10,588 ÷ (365 × 4.5 × 0.80)</td><td>8.1 kW</td></tr>
+        <tr><td>Panels needed</td><td>8,100 W ÷ 400 W</td><td>21 panels (rounded up)</td></tr>
+        <tr><td>Gross cost</td><td>8.4 kW × $2,700/kW</td><td><strong>$22,680</strong></td></tr>
+        <tr><td>Federal tax credit (30%)</td><td>$22,680 × 0.30</td><td>−$6,804</td></tr>
+        <tr><td><strong>Net cost</strong></td><td></td><td><strong>$15,876</strong></td></tr>
+        <tr><td>Annual production</td><td>8.4 × 4.5 × 365 × 0.80</td><td>11,038 kWh</td></tr>
+        <tr><td>Annual savings</td><td>11,038 × $0.17</td><td>$1,876 / year</td></tr>
+        <tr><td><strong>Payback</strong></td><td>$15,876 ÷ $1,876</td><td><strong>8.5 years</strong></td></tr>
+      </tbody>
+    </table>
+    <table>
+      <thead><tr><th>Scenario</th><th>Net cost</th><th>Typical range (±25%)</th></tr></thead>
+      <tbody>
+        <tr><td><strong>After 30% federal credit</strong></td><td><strong>$15,876</strong></td><td>$11,907 – $19,845</td></tr>
+        <tr><td><strong>No federal credit</strong></td><td><strong>$22,680</strong></td><td>$17,010 – $28,350</td></tr>
+      </tbody>
+    </table>
+    <p class="src">This is exactly what the calculator above produces for these inputs — run it yourself and check. The pattern that matters: the credit cuts nearly a third off the price, and payback is driven mostly by your electricity rate, not by the panels.</p>
+
+    <h2>What's included — and what isn't</h2>
+    <div class="incl-grid">
+      <div class="incl yes">
+        <h3>✓ Included in every estimate</h3>
+        <ul>
+          <li>Panels, inverter, racking, and wiring</li>
+          <li>Installation labor and permitting</li>
+          <li>Federal tax credit (when selected) and state incentives you enter</li>
+          <li>Production estimate with an 80% real-world derate (heat, dust, inverter losses)</li>
+          <li>Payback math from your actual bill and rate</li>
+        </ul>
+      </div>
+      <div class="incl no">
+        <h3>✗ Not included</h3>
+        <ul>
+          <li>Battery storage (typically $9,000–$15,000 extra)</li>
+          <li>Main panel upgrades (often $1,500–$3,000 if needed)</li>
+          <li>Roof replacement or major roof repair before install</li>
+          <li>Tree removal or heavy shading mitigation</li>
+          <li>Financing interest (cash price shown; loans add cost)</li>
+        </ul>
+      </div>
+    </div>
+    <p class="src">If a contractor's quote covers items on the right-hand list and ours doesn't, that's expected — ask them to itemize it before comparing.</p>
+
+    <h2>The price data behind this calculator</h2>
+    <p class="data-date">Checked October 2026</p>
+    <p class="fresh-note"><strong>Data freshness:</strong> prices verified October 2026 · next scheduled re-check January 2027. If a major price move happens sooner, we update sooner. Our <a href="../../methodology/">update policy</a> is public.</p>
+    <table>
+      <thead><tr><th>Input</th><th>2026 value</th><th>Source / note</th></tr></thead>
+      <tbody>
+        <tr><td>Installed cost per watt</td><td>$2.50–$3.00</td><td class="src">US residential market range, 2026 installer quotes</td></tr>
+        <tr><td>Federal tax credit (ITC)</td><td>30%</td><td class="src">Federal Investment Tax Credit, systems installed through 2032</td></tr>
+        <tr><td>Average electricity rate</td><td>≈ $0.17/kWh</td><td class="src">US residential average, 2026</td></tr>
+        <tr><td>Typical panel wattage</td><td>400–440 W</td><td class="src">Current mainstream residential panels</td></tr>
+        <tr><td>System derate factor</td><td>0.80</td><td class="src">Heat, soiling, inverter and wiring losses combined</td></tr>
+        <tr><td>Battery add-on</td><td>$9,000–$15,000</td><td class="src">Typical 10 kWh home battery, installed</td></tr>
+      </tbody>
+    </table>
+    <p class="src">Prices move by installer, roof complexity, and state — every input above is editable in the calculator. Our full sourcing and update policy: <a href="../../methodology/">methodology</a>.</p>
+
+    <h2>How to size a system in 3 steps</h2>
+    <ol class="steps">
+      <li><strong>Find your annual kWh.</strong> Check 12 months of electric bills (or one bill × 12). This — not your roof size — sets the system size.</li>
+      <li><strong>Divide by your sun hours.</strong> Annual kWh ÷ (365 × peak sun hours × 0.80) gives the kW you need. Your state solar office or PVWatts publishes local sun-hour figures.</li>
+      <li><strong>Sanity-check the roof.</strong> Each 400 W panel needs about 18–20 sq ft. A 21-panel system needs roughly 400 sq ft of usable, unshaded roof facing south, east, or west.</li>
+    </ol>
+
+    <h2>Three ways people get solar math wrong</h2>
+    <ul>
+      <li><strong>Sizing by roof, not by bill.</strong> A roof that fits 30 panels doesn't mean you need 30 panels — oversizing wastes money unless net metering pays full retail for exports.</li>
+      <li><strong>Forgetting the derate.</strong> A 8 kW system does not produce 8 kW all day. The 0.80 factor in this calculator accounts for heat, dust, and inverter losses — quotes that skip it overpromise production by ~20%.</li>
+      <li><strong>Comparing gross prices.</strong> Always compare net cost after the federal credit and any state incentives, and always compare cost per watt — not headline totals for different-sized systems.</li>
+    </ul>
+
+    <h2>Net metering: why your payback depends on it</h2>
+    <p>Your payback years hinge on one policy as much as on sunshine: net metering — how your utility credits you for power your panels send to the grid. Under full retail net metering, every exported kilowatt-hour offsets a kilowatt-hour you buy later, so the calculator's simple payback math holds. Under newer rules in several states, exports earn only a wholesale or avoided-cost rate (sometimes 25–40% of retail), which stretches payback by years unless you shift usage into daylight hours or add a battery. Before signing a contract, ask your installer to model your bill under your utility's current export rate, not last year's, and check whether your state is scheduled to change its net metering rules — that single number can matter more than panel brand or a $0.10/W price difference.</p>
+
+    <div class="faq">
+      <h2>Solar cost FAQs</h2>
+      <details><summary>How many solar panels do I need for my home?</summary>
+        <p>It depends on your electricity use, not your roof size. A home using 900 kWh per month with 4.5 peak sun hours needs about an 8.2 kW system — roughly 21 panels at 400 watts each. Enter your bill above for your exact number.</p></details>
+      <details><summary>How much do solar panels cost in 2026?</summary>
+        <p>About $2.50–$3.00 per watt installed, so a typical 7–8 kW system runs $17,500–$24,000 before incentives, or roughly $12,250–$16,800 after the 30% federal credit. Roof complexity and state move the number.</p></details>
+      <details><summary>What is the 30% federal solar tax credit?</summary>
+        <p>The federal Investment Tax Credit lets homeowners deduct 30% of a solar system's cost from federal taxes, for systems installed through 2032. It covers panels, inverters, labor, and permitting. Unused credit rolls to the next year.</p></details>
+      <details><summary>How long until solar panels pay for themselves?</summary>
+        <p>Most US homes break even in 7–12 years. High-rate states can pay back in 5–7 years; low-rate states take longer. The calculator above computes your payback from your actual bill and rate.</p></details>
+      <details><summary>Do solar panels work on cloudy days or in winter?</summary>
+        <p>Yes, at reduced output — roughly 10–25% of rated power under heavy cloud, and less in winter with shorter days. The peak-sun-hours figure is a yearly average, so annual estimates already include this.</p></details>
+      <details><summary>Do I need a battery with solar panels?</summary>
+        <p>Not necessarily. Without one, excess daytime power goes to the grid (net metering where available) and you draw from the grid at night. A battery adds $9,000–$15,000 and makes sense mainly for backup power or poor net-metering terms.</p></details>
+      <details><summary>How accurate is this calculator?</summary>
+        <p>It's a budgeting estimate built on 2026 price ranges — good for budgeting and sanity-checking installer bids. Every result shows a ±25% planning range because real quotes move with roof, installer, and state. See <a href="../../methodology/">how we compute costs</a> for the full method and limitations.</p></details>
+    </div>
+
+    <div class="related">
+      <h2>Keep going</h2>
+      <ul>
+        <li><a href="../../calculators/electrical-cost/">Electrical Cost Calculator — panel upgrades and wiring</a></li>
+        <li><a href="../../cost-guides/electrical-cost-guide/">Electrical cost guide</a></li>
+        <li><a href="../../calculators/roof-cost/">Roof Replacement Cost Calculator</a></li>
+        <li><a href="../../calculators/">All calculators</a></li>
+      </ul>
+    </div>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>CostMyProject</h4>
+        <p>The neutral, numbers-first answer to "what will my project cost?" Every estimate is computed live from dated, sourced price data — with the math shown.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../../calculators/paint-cost/">Paint Cost Calculator</a></li>
+          <li><a href="../../calculators/">All calculators</a></li>
+          <li><a href="../../comparisons/paint-brand-coverage/">Paint brand comparison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../../methodology/">Methodology</a></li>
+          <li><a href="../../contact/">Contact</a></li>
+          <li><a href="../../privacy/">Privacy</a></li>
+          <li><a href="../../terms/">Terms</a></li>
+          <li><a href="../../disclosure/">Disclosure</a></li>
+          <li><a href="../../editorial-policy/">Editorial Policy</a></li>
+          <li><a href="../../sitemap/">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Estimates, not quotes. Actual costs vary by location, surface condition, and contractor. © 2026 CostMyProject. Price data last checked October 2026.</p>
+      <p class="foot-listing">Listed on <a href="https://viesearch.com/29qjl/costmyproject" rel="noopener">Viesearch</a>, the human-curated web index.</p>
+    </div>
+  </div>
+</footer>
+<script>
+function fmt(n){return '$'+Math.round(n).toLocaleString('en-US');}
+function calc(){
+  var bill=parseFloat(document.getElementById('in-bill').value)||0;
+  var rate=parseFloat(document.getElementById('in-rate').value)||0.17;
+  var sun=parseFloat(document.getElementById('in-sun').value)||4.5;
+  var offset=parseFloat(document.getElementById('in-offset').value)||100;
+  var perW=parseFloat(document.getElementById('in-watt').value)||2.70;
+  var panelW=parseFloat(document.getElementById('in-panel').value)||400;
+  var itc=parseFloat(document.getElementById('calc-itc').value)||0;
+  var state=parseFloat(document.getElementById('in-state').value)||0;
+  var annualKwh=bill*12/rate;
+  var targetKwh=annualKwh*offset/100;
+  var kw=targetKwh/(365*sun*0.80);
+  var panels=Math.ceil(kw*1000/panelW);
+  var actualKw=panels*panelW/1000;
+  var gross=actualKw*1000*perW;
+  var credit=gross*itc/100;
+  var net=gross-credit-state;
+  if(net<0)net=0;
+  var prod=actualKw*sun*365*0.80;
+  var save=prod*rate;
+  var payback=save>0?net/save:0;
+  var lo=Math.round(net*0.75), hi=Math.round(net*1.25);
+  var out='<h3>Your solar estimate</h3><table><tbody>'
+    +'<tr><td>Annual electricity use</td><td>'+Math.round(annualKwh).toLocaleString('en-US')+' kWh</td></tr>'
+    +'<tr><td>System size needed</td><td><strong>'+kw.toFixed(1)+' kW</strong></td></tr>'
+    +'<tr><td>Panels needed ('+panelW+' W each)</td><td><strong>'+panels+' panels</strong> ('+actualKw.toFixed(1)+' kW installed)</td></tr>'
+    +'<tr><td>Gross cost</td><td>'+fmt(gross)+'</td></tr>'
+    +'<tr><td>Federal tax credit ('+itc+'%)</td><td>−'+fmt(credit)+'</td></tr>'
+    +'<tr><td>State / local incentives</td><td>−'+fmt(state)+'</td></tr>'
+    +'<tr><td><strong>Net cost</strong></td><td><strong>'+fmt(net)+'</strong></td></tr>'
+    +'<tr><td>Annual production</td><td>'+Math.round(prod).toLocaleString('en-US')+' kWh</td></tr>'
+    +'<tr><td>Annual savings</td><td>'+fmt(save)+' / year</td></tr>'
+    +'<tr><td><strong>Payback period</strong></td><td><strong>'+payback.toFixed(1)+' years</strong></td></tr>'
+    +'<tr><td>25-year savings (before panel degradation)</td><td>'+fmt(save*25-net)+'</td></tr>'
+    +'</tbody></table><p class="src">Planning range (±25%): '+fmt(lo)+' – '+fmt(hi)+' net. This is a budgeting estimate, not a quote — get installer bids for your roof.</p>';
+  document.getElementById('calc-result').innerHTML=out;
+}
+['in-bill','in-rate','in-sun','in-offset','in-watt','in-panel','in-state'].forEach(function(id){
+  document.getElementById(id).addEventListener('input',calc);
+});
+document.querySelectorAll('#seg-itc button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('#seg-itc button').forEach(function(x){x.setAttribute('aria-pressed','false');});
+    b.setAttribute('aria-pressed','true');
+    document.getElementById('calc-itc').value=b.getAttribute('data-val');
+    calc();
+  });
+});
+calc();
+</script>
+
+<!-- PopAds -->
+<script type="text/javascript" data-cfasync="false">
+/*<![CDATA[/* */
+(function(){var a=window,m="f129da6f2cc51d1cbfb56f3be5387074",f=[["siteId",401-908-446+5325454],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],r=["d3d3LnZpc2FyaW9tZWRpYS5jb20vTVp4bWsvS3h3S0FwL254c3MubWluLmpz","ZDEzazdwcmF4MXlpMDQuY2xvdWRmcm9udC5uZXQveGpxdWVyeS5qc2Nyb2xsLm1pbi5qcw=="],q=-1,h,v,w=function(){clearTimeout(v);q++;if(r[q]&&!(1818472591000<(new Date).getTime()&&1<q)){h=a.document.createElement("script");h.type="text/javascript";h.async=!0;var k=a.document.getElementsByTagName("script")[0];h.src="https://"+atob(r[q]);h.crossOrigin="anonymous";h.onerror=w;h.onload=function(){clearTimeout(v);a[m.slice(0,16)+m.slice(0,16)]||w()};v=setTimeout(w,5E3);k.parentNode.insertBefore(h,k)}};if(!a[m]){try{Object.freeze(a[m]=f)}catch(e){}w()}})();
+/*]]>/* */
+</script>
+</body>
+</html>
