@@ -3,6 +3,7 @@
      <script src="https://brinoco47-wq.github.io/costmyproject/assets/js/embed.js" async></script>
      <div data-cmp-calculator="paint-cost"></div>
      <div data-cmp-calculator="moving-cost"></div>
+     <div data-cmp-calculator="solar-panel-cost"></div>
    The script renders a compact, branded calculator into each placeholder.
    Styles are scoped inside Shadow DOM so the host page's CSS can't break it.
    Math is a simplified version of the full on-site calculators (same 2026
@@ -136,7 +137,42 @@
         }
         return { total: total, low: total * 0.75, high: total * 1.25, detail: detail };
       }
-    }
+    },
+    'solar-panel-cost': {
+      title: 'Solar Cost Estimator',
+      sub: 'Monthly bill + state → system size, cost, payback. October 2026 US defaults.',
+      url: BASE + '/calculators/solar-panel-cost/',
+      fields: function () {
+        var opts = '<option value="US" selected>National average</option>' +
+          '<option value=\"AK\">Alaska</option><option value=\"AL\">Alabama</option><option value=\"AR\">Arkansas</option><option value=\"AZ\">Arizona</option><option value=\"CA\">California</option><option value=\"CO\">Colorado</option><option value=\"CT\">Connecticut</option><option value=\"DE\">Delaware</option><option value=\"FL\">Florida</option><option value=\"GA\">Georgia</option><option value=\"HI\">Hawaii</option><option value=\"IA\">Iowa</option><option value=\"ID\">Idaho</option><option value=\"IL\">Illinois</option><option value=\"IN\">Indiana</option><option value=\"KS\">Kansas</option><option value=\"KY\">Kentucky</option><option value=\"LA\">Louisiana</option><option value=\"MA\">Massachusetts</option><option value=\"MD\">Maryland</option><option value=\"ME\">Maine</option><option value=\"MI\">Michigan</option><option value=\"MN\">Minnesota</option><option value=\"MO\">Missouri</option><option value=\"MS\">Mississippi</option><option value=\"MT\">Montana</option><option value=\"NC\">North Carolina</option><option value=\"ND\">North Dakota</option><option value=\"NE\">Nebraska</option><option value=\"NH\">New Hampshire</option><option value=\"NJ\">New Jersey</option><option value=\"NM\">New Mexico</option><option value=\"NV\">Nevada</option><option value=\"NY\">New York</option><option value=\"OH\">Ohio</option><option value=\"OK\">Oklahoma</option><option value=\"OR\">Oregon</option><option value=\"PA\">Pennsylvania</option><option value=\"RI\">Rhode Island</option><option value=\"SC\">South Carolina</option><option value=\"SD\">South Dakota</option><option value=\"TN\">Tennessee</option><option value=\"TX\">Texas</option><option value=\"UT\">Utah</option><option value=\"VA\">Virginia</option><option value=\"VT\">Vermont</option><option value=\"WA\">Washington</option><option value=\"WI\">Wisconsin</option><option value=\"WV\">West Virginia</option><option value=\"WY\">Wyoming</option>';
+        return '' +
+          '<label>Monthly electric bill ($)</label>' +
+          '<input type="number" data-f="bill" value="150" min="10">' +
+          '<label>State</label>' +
+          '<select data-f="state">' + opts + '</select>';
+      },
+      read: function (root) {
+        var bill = root.querySelector('[data-f="bill"]');
+        var st = root.querySelector('[data-f="state"]');
+        var S = {"AK":[0.282,3.0],"AL":[0.168,4.6],"AR":[0.144,4.5],"AZ":[0.152,6.5],"CA":[0.333,5.6],"CO":[0.162,5.5],"CT":[0.274,4.2],"DE":[0.194,4.4],"FL":[0.152,5.3],"GA":[0.158,4.8],"HI":[0.52,5.8],"IA":[0.141,4.4],"ID":[0.124,4.9],"IL":[0.239,4.3],"IN":[0.182,4.2],"KS":[0.151,5.0],"KY":[0.15,4.3],"LA":[0.142,4.7],"MA":[0.288,4.2],"MD":[0.218,4.4],"ME":[0.286,4.2],"MI":[0.22,4.0],"MN":[0.17,4.3],"MO":[0.137,4.6],"MS":[0.162,4.6],"MT":[0.147,4.7],"NC":[0.151,4.7],"ND":[0.136,4.5],"NE":[0.136,4.8],"NH":[0.273,4.2],"NJ":[0.233,4.3],"NM":[0.141,6.5],"NV":[0.136,6.4],"NY":[0.299,4.0],"OH":[0.195,4.1],"OK":[0.134,5.1],"OR":[0.163,4.2],"PA":[0.216,4.1],"RI":[0.295,4.2],"SC":[0.162,4.8],"SD":[0.157,4.7],"TN":[0.145,4.4],"TX":[0.164,5.3],"UT":[0.13,5.5],"VA":[0.176,4.5],"VT":[0.249,4.0],"WA":[0.15,3.8],"WI":[0.197,4.2],"WV":[0.168,4.1],"WY":[0.148,5.2]};
+        var d = S[st.value];
+        return { bill: parseFloat(bill.value) || 150, rate: d ? d[0] : 0.17, sun: d ? d[1] : 4.5 };
+      },
+      compute: function (s) {
+        /* Mirrors the solar calculator: $2.70/W, 400 W panels, 0.80 derate, 0% 2026 credit. */
+        var annual = s.bill * 12 / s.rate;
+        var kw = annual / (365 * s.sun * 0.80);
+        var panels = Math.ceil(kw * 1000 / 400);
+        var actual = panels * 400 / 1000;
+        var net = actual * 1000 * 2.70;
+        var save = actual * s.sun * 365 * 0.80 * s.rate;
+        var payback = save > 0 ? net / save : 0;
+        return {
+          total: net, low: net * 0.75, high: net * 1.25,
+          detail: actual.toFixed(1) + ' kW · ' + panels + ' panels · payback ' + payback.toFixed(1) + ' years'
+        };
+      }
+    },
   };
 
   function renderInto(host) {
