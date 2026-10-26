@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../assets/css/style.css">
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Deck Cost Calculator", "applicationCategory": "WebApplication", "operatingSystem": "Any", "url": "https://brinoco47-wq.github.io/costmyproject/calculators/deck-cost/", "description": "Calculates deck material, install labor, stairs, railing, benches, old-deck removal, and total project cost from deck size, material, and height.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "CostMyProject", "url": "https://brinoco47-wq.github.io/costmyproject/"}, "datePublished": "2026-10-01", "dateModified": "2026-10-11"}
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Deck Cost Calculator", "applicationCategory": "WebApplication", "operatingSystem": "Any", "url": "https://brinoco47-wq.github.io/costmyproject/calculators/deck-cost/", "description": "Calculates deck material, install labor, stairs, railing, benches, old-deck removal, and total project cost from deck size, material, and height.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "CostMyProject", "url": "https://brinoco47-wq.github.io/costmyproject/"}, "datePublished": "2026-10-01", "dateModified": "2026-10-25"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -34,7 +34,8 @@
  {"@type":"Question","name":"Do I need a permit to build a deck?",
   "acceptedAnswer":{"@type":"Answer","text":"Usually yes — typically $100–$800 depending on the municipality, with inspections at footing and final stages. Ground-level decks under ~30 inches sometimes skip permits, but anything attached to the house or elevated almost always needs one. Your contractor can usually pull it."}},
  {"@type":"Question","name":"How accurate is this calculator?",
-  "acceptedAnswer":{"@type":"Answer","text":"It's a budgeting estimate built on October 2026 installed-price ranges and pro labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because soil, access, height, and regional labor move real quotes. See how we compute costs for the full method and limitations."}}]}
+  "acceptedAnswer":{"@type":"Answer","text":"It's a budgeting estimate built on October 2026 installed-price ranges and pro labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because soil, access, height, and regional labor move real quotes. See how we compute costs for the full method and limitations."}}, {"@type":"Question","name":"How much does it cost to replace an old deck?",
+  "acceptedAnswer":{"@type":"Answer","text":"Tear-out and disposal typically adds $2–$9 per square foot depending on height and access — our calculator defaults to $3.00/sqft; raise it for elevated or concrete-set decks. Add roughly $300–$700 for dumpster and disposal on a typical job. A 16×20 replacement therefore runs about the new-deck price plus $640–$2,880 for removal."}}]}
 </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTHH0CBTVS"></script>
@@ -211,6 +212,33 @@
     <p class="src">Run the calculator above with these inputs and you'll get the same numbers. At $50.93/sqft all-in (raised, with stairs and railing), this lands inside the 2026 national composite range — the model checks out against published data.</p>
 
     
+    
+    <h2>Deck cost by size (ground-level, surface only)</h2>
+    <p>Same installed per-square-foot ranges as the calculator — pressure-treated
+    $15–$30, composite $30–$58 — applied to common sizes. Surface only: stairs,
+    railing, height, tear-off, and permits add on top.</p>
+    <table>
+      <thead><tr><th>Deck size</th><th>Area</th><th>Pressure-treated installed</th><th>Composite installed</th></tr></thead>
+      <tbody>
+        <tr><td>10 × 10 ft</td><td>100 sqft</td><td>$1,500–$3,000</td><td>$3,000–$5,800</td></tr>
+        <tr><td>12 × 16 ft</td><td>192 sqft</td><td>$2,880–$5,760</td><td>$5,760–$11,136</td></tr>
+        <tr><td>16 × 20 ft</td><td>320 sqft</td><td>$4,800–$9,600</td><td>$9,600–$18,560</td></tr>
+        <tr><td>20 × 20 ft</td><td>400 sqft</td><td>$6,000–$12,000</td><td>$12,000–$23,200</td></tr>
+      </tbody>
+    </table>
+    <p class="src">Arithmetic from this calculator’s own published ranges (October 2026).
+    Run your exact size above — the table is a planning shortcut, not a substitute
+    for the calculator.</p>
+
+    <h2>Cross-check: the industry benchmark</h2>
+    <p>Zonda’s 2026 Cost vs. Value Report puts the average wood deck addition
+    (16×20 ft) at $18,263 and the average composite deck addition at $25,096
+    installed. Our worked example above — a 16×20 composite deck, raised, with
+    stairs and railing — is $16,296. The gap is mostly spec, not error: height,
+    railing, and stairs move the number more than material does. Compare
+    like-for-like by toggling Ground-level in the calculator rather than comparing
+    headlines.</p>
+
     <h2>Deck costs by region: same job, different labor market</h2>
     <p>Materials cost roughly the same everywhere — labor doesn't. This table takes the worked example above (a 16 × 20 ft raised deck) and scales only the labor portion by each region's labor multiplier, exactly as the calculator's ZIP adjustment does. Materials, stairs, railing and permit ($9,224) stay fixed. </p>
     <table>
@@ -270,6 +298,16 @@
     </table>
     <p class="src">Ranges move by store, region, and product line — every default above is editable in the calculator. Height multipliers (raised +30%, rooftop/second-story +55%) are industry rules of thumb, labeled as estimates. Full sourcing and update policy: <a href="../../methodology/">methodology</a>.</p>
 
+    
+    <h2>Replacing an old deck? Add tear-off</h2>
+    <p>Toggle “Remove old deck?” in the calculator — the default tear-off and
+    disposal rate is $3.00/sqft. Published 2026 replacement guides quote $4–$9/sqft
+    for tear-out and disposal on elevated or poor-access jobs, plus $300–$700 for a
+    20-yard dumpster; pressure-treated lumber cannot be burned or mulched, so it
+    goes to a licensed landfill. If your old deck is elevated, over a walkout
+    basement, or set in concrete, budget toward the top of the range and raise the
+    toggle’s rate before you trust the total.</p>
+
     <h2>Three ways people get the math wrong</h2>
     <ul>
       <li><strong>Comparing board prices instead of installed prices.</strong> Composite boards at $12/sqft sound like 3× pressure-treated at $4 — but installed it's $31 vs. $18/sqft, because the frame is pressure-treated lumber either way. Always compare <em>installed</em> cost per square foot.</li>
@@ -291,6 +329,8 @@
         <p>Usually yes — typically $100–$800 depending on the municipality, with inspections at the footing and final stages. Low ground-level decks sometimes skip permits, but anything attached to the house or elevated almost always needs one. Contractors can usually pull it for you.</p></details>
       <details><summary>How accurate is this calculator?</summary>
         <p>It's a budgeting estimate built on October 2026 installed-price ranges and pro labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because soil, access, height, and regional labor move real quotes. See <a href="../../methodology/">how we compute costs</a> for the full method and limitations.</p></details>
+      <details><summary>How much does it cost to replace an old deck?</summary>
+        <p>Tear-out and disposal typically adds $2–$9 per square foot depending on height and access — our calculator defaults to $3.00/sqft; raise it for elevated or concrete-set decks. Add roughly $300–$700 for dumpster and disposal on a typical job. A 16×20 replacement therefore runs about the new-deck price plus $640–$2,880 for removal.</p></details>
     </div>
 
     <div class="related">
