@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../assets/css/style.css">
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Fence Cost Calculator", "applicationCategory": "WebApplication", "operatingSystem": "Any", "url": "https://brinoco47-wq.github.io/costmyproject/calculators/fence-cost/", "description": "Calculates fence material, install labor, gates, old-fence removal, and total project cost from linear footage, height, and terrain.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "CostMyProject", "url": "https://brinoco47-wq.github.io/costmyproject/"}, "datePublished": "2026-10-01", "dateModified": "2026-10-11"}
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Fence Cost Calculator", "applicationCategory": "WebApplication", "operatingSystem": "Any", "url": "https://brinoco47-wq.github.io/costmyproject/calculators/fence-cost/", "description": "Calculates fence material, install labor, gates, old-fence removal, and total project cost from linear footage, height, and terrain.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "CostMyProject", "url": "https://brinoco47-wq.github.io/costmyproject/"}, "datePublished": "2026-10-01", "dateModified": "2026-11-13"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
@@ -44,18 +44,42 @@
     },
     {
       "@type": "Question",
-      "name": "Does a sloped yard cost more to fence?",
+      "name": "Is it cheaper to build a fence yourself?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — installers typically add about 15% on sloped ground and up to 35% on rocky ground for stepped panels and harder digging (industry rule of thumb). The calculator applies these as labor adders on a terrain toggle."
+        "text": "Usually — labor is 30–50% of a pro job. Wood privacy and chain-link are the most DIY-friendly; most DIYers report 2–4 weekends for 150 LF with a helper and a rented auger. Vinyl and aluminum need precise post spacing, which is where DIY most often goes wrong. Toggle DIY/pro in the calculator to see both numbers."
       }
     },
     {
       "@type": "Question",
-      "name": "How much does a fence gate cost?",
+      "name": "Do I need a permit to build a fence?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A standard 3–4 ft walk gate runs about $150–$400 installed; a double or driveway gate runs $400–$1,500. Gates need heavier posts and hardware, which is why per-foot estimates that ignore gates come in low."
+        "text": "Most cities require one — typically $20–$400, though some waive it for fences under 6 ft. Check your municipality before you dig, and call 811 for a free utility locate. Fence companies pull permits routinely; DIYers forget this step most."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is this calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's a budgeting estimate built on October 2026 installed-price ranges and installer labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because soil, slope, and regional labor move real quotes. See how we compute costs for the full method and limitations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a 150-foot fence cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A 150-foot wood privacy fence runs about $4,975 with a pro ($3,325 DIY) at October 2026 prices — $3,000 materials, $1,650 labor, $250 for one walk gate, $75 permit. Chain-link for the same run is roughly $2,275–$4,075 installed; vinyl $4,825–$8,575. Run the calculator above with your material and footage for your number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the cheapest fence to install?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chain-link, at $13–$25 per linear foot installed — roughly half the installed cost of wood privacy ($18–$45/LF). It is also the fastest to install and the easiest DIY option, but it gives no privacy. If privacy matters, wood is the cheapest private option; a basic 4-ft wood picket can come in lower per foot than a 6-ft privacy panel."
       }
     }
   ]
@@ -307,6 +331,44 @@
       <li><strong>Ignoring the ground.</strong> A slope that forces stepped panels or rocky soil that needs an auger can add 15–35% to labor. Flat-yard quotes don't survive contact with a hillside — toggle your terrain above.</li>
     </ul>
 
+    <h2>Fence cost by yard size: 100 to 250 linear feet</h2>
+    <p>Most quotes scale almost linearly with footage — the gate and permit are the only flat costs. This table prices a 6-ft wood privacy fence, pro install, one walk gate, using the worked example above ($20.00/LF materials, $11.00/LF labor, $250 gate, $75 permit). Swap in your material from the price table and the pattern holds.</p>
+    <table>
+      <thead><tr><th>Yard (linear feet)</th><th>Materials</th><th>Pro labor</th><th>Gate + permit</th><th>Total — pro</th><th>Total — DIY</th></tr></thead>
+      <tbody>
+        <tr><td>100 LF (small yard)</td><td>$2,000</td><td>$1,100</td><td>$325</td><td><strong>$3,425</strong></td><td>$2,325</td></tr>
+        <tr><td>150 LF (typical backyard)</td><td>$3,000</td><td>$1,650</td><td>$325</td><td><strong>$4,975</strong></td><td>$3,325</td></tr>
+        <tr><td>200 LF (large yard)</td><td>$4,000</td><td>$2,200</td><td>$325</td><td><strong>$6,525</strong></td><td>$4,325</td></tr>
+        <tr><td>250 LF (estate / corner lot)</td><td>$5,000</td><td>$2,750</td><td>$325</td><td><strong>$8,075</strong></td><td>$5,325</td></tr>
+      </tbody>
+    </table>
+    <p class="src">DIY totals are materials + gate + permit (no labor). Every total carries the same ±25% planning range — a 250 LF job on rocky ground can run 35% over the table, a flat 100 LF job can come in under it. Run your exact footage through the calculator above.</p>
+
+    <h2>15-year true cost per linear foot: cheap now vs. cheap forever</h2>
+    <p>The cheapest fence to install is rarely the cheapest fence to own. Wood needs staining or sealing every 2–3 years — $300–$700 per 150 ft each time, or roughly $12–$28 per linear foot over 15 years. Vinyl, aluminum, and composite need little more than an occasional wash. This table adds 15 years of upkeep to the installed price so the materials compare honestly.</p>
+    <table>
+      <thead><tr><th>Material</th><th>Installed / LF</th><th>15-yr upkeep / LF</th><th>15-yr true cost / LF</th></tr></thead>
+      <tbody>
+        <tr><td>Chain-link</td><td>$13–$25</td><td>$2–$4 (minor repairs)</td><td><strong>$15–$29</strong></td></tr>
+        <tr><td>Wood privacy</td><td>$18–$45</td><td>$12–$28 (stain/seal ×6)</td><td><strong>$30–$73</strong></td></tr>
+        <tr><td>Vinyl / PVC</td><td>$30–$55</td><td>~$0 (wash only)</td><td><strong>$30–$55</strong></td></tr>
+        <tr><td>Aluminum ornamental</td><td>$37–$60</td><td>$0–$2 (touch-up paint)</td><td><strong>$37–$62</strong></td></tr>
+        <tr><td>Composite privacy</td><td>$44–$72</td><td>~$0 (wash only)</td><td><strong>$44–$72</strong></td></tr>
+      </tbody>
+    </table>
+    <p class="src">Wood upkeep math: 6 stain/seal treatments in 15 years at $300–$700 per 150 ft = $1,800–$4,200, or $12–$28/LF. A wood fence that is never sealed lasts far less than 15 years — the "cheap" column assumes you actually maintain it. The full comparison, material by material, is in our <a href="../../cost-guides/fence-material-comparison/">fence material comparison</a>.</p>
+
+    <h2>Getting quotes: 6-point checklist</h2>
+    <p>Run every bid through this list before you sign. A quote that fails two or more of these is a quote that will grow.</p>
+    <ol>
+      <li><strong>Itemized, not lump-sum.</strong> Materials, labor, gates, removal, and permit on separate lines — so you can compare it against the calculator above line by line.</li>
+      <li><strong>Post depth and concrete in writing.</strong> 2 ft minimum in most soils, deeper where frost heave applies; posts set in concrete, not just tamped dirt.</li>
+      <li><strong>Gates priced as gates.</strong> Walk gates $150–$400, driveway gates $400–$1,500 installed — if a bid folds gates into the per-foot price, ask for the split.</li>
+      <li><strong>Permit and utility locate named.</strong> Who pulls the permit, and has anyone called 811? A bid that skips both is a bid that stops mid-job.</li>
+      <li><strong>Terrain and removal called out.</strong> Slope (+15% labor), rocky ground (+35%), and old-fence removal ($3–$10/LF) should appear as their own lines, not surprises.</li>
+      <li><strong>Warranty on workmanship.</strong> One to two years on the install is standard; material warranties come from the manufacturer and vary by product.</li>
+    </ol>
+
     <div class="faq">
       <h2>Fence cost FAQs</h2>
       <details><summary>How much does a fence cost per linear foot in 2026?</summary>
@@ -319,6 +381,10 @@
         <p>Most cities require one — typically $20–$400, though some waive it for fences under 6 ft. Check your municipality <em>before</em> you dig, and call 811 for a free utility locate. Fence companies pull permits routinely; DIYers forget this step most.</p></details>
       <details><summary>How accurate is this calculator?</summary>
         <p>It's a budgeting estimate built on October 2026 installed-price ranges and installer labor data — good for budgeting and sanity-checking bids. Every result shows a ±25% planning range because soil, slope, and regional labor move real quotes. See <a href="../../methodology/">how we compute costs</a> for the full method and limitations.</p></details>
+      <details><summary>How much does a 150-foot fence cost?</summary>
+        <p>A 150-foot wood privacy fence runs about $4,975 with a pro ($3,325 DIY) at October 2026 prices — $3,000 materials, $1,650 labor, $250 for one walk gate, $75 permit. Chain-link for the same run is roughly $2,275–$4,075 installed; vinyl $4,825–$8,575. Run the calculator above with your material and footage for your number.</p></details>
+      <details><summary>What is the cheapest fence to install?</summary>
+        <p>Chain-link, at $13–$25 per linear foot installed — roughly half the installed cost of wood privacy ($18–$45/LF). It is also the fastest to install and the easiest DIY option, but it gives no privacy. If privacy matters, wood is the cheapest private option; a basic 4-ft wood picket can come in lower per foot than a 6-ft privacy panel.</p></details>
     </div>
 
     <div class="related">
